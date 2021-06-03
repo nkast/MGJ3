@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  IgnorableNamespaces="uap mp">
+
+  <Identity
+    Name="c824c3e7-d638-4789-8837-b9580432da89"
+    Publisher="CN=nkast"
+    Version="1.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="c824c3e7-d638-4789-8837-b9580432da89" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>MGJ3</DisplayName>
+    <PublisherDisplayName>nkast</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="MGJ3.App">
+      <uap:VisualElements
+        DisplayName="MGJ3"
+        Square150x150Logo="Assets\Logo.png"
+        Square44x44Logo="Assets\SmallLogo.png"
+        Description="MGJ3"
+        BackgroundColor="#464646">
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>
