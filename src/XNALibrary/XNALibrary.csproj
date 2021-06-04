@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Devices\InputState.cs" />
+    <Compile Include="PageManager\Enums\EnumPageAction.cs" />
+    <Compile Include="PageManager\Enums\EnumTransitionAction.cs" />
+    <Compile Include="PageManager\Enums\EnumTransitionState.cs" />
+    <Compile Include="PageManager\Enums\EnumTransitionSync.cs" />
+    <Compile Include="PageManager\Events\TransitionStateChangedEventArgs.cs" />
+    <Compile Include="PageManager\IPage.cs" />
+    <Compile Include="PageManager\PageAction.cs" />
+    <Compile Include="PageManager\PageBase.cs" />
+    <Compile Include="PageManager\PageManager.ContentLoading.cs" />
+    <Compile Include="PageManager\PageManager.cs" />
+    <Compile Include="PageManager\PageManager.IDrawable.cs" />
+    <Compile Include="PageManager\PageManager.IPage.cs" />
+    <Compile Include="PageManager\PageManager.IUpdateable.cs" />
+    <Compile Include="PageManager\TransitionController.cs" />
+    <Compile Include="PageManager\Tweens\Scheduler.cs" />
+    <Compile Include="PageManager\Tweens\Timer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.Portable.9000" Version="3.8.9009">
+      <PrivateAssets>All</PrivateAssets> 
+      <NoWarn>NU1701</NoWarn>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

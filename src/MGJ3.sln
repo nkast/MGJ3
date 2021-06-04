@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MGJ3.UWP.Core", "MGJ3.UWP.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MGJ3.Cardboard", "MGJ3.Cardboard\MGJ3.Cardboard.csproj", "{8C45820E-179D-48FF-B110-6EDC55781E7E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XNALibrary", "XNALibrary\XNALibrary.csproj", "{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		MGJ3\MGJ3.projitems*{8c45820e-179d-48ff-b110-6edc55781e7e}*SharedItemsImports = 4
@@ -128,6 +130,22 @@ Global
 		{8C45820E-179D-48FF-B110-6EDC55781E7E}.Release|ARM.ActiveCfg = Release|Any CPU
 		{8C45820E-179D-48FF-B110-6EDC55781E7E}.Release|x64.ActiveCfg = Release|Any CPU
 		{8C45820E-179D-48FF-B110-6EDC55781E7E}.Release|x86.ActiveCfg = Release|Any CPU
+		{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}.Debug|ARM.Build.0 = Debug|Any CPU
+		{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}.Debug|x64.Build.0 = Debug|Any CPU
+		{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}.Debug|x86.Build.0 = Debug|Any CPU
+		{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}.Release|ARM.ActiveCfg = Release|Any CPU
+		{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}.Release|ARM.Build.0 = Release|Any CPU
+		{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}.Release|x64.ActiveCfg = Release|Any CPU
+		{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}.Release|x64.Build.0 = Release|Any CPU
+		{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}.Release|x86.ActiveCfg = Release|Any CPU
+		{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

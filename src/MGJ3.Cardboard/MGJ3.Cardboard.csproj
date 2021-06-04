@@ -85,6 +85,10 @@
     </MonoGameContentReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\XNALibrary\XNALibrary.csproj">
+      <Project>{6cd3d3b8-edbf-45f3-941f-47e7e6bd5f8e}</Project>
+      <Name>XNALibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.Cardboard.9000">

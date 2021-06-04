@@ -126,6 +126,12 @@
       <Version>3.8.9009</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XNALibrary\XNALibrary.csproj">
+      <Project>{4e037f62-acd9-46b0-84b0-74470e6d4411}</Project>
+      <Name>XNALibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
