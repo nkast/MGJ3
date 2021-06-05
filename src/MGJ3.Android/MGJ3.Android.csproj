@@ -86,6 +86,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MGJ3Components\MGJ3.Components.csproj">
+      <Project>{9a9193fe-35d6-4d16-afcc-b53a6db33b8e}</Project>
+      <Name>MGJ3.Components</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MGJ3Lib\MGJ3Lib.csproj">
       <Project>{5f722441-8b63-4e6e-843f-b14e950d0e2f}</Project>
       <Name>MGJ3Lib</Name>

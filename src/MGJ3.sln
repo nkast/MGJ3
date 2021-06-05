@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XNALibrary", "XNALibrary\XN
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MGJ3Lib", "MGJ3Lib\MGJ3Lib.csproj", "{5F722441-8B63-4E6E-843F-B14E950D0E2F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MGJ3.Components", "MGJ3Components\MGJ3.Components.csproj", "{9A9193FE-35D6-4D16-AFCC-B53A6DB33B8E}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		MGJ3\MGJ3.projitems*{8c45820e-179d-48ff-b110-6edc55781e7e}*SharedItemsImports = 4
@@ -164,6 +166,22 @@ Global
 		{5F722441-8B63-4E6E-843F-B14E950D0E2F}.Release|x64.Build.0 = Release|Any CPU
 		{5F722441-8B63-4E6E-843F-B14E950D0E2F}.Release|x86.ActiveCfg = Release|Any CPU
 		{5F722441-8B63-4E6E-843F-B14E950D0E2F}.Release|x86.Build.0 = Release|Any CPU
+		{9A9193FE-35D6-4D16-AFCC-B53A6DB33B8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A9193FE-35D6-4D16-AFCC-B53A6DB33B8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A9193FE-35D6-4D16-AFCC-B53A6DB33B8E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{9A9193FE-35D6-4D16-AFCC-B53A6DB33B8E}.Debug|ARM.Build.0 = Debug|Any CPU
+		{9A9193FE-35D6-4D16-AFCC-B53A6DB33B8E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9A9193FE-35D6-4D16-AFCC-B53A6DB33B8E}.Debug|x64.Build.0 = Debug|Any CPU
+		{9A9193FE-35D6-4D16-AFCC-B53A6DB33B8E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9A9193FE-35D6-4D16-AFCC-B53A6DB33B8E}.Debug|x86.Build.0 = Debug|Any CPU
+		{9A9193FE-35D6-4D16-AFCC-B53A6DB33B8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A9193FE-35D6-4D16-AFCC-B53A6DB33B8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A9193FE-35D6-4D16-AFCC-B53A6DB33B8E}.Release|ARM.ActiveCfg = Release|Any CPU
+		{9A9193FE-35D6-4D16-AFCC-B53A6DB33B8E}.Release|ARM.Build.0 = Release|Any CPU
+		{9A9193FE-35D6-4D16-AFCC-B53A6DB33B8E}.Release|x64.ActiveCfg = Release|Any CPU
+		{9A9193FE-35D6-4D16-AFCC-B53A6DB33B8E}.Release|x64.Build.0 = Release|Any CPU
+		{9A9193FE-35D6-4D16-AFCC-B53A6DB33B8E}.Release|x86.ActiveCfg = Release|Any CPU
+		{9A9193FE-35D6-4D16-AFCC-B53A6DB33B8E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
