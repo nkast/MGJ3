@@ -10,6 +10,7 @@ using tainicom.PageManager;
 using tainicom.PageManager.Enums;
 using tainicom.PageManager.Events;
 using tainicom.Tweens;
+using MGJ3.Pages.MenuPages;
 
 namespace MGJ3.Pages
 {
@@ -67,7 +68,10 @@ namespace MGJ3.Pages
                 case 3:
                     if (TransitionState == EnumTransitionState.Active)
                     {
-                        // TODO: load next page
+                        var startMenuPage = new StartMenuPage(pageManager);
+                        startMenuPage.Initialize();
+                        pageManager.SideloadPage(startMenuPage);
+                        pageManager.ReplacePage(startMenuPage);
                     }
                     break;
             }
