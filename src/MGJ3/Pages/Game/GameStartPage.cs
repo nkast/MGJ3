@@ -19,6 +19,8 @@ namespace MGJ3.Pages.GamePages
         Scheduler scheduler;
         Random rnd = new Random();
 
+        GameContext _gameContext;
+
         public GameStartPage(PageManager pageManager) : base(pageManager)
         {
             
@@ -27,6 +29,8 @@ namespace MGJ3.Pages.GamePages
         public override void Initialize()
         {
             base.Initialize();
+
+            _gameContext = new GameContext(Game);
 
             scheduler = new Scheduler();
             scheduler.AddEventSpan("delay",  0.05f); // 0- delay
@@ -49,11 +53,14 @@ namespace MGJ3.Pages.GamePages
 
         public override void HandleInput(InputState input)
         {
+            _gameContext.HandleInput(input);
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+
+            _gameContext.Update(gameTime);
 
             scheduler.Update(gameTime);
 
@@ -104,11 +111,16 @@ namespace MGJ3.Pages.GamePages
                     break;
             }
 
+            _gameContext.SetUIEffect(this.UiEffect);
+            _gameContext.Draw(gameTime);
+
             Color color = new Color(fade, fade, fade, fade);
           
             pageManager.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.DepthRead , RasterizerState.CullNone, this.UiEffect);
             
             pageManager.SpriteBatch.End();
+
+
         }
 
         public override void GetTransitionInfo(IPage pageB, out TimeSpan durationA, out EnumTransitionSync syncA)
