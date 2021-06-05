@@ -10,5 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)MGJ3Game.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\BasicPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\IntroPage.cs" />
   </ItemGroup>
 </Project>

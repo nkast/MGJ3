@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
 using tainicom.Devices;
 using tainicom.PageManager;
+using MGJ3.Pages;
 
 namespace MGJ3
 {
@@ -80,6 +81,11 @@ namespace MGJ3
             Components.Add(pageManager);
 
             base.Initialize();
+
+            IntroPage intro = new IntroPage(pageManager);
+            pageManager.SideloadPage(intro);
+            intro.Initialize();
+            pageManager.AddPage(intro);
         }
 
         /// <summary>
