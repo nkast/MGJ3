@@ -10,6 +10,7 @@ using tainicom.PageManager;
 using tainicom.PageManager.Enums;
 using tainicom.PageManager.Events;
 using tainicom.Tweens;
+using MGJ3.Pages.Menu.UI;
 
 namespace MGJ3.Pages.MenuPages
 {
@@ -21,6 +22,11 @@ namespace MGJ3.Pages.MenuPages
 
         Texture2D _txBackground;
         Texture2D _txTitle;
+        UIButton _btnSettings;
+        UIButton _btnPlay;
+        UIButton _btnAbout;
+        List<UIButton> _buttons = new List<UIButton>();
+        int _selectionIndex = 1;
 
 
 
@@ -43,6 +49,10 @@ namespace MGJ3.Pages.MenuPages
 
             _txBackground = content.Load<Texture2D>(@"Pages\Menu\Background");
             _txTitle = content.Load<Texture2D>(@"Pages\Menu\MenuTitle");
+            _btnSettings = new UIButton(new Vector2(250, 240), 0.7f, content.Load<Texture2D>(@"Pages\UIButtons\UIButtonSettings"));
+            _btnPlay = new UIButton(new Vector2(400, 240), 0.7f, content.Load<Texture2D>(@"Pages\UIButtons\UIButtonPlay"));
+            _btnAbout = new UIButton(new Vector2(550, 240), 0.7f, content.Load<Texture2D>(@"Pages\UIButtons\UIButtonAbout"));
+            _buttons.AddRange(new[] { _btnSettings , _btnPlay, _btnAbout });
 
             return base.SideloadContent();
         }
@@ -62,6 +72,50 @@ namespace MGJ3.Pages.MenuPages
         {
             if (TransitionState == EnumTransitionState.Active)
             {
+                //if (input.GamePadState.IsConnected)
+                {
+                    if (input.IsButtonPressed(Buttons.DPadRight) ||
+                        input.IsKeyReleased(Keys.Right) ||
+                        input.IsKeyReleased(Keys.D)
+                        )
+                    {
+                        _selectionIndex = (_selectionIndex+1)% _buttons.Count;
+                    }
+
+                    if (input.IsButtonPressed(Buttons.DPadLeft) ||
+                        input.IsKeyReleased(Keys.Left) ||
+                        input.IsKeyReleased(Keys.A)
+                        )
+                    {
+                        _selectionIndex = (_selectionIndex-1 + _buttons.Count) % _buttons.Count;
+                    }
+
+                    if (input.IsButtonPressed(Buttons.A) ||
+                        input.IsKeyReleased(Keys.Space) ||
+                        input.IsKeyReleased(Keys.Enter)
+                        )
+                    {
+                        switch(_selectionIndex)
+                        {
+                            case 0:
+                                {
+
+                                }
+                                break;
+                            case 1:
+                                {
+                                }
+                                break;
+                            case 2:
+                                {
+
+                                }
+                                break;
+                        }
+                    }
+
+                }
+
 
             }
         }
@@ -70,6 +124,25 @@ namespace MGJ3.Pages.MenuPages
         {
             base.Update(gameTime);
 
+
+            for (int i = 0; i < _buttons.Count; i++)
+            {
+                var btn = _buttons[i];
+
+                var targetScale = 1.0f;
+                var targetDepth = 0.7f;
+                var damping = 0.92f;
+
+                if (i == _selectionIndex)
+                {
+                    targetScale = 1.15f;
+                    targetScale += (float)Math.Sin(gameTime.TotalGameTime.TotalSeconds * 3.14f * 2f) * 0.05f;
+                    targetDepth = 0.9f;
+                }
+
+                btn.Scale += (targetScale - btn.Scale) * (1f-damping);
+                btn.Depth += (targetDepth - btn.Depth) * (1f-damping);
+            }
 
 
         }
@@ -95,6 +168,13 @@ namespace MGJ3.Pages.MenuPages
 
             pageManager.SpriteBatch.Draw(_txTitle, new Vector2(400,100), null, color, 0f, new Vector2(_txTitle.Width, _txTitle.Height) / 2f, 1f, SpriteEffects.None, 0.7f);
 
+            for (int i=0; i<_buttons.Count;i++)
+            {
+                var btn = _buttons[i];
+                var animOffset = (Vector2.UnitY * (1f - this.TransitionDelta) * (480f + i*128f));
+                pageManager.SpriteBatch.Draw(btn.texture, btn.Position + animOffset, null, color, 0f, btn.Origin, btn.Scale, SpriteEffects.None, btn.Depth);
+
+            }
 
             pageManager.SpriteBatch.End();
         }
