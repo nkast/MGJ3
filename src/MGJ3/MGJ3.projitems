@@ -9,6 +9,7 @@
     <Import_RootNamespace>MGJ3</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Components\FpsComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Components\StageBackgroundStarfield.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MGJ3Game.cs" />

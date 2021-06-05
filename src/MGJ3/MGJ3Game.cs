@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Input.Touch;
 using tainicom.Devices;
 using tainicom.PageManager;
 using MGJ3.Pages;
+using MGJ3.Components;
 
 namespace MGJ3
 {
@@ -19,6 +20,7 @@ namespace MGJ3
 
         PageManager pageManager;
         InputState inputState = new InputState();
+        FpsComponent _fpsComponent;
 
 #if CARDBOARD
         public static Microsoft.Xna.Framework.Input.Cardboard.EyeState VrEye { get; private set; }
@@ -79,6 +81,10 @@ namespace MGJ3
             isInitialized = true;
 
             Components.Add(pageManager);
+
+            _fpsComponent = new FpsComponent(this);
+            _fpsComponent.DrawOrder = 1000;
+            Components.Add(_fpsComponent);
 
             base.Initialize();
 
