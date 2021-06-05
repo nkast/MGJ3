@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{CF68015E-30F2-4625-AF73-F01FE0242285}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>tainicom.Aether</RootNamespace>
+    <AssemblyName>tainicom.Aether</AssemblyName>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PORTABLE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;PORTABLE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Core\BasePlasma.cs" />
+    <Compile Include="Core\BaseWalker.cs" />
+    <Compile Include="Core\CameraPlasma.cs" />
+    <Compile Include="Core\Cameras\Camera.cs" />
+    <Compile Include="Core\Cameras\OrthographicCamera.cs" />
+    <Compile Include="Core\Cameras\PerspectiveCamera.cs" />
+    <Compile Include="Core\ChrononPlasma.cs" />
+    <Compile Include="Core\Chronons\AetherPhasor.cs" />
+    <Compile Include="Core\Chronons\AetherTimer.cs" />
+    <Compile Include="Core\Data\EnabledCollection.cs" />
+    <Compile Include="Core\ECS\Component.cs" />
+    <Compile Include="Core\Managers\ChrononsManager.cs" />
+    <Compile Include="Core\Managers\ECSManager.cs" />
+    <Compile Include="Elementary\Chronons\IChronon.cs" />
+    <Compile Include="Elementary\Chronons\ITickable.cs" />
+    <Compile Include="Elementary\Extensions.cs" />
+    <Compile Include="Core\LeptonPlasma.cs" />
+    <Compile Include="Core\Managers\CamerasManager.cs" />
+    <Compile Include="Core\Managers\LeptonsManager.cs" />
+    <Compile Include="Core\Managers\MaterialsManager.cs" />
+    <Compile Include="Core\Managers\PhotonsManager.cs" />
+    <Compile Include="Core\Materials\AlphaTestMaterial.cs" />
+    <Compile Include="Core\Materials\BasicMaterial.cs" />
+    <Compile Include="Core\Materials\Data\DirectionalLightData.cs" />
+    <Compile Include="Core\Materials\EnvironmentMapMaterial.cs" />
+    <Compile Include="Core\Materials\MaterialBase.cs" />
+    <Compile Include="Core\Materials\SkinnedMaterial.cs" />
+    <Compile Include="Core\PhotonPlasma.cs" />
+    <Compile Include="Core\Photons\AetherTexture.cs" />
+    <Compile Include="Core\Photons\PointLight.cs" />
+    <Compile Include="Core\Photons\SpotLight.cs" />
+    <Compile Include="Core\Serialization\AetherBinaryReader.cs" />
+    <Compile Include="Core\Serialization\DefaultTypeResolver.cs" />
+    <Compile Include="Core\Walkers\DepthFirstWalker.cs" />
+    <Compile Include="Core\Walkers\PhotonsWalker.cs" />
+    <Compile Include="Elementary\Audio\ISound.cs" />
+    <Compile Include="Elementary\Cameras\ICamera.cs" />
+    <Compile Include="Elementary\Cameras\ICameraNode.cs" />
+    <Compile Include="Elementary\Cameras\IOrthographicCamera.cs" />
+    <Compile Include="Elementary\Cameras\IPerspectiveCamera.cs" />
+    <Compile Include="Elementary\Data\UniqueID.cs" />
+    <Compile Include="Elementary\ECS\IComponent.cs" />
+    <Compile Include="Elementary\ECS\IECSNode.cs" />
+    <Compile Include="Elementary\IAether.cs" />
+    <Compile Include="Elementary\IAetherNotify.cs" />
+    <Compile Include="Elementary\IAetherWalker.cs" />
+    <Compile Include="Elementary\Photons\IDeviceContext.cs" />
+    <Compile Include="Elementary\IInitializable.cs" />
+    <Compile Include="Elementary\IPlasma.cs" />
+    <Compile Include="Elementary\Leptons\IBoundingBox.cs" />
+    <Compile Include="Elementary\Leptons\IChildLepton.cs" />
+    <Compile Include="Elementary\Leptons\ILepton.cs" />
+    <Compile Include="Elementary\Leptons\ILeptonNode.cs" />
+    <Compile Include="Elementary\Leptons\ILeptonPlasma.cs" />
+    <Compile Include="Elementary\Leptons\ILocalTransform.cs" />
+    <Compile Include="Elementary\Leptons\IPosition.cs" />
+    <Compile Include="Elementary\Leptons\IWorldTransform.cs" />
+    <Compile Include="Elementary\Leptons\IWorldTransformUpdateable.cs" />
+    <Compile Include="Elementary\Managers\IAetherManager.cs" />
+    <Compile Include="Elementary\miscellaneous\IInterpolatable.cs" />
+    <Compile Include="Elementary\Photons\IReadonlyCameraMatrices.cs" />
+    <Compile Include="Elementary\Photons\IGeometryVisitor.cs" />
+    <Compile Include="Elementary\Photons\ILightCone.cs" />
+    <Compile Include="Elementary\Photons\ILightDirection.cs" />
+    <Compile Include="Elementary\Photons\ILightSource.cs" />
+    <Compile Include="Elementary\Photons\IMaterial.cs" />
+    <Compile Include="Elementary\Photons\IPhoton.cs" />
+    <Compile Include="Elementary\Photons\IPhotonNode.cs" />
+    <Compile Include="Elementary\Photons\IPhotonWalker.cs" />
+    <Compile Include="Elementary\Photons\IRenderableManager.cs" />
+    <Compile Include="Elementary\Photons\IShaderMatrices.cs" />
+    <Compile Include="Elementary\Photons\IPhotonPlasma.cs" />
+    <Compile Include="Elementary\Photons\ITexture.cs" />
+    <Compile Include="Elementary\Radiums\IRadium.cs" />
+    <Compile Include="Elementary\Serialization\IAetherReader.cs" />
+    <Compile Include="Elementary\Serialization\IAetherSerialization.cs" />
+    <Compile Include="Elementary\Serialization\IAetherTypeResolver.cs" />
+    <Compile Include="Elementary\Serialization\IAetherWriter.cs" />
+    <Compile Include="Engine\AetherContext.cs" />
+    <Compile Include="Engine\AetherEngine.cs" />
+    <Compile Include="Engine\AetherEngine.IDictionary.cs" />
+    <Compile Include="Engine\AetherEngine.IDisposable.cs" />
+    <Compile Include="Engine\AetherEngine.ISerialization.cs" />
+    <Compile Include="Engine\AetherEngine.Managers.cs" />
+    <Compile Include="Engine\AetherEngine.Names.cs" />
+    <Compile Include="Engine\AetherException.cs" />
+    <Compile Include="Engine\BaseManager.cs" />
+    <Compile Include="Engine\BaseManager.IDictionary.cs" />
+    <Compile Include="Engine\BaseManager.IDisposable.cs" />
+    <Compile Include="Engine\BaseManager.ISerialization.cs" />
+    <Compile Include="Engine\Data\AetherEngineData.cs" />
+    <Compile Include="Engine\Data\ManagerCollection.cs" />
+    <Compile Include="Engine\Data\ManagerCollection.IDisposable.cs" />
+    <Compile Include="Engine\EC\ComponentEnumerator.cs" />
+    <Compile Include="Engine\EC\Entities.cs" />
+    <Compile Include="Maths\Extensions.cs" />
+    <Compile Include="Maths\Line3.cs" />
+    <Compile Include="Maths\Tau.cs" />
+    <Compile Include="MonoGame\AetherContextMG.cs" />
+    <Compile Include="MonoGame\DeviceContextMG.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.Portable.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.Portable.9000">
+      <Version>3.8.9009</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
