@@ -108,3 +108,10 @@
 /processorParam:TextureFormat=Color
 /build:Pages/UIButtons/UIButtonPause.png
 
+#begin Pages/Menu/About/AboutFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Color
+/build:Pages/Menu/About/AboutFont.spritefont
+

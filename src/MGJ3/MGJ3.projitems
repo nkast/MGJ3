@@ -13,6 +13,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Pages\BasicPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\IntroPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Menu\StartMenuPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\Menu\AboutMenuPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\Menu\SettingsMenuPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Menu\UI\UIButton.cs" />
   </ItemGroup>
 </Project>

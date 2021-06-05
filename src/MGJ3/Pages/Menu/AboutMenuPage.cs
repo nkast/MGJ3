@@ -14,7 +14,7 @@ using MGJ3.Pages.Menu.UI;
 
 namespace MGJ3.Pages.MenuPages
 {
-    class StartMenuPage : BasicPage
+    class AboutMenuPage : BasicPage
     {
         ContentManager content;
         Scheduler scheduler;
@@ -22,15 +22,14 @@ namespace MGJ3.Pages.MenuPages
 
         Texture2D _txBackground;
         Texture2D _txTitle;
-        UIButton _btnSettings;
-        UIButton _btnPlay;
-        UIButton _btnAbout;
+        SpriteFont _font;
+        UIButton _btnBack;
         List<UIButton> _buttons = new List<UIButton>();
-        int _selectionIndex = 1;
+        int _selectionIndex = 0;
 
 
 
-        public StartMenuPage(PageManager pageManager)
+        public AboutMenuPage(PageManager pageManager)
             : base(pageManager)
         {
             TransitionStateChanged += new EventHandler<TransitionStateChangedEventArgs>(StartMenuPage_TransitionStateChanged);
@@ -48,11 +47,10 @@ namespace MGJ3.Pages.MenuPages
             content = new ContentManager(pageManager.Game.Services, "Content");
 
             _txBackground = content.Load<Texture2D>(@"Pages\Menu\Background");
-            _txTitle = content.Load<Texture2D>(@"Pages\Menu\MenuTitle");
-            _btnSettings = new UIButton(new Vector2(250, 240), 0.7f, content.Load<Texture2D>(@"Pages\UIButtons\UIButtonSettings"));
-            _btnPlay = new UIButton(new Vector2(400, 240), 0.7f, content.Load<Texture2D>(@"Pages\UIButtons\UIButtonPlay"));
-            _btnAbout = new UIButton(new Vector2(550, 240), 0.7f, content.Load<Texture2D>(@"Pages\UIButtons\UIButtonAbout"));
-            _buttons.AddRange(new[] { _btnSettings , _btnPlay, _btnAbout });
+            _font = content.Load<SpriteFont>(@"Pages\Menu\About\AboutFont");
+            _txTitle = content.Load<Texture2D>(@"Pages\Menu\StartTitle");
+            _btnBack = new UIButton(new Vector2(100, 240), 0.7f, content.Load<Texture2D>(@"Pages\UIButtons\UIButtonMenu"));
+            _buttons.AddRange(new[] { _btnBack });
 
             return base.SideloadContent();
         }
@@ -99,10 +97,10 @@ namespace MGJ3.Pages.MenuPages
                         {
                             case 0:
                                 {
-                                    var settingsMenuPage = new SettingsMenuPage(pageManager);
-                                    settingsMenuPage.Initialize();
-                                    pageManager.SideloadPage(settingsMenuPage);
-                                    pageManager.ReplacePage(settingsMenuPage);
+                                    var startMenuPage = new StartMenuPage(pageManager);
+                                    startMenuPage.Initialize();
+                                    pageManager.SideloadPage(startMenuPage);
+                                    pageManager.ReplacePage(startMenuPage);
                                 }
                                 break;
                             case 1:
@@ -111,10 +109,6 @@ namespace MGJ3.Pages.MenuPages
                                 break;
                             case 2:
                                 {
-                                    var aboutMenuPage = new AboutMenuPage(pageManager);
-                                    aboutMenuPage.Initialize();
-                                    pageManager.SideloadPage(aboutMenuPage);
-                                    pageManager.ReplacePage(aboutMenuPage);
                                 }
                                 break;
                         }
@@ -169,10 +163,19 @@ namespace MGJ3.Pages.MenuPages
             Color scolor = Color.LightYellow * fade * spark;
             
             pageManager.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.DepthRead, RasterizerState.CullNone, this.UiEffect);
-            
+
             pageManager.SpriteBatch.Draw(_txBackground, Vector2.Zero, null, scolor, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.2f);
 
+            string aboutText = @" 
+MonoGame Jam 3, 
+Game Title: MGJ3
+Designed: Kastellanos Nikos (c) 2021
+            ";
+            pageManager.SpriteBatch.DrawString(_font, aboutText, new Vector2(200, 20), Color.LightGreen, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.3f);
+
+            /*
             pageManager.SpriteBatch.Draw(_txTitle, new Vector2(400,100), null, color, 0f, new Vector2(_txTitle.Width, _txTitle.Height) / 2f, 1f, SpriteEffects.None, 0.7f);
+            */
 
             for (int i=0; i<_buttons.Count;i++)
             {
