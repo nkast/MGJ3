@@ -70,10 +70,6 @@
       <Project>{9a9193fe-35d6-4d16-afcc-b53a6db33b8e}</Project>
       <Name>MGJ3.Components</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MGJ3Lib\MGJ3Lib.csproj">
-      <Project>{5f722441-8b63-4e6e-843f-b14e950d0e2f}</Project>
-      <Name>MGJ3Lib</Name>
-    </ProjectReference>
     <ProjectReference Include="..\XNALibrary\XNALibrary.csproj">
       <Project>{4e037f62-acd9-46b0-84b0-74470e6d4411}</Project>
       <Name>XNALibrary</Name>

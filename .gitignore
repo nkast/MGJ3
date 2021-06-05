@@ -25,6 +25,8 @@ $RECYCLE.BIN/
 **/obj/
 *.user
 
+# Modules
+**/Modules/
 
 # =========================
 # Operating System Files

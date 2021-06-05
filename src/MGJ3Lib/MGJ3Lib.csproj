@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -12,16 +12,33 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DefineConstants>DEBUG;TRACE;NETSTANDARD20</DefineConstants>
-    <OutputPath>..\bin\Debug\netstandard2.0\</OutputPath>
+    <OutputPath>..\MGJ3\Stages\Modules</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DefineConstants>TRACE;NETSTANDARD20</DefineConstants>
-    <OutputPath>..\bin\Release\netstandard2.0\</OutputPath>
+    <OutputPath>..\MGJ3\Stages\Modules</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="MGJ3Library.IContentLibrary.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MGJ3Components\MGJ3.Components.csproj">
+    </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ProtonType.Framework">
+      <HintPath>libs\ProtonType.Framework.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="ProtonType.LibraryContracts">
+      <HintPath>libs\ProtonType.LibraryContracts.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
   </ItemGroup>
 
 </Project>
