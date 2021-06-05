@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MGJ3.Components", "MGJ3Comp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aether.PORTABLE", "Aether\Aether.PORTABLE.csproj", "{CF68015E-30F2-4625-AF73-F01FE0242285}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aether.Physics2D.Components", "Aether.Physics2D.Components\Aether.Physics2D.Components.csproj", "{B230A69B-656D-48D5-B84D-29000DE97428}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		MGJ3\MGJ3.projitems*{8c45820e-179d-48ff-b110-6edc55781e7e}*SharedItemsImports = 4
@@ -200,6 +202,22 @@ Global
 		{CF68015E-30F2-4625-AF73-F01FE0242285}.Release|x64.Build.0 = Release|Any CPU
 		{CF68015E-30F2-4625-AF73-F01FE0242285}.Release|x86.ActiveCfg = Release|Any CPU
 		{CF68015E-30F2-4625-AF73-F01FE0242285}.Release|x86.Build.0 = Release|Any CPU
+		{B230A69B-656D-48D5-B84D-29000DE97428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B230A69B-656D-48D5-B84D-29000DE97428}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B230A69B-656D-48D5-B84D-29000DE97428}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{B230A69B-656D-48D5-B84D-29000DE97428}.Debug|ARM.Build.0 = Debug|Any CPU
+		{B230A69B-656D-48D5-B84D-29000DE97428}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B230A69B-656D-48D5-B84D-29000DE97428}.Debug|x64.Build.0 = Debug|Any CPU
+		{B230A69B-656D-48D5-B84D-29000DE97428}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B230A69B-656D-48D5-B84D-29000DE97428}.Debug|x86.Build.0 = Debug|Any CPU
+		{B230A69B-656D-48D5-B84D-29000DE97428}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B230A69B-656D-48D5-B84D-29000DE97428}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B230A69B-656D-48D5-B84D-29000DE97428}.Release|ARM.ActiveCfg = Release|Any CPU
+		{B230A69B-656D-48D5-B84D-29000DE97428}.Release|ARM.Build.0 = Release|Any CPU
+		{B230A69B-656D-48D5-B84D-29000DE97428}.Release|x64.ActiveCfg = Release|Any CPU
+		{B230A69B-656D-48D5-B84D-29000DE97428}.Release|x64.Build.0 = Release|Any CPU
+		{B230A69B-656D-48D5-B84D-29000DE97428}.Release|x86.ActiveCfg = Release|Any CPU
+		{B230A69B-656D-48D5-B84D-29000DE97428}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

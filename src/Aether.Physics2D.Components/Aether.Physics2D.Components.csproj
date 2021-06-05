@@ -1,12 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+  <PropertyGroup>    <TargetFramework>netstandard2.0</TargetFramework>
     <EnableDefaultItems>false</EnableDefaultItems>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <RootNamespace>MGJ3.Components</RootNamespace>
-    <AssemblyName>MGJ3.Components</AssemblyName>
+    <RootNamespace>tainicom.Aether.Physics2D.Components</RootNamespace>
+    <AssemblyName>tainicom.Aether.Physics2D.Components</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -22,10 +21,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Components\LeptonImpl.cs" />
-    <Compile Include="Components\PhotonModelImpl.cs" />
-    <Compile Include="Components\Physics2dBodyImpl.cs" />
-    <Compile Include="Components\Sensors\Trigger.cs" />
+    <Compile Include="Components\IClone.cs" />
+    <Compile Include="Components\IMaximumStep.cs" />
+    <Compile Include="Components\IPhysics2dBody.cs" />
+    <Compile Include="Components\IPhysics2dNode.cs" />
+    <Compile Include="Components\Physics2dPlane.cs" />
+    <Compile Include="Components\Physics2dPlanePlasma.cs" />
+    <Compile Include="Managers\Physics2dManager.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,7 +39,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Aether.Physics2D.Components\Aether.Physics2D.Components.csproj" />
     <ProjectReference Include="..\Aether\Aether.PORTABLE.csproj" />
   </ItemGroup>
   
