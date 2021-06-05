@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aether.PORTABLE", "Aether\A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aether.Physics2D.Components", "Aether.Physics2D.Components\Aether.Physics2D.Components.csproj", "{B230A69B-656D-48D5-B84D-29000DE97428}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aether.Particles", "Aether.Particles\Aether.Particles.csproj", "{E69F8C18-DF4B-456F-ADB8-375F709B9179}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		MGJ3\MGJ3.projitems*{8c45820e-179d-48ff-b110-6edc55781e7e}*SharedItemsImports = 4
@@ -218,6 +220,22 @@ Global
 		{B230A69B-656D-48D5-B84D-29000DE97428}.Release|x64.Build.0 = Release|Any CPU
 		{B230A69B-656D-48D5-B84D-29000DE97428}.Release|x86.ActiveCfg = Release|Any CPU
 		{B230A69B-656D-48D5-B84D-29000DE97428}.Release|x86.Build.0 = Release|Any CPU
+		{E69F8C18-DF4B-456F-ADB8-375F709B9179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E69F8C18-DF4B-456F-ADB8-375F709B9179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E69F8C18-DF4B-456F-ADB8-375F709B9179}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{E69F8C18-DF4B-456F-ADB8-375F709B9179}.Debug|ARM.Build.0 = Debug|Any CPU
+		{E69F8C18-DF4B-456F-ADB8-375F709B9179}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E69F8C18-DF4B-456F-ADB8-375F709B9179}.Debug|x64.Build.0 = Debug|Any CPU
+		{E69F8C18-DF4B-456F-ADB8-375F709B9179}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E69F8C18-DF4B-456F-ADB8-375F709B9179}.Debug|x86.Build.0 = Debug|Any CPU
+		{E69F8C18-DF4B-456F-ADB8-375F709B9179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E69F8C18-DF4B-456F-ADB8-375F709B9179}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E69F8C18-DF4B-456F-ADB8-375F709B9179}.Release|ARM.ActiveCfg = Release|Any CPU
+		{E69F8C18-DF4B-456F-ADB8-375F709B9179}.Release|ARM.Build.0 = Release|Any CPU
+		{E69F8C18-DF4B-456F-ADB8-375F709B9179}.Release|x64.ActiveCfg = Release|Any CPU
+		{E69F8C18-DF4B-456F-ADB8-375F709B9179}.Release|x64.Build.0 = Release|Any CPU
+		{E69F8C18-DF4B-456F-ADB8-375F709B9179}.Release|x86.ActiveCfg = Release|Any CPU
+		{E69F8C18-DF4B-456F-ADB8-375F709B9179}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>tainicom.Aether.Particles</RootNamespace>
+    <AssemblyName>Aether.Particles</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Components\CPUParticleSystem.cs" />
+    <Compile Include="Components\GPUParticleSystem.cs" />
+    <Compile Include="Components\LeptonImpl.cs" />
+    <Compile Include="Components\LightParticleEmmiter.cs" />
+    <Compile Include="Components\ParticleEmmiter.cs" />
+    <Compile Include="Components\ParticleSystemBase.cs" />
+    <Compile Include="Materials\FireGPUParticleMaterial.cs" />
+    <Compile Include="Materials\GPUParticleMaterial.cs" />
+    <Compile Include="Materials\SmokeGPUParticleMaterial.cs" />
+    <Compile Include="VertexTypes\ParticleVertex.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.Portable.9000" Version="3.8.9009">
+      <PrivateAssets>All</PrivateAssets> 
+      <NoWarn>NU1701</NoWarn>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Effects\ParticleEffect.dx11.mgfxo" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aether\Aether.PORTABLE.csproj" />
+  </ItemGroup>
+
+</Project>
