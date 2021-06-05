@@ -1,8 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
+using tainicom.Devices;
+using tainicom.PageManager;
 
 namespace MGJ3
 {
@@ -12,14 +15,54 @@ namespace MGJ3
     public class MGJ3Game : Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+
+        PageManager pageManager;
+        InputState inputState = new InputState();
+
+#if CARDBOARD
+        public static Microsoft.Xna.Framework.Input.Cardboard.EyeState VrEye { get; private set; }
+#endif
 
         public MGJ3Game()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
+            graphics.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
             graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
+            graphics.PreparingDeviceSettings += (sender, e) =>
+            {
+                // unlock the 30 fps limit
+                e.GraphicsDeviceInformation.PresentationParameters.PresentationInterval = PresentInterval.One;
+
+                // use HiDef profile
+                if (e.GraphicsDeviceInformation.Adapter.IsProfileSupported(GraphicsProfile.HiDef))
+                    e.GraphicsDeviceInformation.GraphicsProfile = GraphicsProfile.HiDef;
+            };
+
+            Window.AllowUserResizing = true;
+            graphics.HardwareModeSwitch = false;
+
+#if ANDROID || CARDBOARD || !DEBUG
+            graphics.IsFullScreen = true;
+#endif
+#if CARDBOARD
+            graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft;
+#endif
+
+            // Test Cardboard view
+            //graphics.PreferredBackBufferWidth = 400;
+            //graphics.PreferredBackBufferHeight = 450;
+
+            // Frame rate
+            TargetElapsedTime = TimeSpan.FromTicks(166666);
+            IsFixedTimeStep = true;
+            graphics.SynchronizeWithVerticalRetrace = true;
+
+            IsMouseVisible = true;
+
+
+            pageManager = new PageManager(this);
         }
 
         /// <summary>
@@ -28,9 +71,13 @@ namespace MGJ3
         /// related content.  Calling base.Initialize will enumerate through any components
         /// and initialize them as well.
         /// </summary>
+        bool isInitialized = false;
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            if (isInitialized) return; // bug in Cardboard platform
+            isInitialized = true;
+
+            Components.Add(pageManager);
 
             base.Initialize();
         }
@@ -41,8 +88,6 @@ namespace MGJ3
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
         }
@@ -63,7 +108,28 @@ namespace MGJ3
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // TODO: Add your update logic here
+            inputState.Update(this.IsActive);
+
+            // toggle FullScreen
+#if (WINDOWS || WUP)
+            if (inputState.IsKeyReleased(Keys.F11))
+            {
+                if (!graphics.IsFullScreen)
+                {
+                    graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width/2;
+                    graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height/2;
+                    graphics.IsFullScreen = true;
+                    graphics.ApplyChanges();
+                }
+                else
+                {
+                    graphics.PreferredBackBufferWidth = 800;
+                    graphics.PreferredBackBufferHeight = 480;
+                    graphics.IsFullScreen = false;
+                    graphics.ApplyChanges();
+                }
+            }
+#endif
 
             base.Update(gameTime);
         }
@@ -74,11 +140,24 @@ namespace MGJ3
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            pageManager.PreDraw(gameTime);
 
-            // TODO: Add your drawing code here
+            GraphicsDevice.SetRenderTarget(null);
+            GraphicsDevice.Clear(Color.Black);
 
+#if CARDBOARD
+            var vrstate = Microsoft.Xna.Framework.Input.Cardboard.Headset.GetState();
+            // draw left eye
+            VrEye = vrstate.LeftEye;
+            GraphicsDevice.Viewport = VrEye.Viewport;
             base.Draw(gameTime);
+            // draw right eye
+            VrEye = vrstate.RightEye;
+            GraphicsDevice.Viewport = VrEye.Viewport;
+            base.Draw(gameTime);
+#else
+            base.Draw(gameTime);
+#endif
         }
     }
 }
