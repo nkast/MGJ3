@@ -22,6 +22,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Components\LeptonImpl.cs" />
+    <Compile Include="Components\PhotonModelImpl.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MonoGame.Framework.Portable.9000" Version="3.8.9009">
       <PrivateAssets>All</PrivateAssets>
       <NoWarn>NU1701</NoWarn>
