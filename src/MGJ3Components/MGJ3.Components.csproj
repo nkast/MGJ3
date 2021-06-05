@@ -22,7 +22,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Components\Agents\Player.cs" />
+    <Compile Include="Components\Agents\Player.ParticleEmmiter.cs" />
     <Compile Include="Components\LeptonImpl.cs" />
+    <Compile Include="Components\Particles\HorizonGPUParticleMaterial.cs" />
+    <Compile Include="Components\Particles\HorizonParticleEmmiter.cs" />
+    <Compile Include="Components\Particles\PlayerGPUParticleMaterial.cs" />
     <Compile Include="Components\PhotonModelImpl.cs" />
     <Compile Include="Components\Physics2dBodyImpl.cs" />
     <Compile Include="Components\Sensors\Trigger.cs" />
@@ -37,6 +42,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Aether.Particles\Aether.Particles.csproj" />
     <ProjectReference Include="..\Aether.Physics2D.Components\Aether.Physics2D.Components.csproj" />
     <ProjectReference Include="..\Aether\Aether.PORTABLE.csproj" />
   </ItemGroup>
