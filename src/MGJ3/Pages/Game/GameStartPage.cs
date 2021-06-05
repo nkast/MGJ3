@@ -10,13 +10,13 @@ using tainicom.PageManager;
 using tainicom.PageManager.Enums;
 using tainicom.PageManager.Events;
 using tainicom.Tweens;
+using MGJ3.Pages.MenuPages;
 
 namespace MGJ3.Pages.GamePages
 {
     internal class GameStartPage : BasicPage
     {
         ContentManager content;
-        Scheduler scheduler;
         Random rnd = new Random();
 
         GameContext _gameContext;
@@ -31,11 +31,6 @@ namespace MGJ3.Pages.GamePages
             base.Initialize();
 
             _gameContext = new GameContext(Game);
-
-            scheduler = new Scheduler();
-            scheduler.AddEventSpan("delay",  0.05f); // 0- delay
-            scheduler.AddEventSpan("fadein", 0.4f); // 1- fadein
-            scheduler.AddEventSpan("show",   3.0f);   // 2- show
 
         }
 
@@ -53,6 +48,23 @@ namespace MGJ3.Pages.GamePages
 
         public override void HandleInput(InputState input)
         {
+            if (TransitionState == EnumTransitionState.Active)
+            {
+
+                if (input.IsButtonPressed(Buttons.B) ||
+                    input.IsButtonPressed(Buttons.Back) ||
+                    input.IsKeyReleased(Keys.Escape) ||
+                    input.IsKeyReleased(Keys.Back)
+                    )
+                {
+                    var startMenuPage = new StartMenuPage(pageManager);
+                    startMenuPage.Initialize();
+                    pageManager.SideloadPage(startMenuPage);
+                    pageManager.ReplacePage(startMenuPage);
+                }
+            }
+
+
             _gameContext.HandleInput(input);
         }
 
@@ -62,22 +74,6 @@ namespace MGJ3.Pages.GamePages
 
             _gameContext.Update(gameTime);
 
-            scheduler.Update(gameTime);
-
-            switch (scheduler.SpanId)
-            {
-                case 2:
-                    break;
-                case 3:
-                    if (TransitionState == EnumTransitionState.Active)
-                    {
-                        var gameOverPage = new GameOverPage(pageManager);
-                        gameOverPage.Initialize();
-                        pageManager.SideloadPage(gameOverPage);
-                        pageManager.ReplacePage(gameOverPage);
-                    }
-                    break;
-            }
         }
 
         public override void Draw(GameTime gameTime)
@@ -96,20 +92,6 @@ namespace MGJ3.Pages.GamePages
 
             float fade = 1;
             fade = this.TransitionDelta;            
-            switch (scheduler.SpanId)
-            {
-                case 0:
-                    fade = 0f;
-                    break;
-                case 1:
-                    fade = scheduler.Delta;
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    fade = this.TransitionDelta;
-                    break;
-            }
 
             _gameContext.SetUIEffect(this.UiEffect);
             _gameContext.Draw(gameTime);
