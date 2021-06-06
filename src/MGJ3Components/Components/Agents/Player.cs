@@ -161,7 +161,7 @@ namespace MGJ3.Components
         {
             TickParticleEmmiter(gameTime);
 
-            float accelForce = 64000f; // meters/sec
+            float accelForce = 4000f; // meters/sec
             float seconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             KeyboardState kstate = Keyboard.GetState();
@@ -203,6 +203,12 @@ namespace MGJ3.Components
             }
 
             _leptonImpl.Position = Physics2dManager.Box2DtoXNAWorldPosition(_bodyImpl.Physics2dPlane, Body.Position, _leptonImpl.Position);
+
+            System.Diagnostics.Debug.WriteLine(_bodyImpl.Body.LinearVelocity.Y);
+            float rot = -35f * MathHelper.Clamp(_bodyImpl.Body.LinearVelocity.Y/(132f*2f), -1f, 1f);
+            _leptonImpl.Rotation = Quaternion.CreateFromRotationMatrix(Matrix.CreateRotationZ(MathHelper.ToRadians(-90)))
+                                 * Quaternion.CreateFromAxisAngle(Vector3.Up, MathHelper.ToRadians(rot));
+                                 
 
             return;
         }
