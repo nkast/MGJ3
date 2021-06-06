@@ -14,6 +14,7 @@ namespace MGJ3
 
         StageBackgroundStarfield _stageBackgroundStarfield;
         private Stage _stage;
+        private TimeSpan Time;
 
         public GameContext(Game game)
         {
@@ -32,7 +33,16 @@ namespace MGJ3
         internal void Update(GameTime gameTime)
         {
             _stageBackgroundStarfield.Update(gameTime);
+
+            Time += gameTime.ElapsedGameTime;
+            float time = (float)Time.TotalSeconds;
+
+            var engine = _stage.Engine;
+
+            //update aether
+            engine.Tick(gameTime);
         }
+
         internal void SetUIEffect(Effect uiEffect)
         {
             _stageBackgroundStarfield.UiEffect = uiEffect;
@@ -41,6 +51,9 @@ namespace MGJ3
         internal void Draw(GameTime gameTime)
         {
             _stageBackgroundStarfield.Draw(gameTime);
+
+            _stage.UpdateCamera();
+            _stage.Engine.Render(gameTime);
         }
 
     }
