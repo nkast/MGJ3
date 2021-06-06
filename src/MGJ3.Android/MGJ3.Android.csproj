@@ -79,6 +79,9 @@
     <MonoGameContentReference Include="..\MGJ3Content\MGJ3Content.mgcb">
       <Link>Content\MGJ3Content.mgcb</Link>
     </MonoGameContentReference>
+    <MonoGameContentReference Include="..\MGJ3\Stages\Stage01.Assets\Stage01.mgcb">
+      <Link>Content\Stage01.mgcb</Link>
+    </MonoGameContentReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.Android.9000">

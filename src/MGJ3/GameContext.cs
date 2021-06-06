@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using MGJ3.Components;
 using tainicom.Devices;
 using Microsoft.Xna.Framework.Graphics;
+using MGJ3.Stages;
 
 namespace MGJ3
 {
@@ -12,12 +13,15 @@ namespace MGJ3
         private Game _game;
 
         StageBackgroundStarfield _stageBackgroundStarfield;
+        private Stage _stage;
 
         public GameContext(Game game)
         {
             this._game = game;
             _stageBackgroundStarfield = new StageBackgroundStarfield(_game);
             _stageBackgroundStarfield.Initialize();
+
+             this._stage = new Stage01(game);
         }
 
         internal void HandleInput(InputState input)

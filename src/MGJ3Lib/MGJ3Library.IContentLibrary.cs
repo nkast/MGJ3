@@ -57,7 +57,7 @@ namespace MGJ3Lib
             //AddLibraryItem(typeof(SolidBlock));
             //AddLibraryItem(typeof(BreakableBlock));
             //AddLibraryItem(typeof(BounceBlock));
-            //AddLibraryItem(typeof(BasicCamera));
+            AddLibraryItem(typeof(BasicCamera));
             //AddLibraryItem(typeof(SwitchCamera));
             //AddLibraryItem(typeof(RotatingOrthographicCamera));
 

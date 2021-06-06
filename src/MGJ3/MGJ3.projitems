@@ -21,5 +21,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Menu\AboutMenuPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Menu\SettingsMenuPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Menu\UI\UIButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Stages\Stage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Stages\Stage01.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Stages\Stage01.aether">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>
