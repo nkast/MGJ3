@@ -32,7 +32,7 @@ namespace MGJ3.Components
             this.Textures = new ITexture[] { itx };
 
             bool textureEnabled = (this.Textures[0] != null);
-            bool vertexColorEnabled = false;
+            bool vertexColorEnabled = true;
 
             Material = CreateDefaultMaterial(engine, textureEnabled, vertexColorEnabled);
         }

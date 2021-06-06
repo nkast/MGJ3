@@ -2,8 +2,8 @@
 <EatherEngine>
   <EngineData>
     <UniqueIdCounter>0</UniqueIdCounter>
-    <NextUniqueId>D39416C3-AB69-42AB-A911-22A4194B4D37</NextUniqueId>
-    <TotalTime>457.41483700013043</TotalTime>
+    <NextUniqueId>00000000-0000-0000-0000-000000000000</NextUniqueId>
+    <TotalTime>527.79788880016315</TotalTime>
   </EngineData>
   <Particles>
     <AetherParticle UID="CA5A12FE-8FE5-4EE0-9473-CBF72F6E5C0F" Name="Physics2dPlane0" Type="tainicom.Aether.Physics2D.Components.Physics2dPlane, tainicom.Aether.Physics2D.Components">
@@ -17,7 +17,7 @@
         <AetherParticle UID="A829965D-D99B-4623-944A-10F735A16D4C" Name="Player1" Type="MGJ3.Components.Player, MGJ3.Components">
           <Position X="0" Y="0" Z="0" />
           <Scale X="1" Y="1" Z="1" />
-          <Rotation X="0" Y="0" Z="0" W="1" />
+          <Rotation X="0" Y="0" Z="-0.707106769" W="0.707106769" />
           <Material>
             <AetherParticle UID="98BA2F13-0592-4D09-A6F7-79B6263817BA" Name="DefaultMaterial1" Type="tainicom.Aether.Core.Materials.BasicMaterial, tainicom.Aether">
               <PrimitiveType>0</PrimitiveType>
