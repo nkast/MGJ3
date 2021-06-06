@@ -127,6 +127,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Aether\Aether.csproj">
+      <Project>{cf68015e-30f2-4625-af73-f01fe0242285}</Project>
+      <Name>Aether</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MGJ3Components\MGJ3.Components.csproj">
       <Project>{9a9193fe-35d6-4d16-afcc-b53a6db33b8e}</Project>
       <Name>MGJ3.Components</Name>

@@ -32,7 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Aether\Aether.PORTABLE.csproj" />
+    <ProjectReference Include="..\Aether\Aether.csproj" />
   </ItemGroup>
 
 </Project>

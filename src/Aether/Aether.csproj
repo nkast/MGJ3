@@ -47,6 +47,9 @@
     <Compile Include="Core\ECS\Component.cs" />
     <Compile Include="Core\Managers\ChrononsManager.cs" />
     <Compile Include="Core\Managers\ECSManager.cs" />
+    <Compile Include="Core\Serialization\AetherBinaryWriter.cs" />
+    <Compile Include="Core\Serialization\AetherXMLReader.cs" />
+    <Compile Include="Core\Serialization\AetherXMLWriter.cs" />
     <Compile Include="Elementary\Chronons\IChronon.cs" />
     <Compile Include="Elementary\Chronons\ITickable.cs" />
     <Compile Include="Elementary\Extensions.cs" />

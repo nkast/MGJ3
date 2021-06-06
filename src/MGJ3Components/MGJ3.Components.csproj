@@ -44,7 +44,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Aether.Particles\Aether.Particles.csproj" />
     <ProjectReference Include="..\Aether.Physics2D.Components\Aether.Physics2D.Components.csproj" />
-    <ProjectReference Include="..\Aether\Aether.PORTABLE.csproj" />
+    <ProjectReference Include="..\Aether\Aether.csproj" />
   </ItemGroup>
   
 </Project>
