@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Input;
 using tainicom.Aether.Elementary;
 using tainicom.Aether.Elementary.Chronons;
 using tainicom.Aether.Elementary.Leptons;
+using tainicom.Aether.Elementary.Photons;
 using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Engine;
 using tainicom.Aether.Physics2D.Components;
@@ -14,10 +15,12 @@ using tainicom.Aether.Physics2D.Components;
 namespace MGJ3.Components
 {
     public partial class Player: 
-        //IPhoton, 
+        IPhoton, 
         ILepton, IChronon, IBoundingBox, IInitializable, IAetherSerialization
         ,IPhysics2dBody
     {
+        protected virtual string ContentModel { get { return "Agents\\Player"; } }
+
         const float w = 20f;
         const float h = 20f;
 
@@ -27,7 +30,7 @@ namespace MGJ3.Components
 
         public void Initialize(AetherEngine engine)
         {
-            //_photonImpl.Initialize(engine, this, ContentModel);
+            _photonImpl.Initialize(engine, this, ContentModel);
 
         }
 
@@ -77,25 +80,25 @@ namespace MGJ3.Components
         #endregion
 
 
-        //#region Implement IPhoton
-        //PhotonModelImpl _photonImpl = new PhotonModelImpl();
-        //public void Accept(IGeometryVisitor geometryVisitor)
-        //{
-        //    _photonImpl.Accept(geometryVisitor);
-        //}
+        #region Implement IPhoton
+        PhotonModelImpl _photonImpl = new PhotonModelImpl();
+        public void Accept(IGeometryVisitor geometryVisitor)
+        {
+            _photonImpl.Accept(geometryVisitor);
+        }
 
-        //public IMaterial Material 
-        //{
-        //    get { return _photonImpl.Material; }
-        //    set { _photonImpl.Material = value; }
-        //}
+        public IMaterial Material 
+        {
+            get { return _photonImpl.Material; }
+            set { _photonImpl.Material = value; }
+        }
 
-        //public ITexture[] Textures
-        //{
-        //    get { return _photonImpl.Textures; }
-        //    set {  }
-        //}
-        //#endregion
+        public ITexture[] Textures
+        {
+            get { return _photonImpl.Textures; }
+            set {  }
+        }
+        #endregion
         
 
         public BoundingBox GetBoundingBox()
@@ -232,7 +235,7 @@ namespace MGJ3.Components
         public void Save(IAetherWriter writer)
         {
             _leptonImpl.Save(writer);
-            //_photonImpl.Save(writer);
+            _photonImpl.Save(writer);
             _bodyImpl.Save(writer);
             writer.WriteParticle("StartingPosition", StartingPosition);
 
@@ -242,7 +245,7 @@ namespace MGJ3.Components
         {
             IAether particle;
             _leptonImpl.Load(reader);
-            //_photonImpl.Load(reader);
+            _photonImpl.Load(reader);
             _bodyImpl.Load(reader);
             reader.ReadParticle("StartingPosition", out particle); StartingPosition = (Trigger)particle;
 

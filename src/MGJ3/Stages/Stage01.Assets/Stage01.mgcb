@@ -1,0 +1,35 @@
+
+#----------------------------- Global Properties ----------------------------#
+
+/outputDir:../Content
+/intermediateDir:obj
+/platform:Windows
+/config:
+/profile:Reach
+/compress:False
+
+#-------------------------------- References --------------------------------#
+
+/reference:.\Importers\Aether.Content.Pipeline.VoxelImporters.dll
+
+#---------------------------------- Content ---------------------------------#
+
+#begin Agents/Player.vox
+/importer:VoxelModelImporter
+/processor:ModelProcessor
+/processorParam:ColorKeyColor=0,0,0,0
+/processorParam:ColorKeyEnabled=True
+/processorParam:DefaultEffect=BasicEffect
+/processorParam:GenerateMipmaps=True
+/processorParam:GenerateTangentFrames=False
+/processorParam:PremultiplyTextureAlpha=True
+/processorParam:PremultiplyVertexColors=True
+/processorParam:ResizeTexturesToPowerOfTwo=False
+/processorParam:RotationX=0
+/processorParam:RotationY=0
+/processorParam:RotationZ=0
+/processorParam:Scale=10
+/processorParam:SwapWindingOrder=False
+/processorParam:TextureFormat=Compressed
+/build:Agents/Player.vox
+

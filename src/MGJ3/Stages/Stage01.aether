@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EatherEngine>
+  <EngineData>
+    <UniqueIdCounter>0</UniqueIdCounter>
+    <NextUniqueId>A829965D-D99B-4623-944A-10F735A16D4C</NextUniqueId>
+    <TotalTime>172.63264279999805</TotalTime>
+  </EngineData>
+  <Particles>
+    <AetherParticle UID="CA5A12FE-8FE5-4EE0-9473-CBF72F6E5C0F" Name="Physics2dPlane0" Type="tainicom.Aether.Physics2D.Components.Physics2dPlane, tainicom.Aether.Physics2D.Components">
+      <Version>1</Version>
+      <GravityAcceleration>0</GravityAcceleration>
+      <TableInclineAngle>5.1</TableInclineAngle>
+      <AngularVelocityLimit>0</AngularVelocityLimit>
+      <LinearVelocityLimit>0</LinearVelocityLimit>
+      <Version>1</Version>
+      <Particles>
+        <AetherParticle UID="A829965D-D99B-4623-944A-10F735A16D4C" Name="Player1" Type="MGJ3.Components.Player, MGJ3.Components">
+          <Position X="5.6697216" Y="13.9316444" Z="0" />
+          <Scale X="1" Y="1" Z="1" />
+          <Rotation X="0" Y="0" Z="0" W="1" />
+          <Material>
+            <AetherParticle UID="98BA2F13-0592-4D09-A6F7-79B6263817BA" Name="DefaultMaterial1" Type="tainicom.Aether.Core.Materials.BasicMaterial, tainicom.Aether">
+              <PrimitiveType>0</PrimitiveType>
+              <Name>BlendState.Opaque</Name>
+              <BlendStateName>BlendState.Opaque</BlendStateName>
+              <AlphaBlendFunction>0</AlphaBlendFunction>
+              <AlphaDestinationBlend>1</AlphaDestinationBlend>
+              <AlphaSourceBlend>0</AlphaSourceBlend>
+              <BlendFactor>#FFFFFF</BlendFactor>
+              <ColorBlendFunction>0</ColorBlendFunction>
+              <ColorDestinationBlend>1</ColorDestinationBlend>
+              <ColorSourceBlend>0</ColorSourceBlend>
+              <ColorWriteChannels>15</ColorWriteChannels>
+              <ColorWriteChannels1>15</ColorWriteChannels1>
+              <ColorWriteChannels2>15</ColorWriteChannels2>
+              <ColorWriteChannels3>15</ColorWriteChannels3>
+              <MultiSampleMask>2147483647</MultiSampleMask>
+              <Name>DepthStencilState.Default</Name>
+              <CounterClockwiseStencilDepthBufferFail>0</CounterClockwiseStencilDepthBufferFail>
+              <CounterClockwiseStencilFail>0</CounterClockwiseStencilFail>
+              <CounterClockwiseStencilFunction>0</CounterClockwiseStencilFunction>
+              <CounterClockwiseStencilPass>0</CounterClockwiseStencilPass>
+              <DepthBufferEnable>true</DepthBufferEnable>
+              <DepthBufferFunction>3</DepthBufferFunction>
+              <DepthBufferWriteEnable>true</DepthBufferWriteEnable>
+              <ReferenceStencil>0</ReferenceStencil>
+              <StencilDepthBufferFail>0</StencilDepthBufferFail>
+              <StencilEnable>false</StencilEnable>
+              <StencilFail>0</StencilFail>
+              <StencilFunction>0</StencilFunction>
+              <StencilMask>2147483647</StencilMask>
+              <StencilPass>0</StencilPass>
+              <StencilWriteMask>2147483647</StencilWriteMask>
+              <TwoSidedStencilMode>false</TwoSidedStencilMode>
+              <Name />
+              <CullMode>0</CullMode>
+              <DepthBias>0</DepthBias>
+              <FillMode>0</FillMode>
+              <MultiSampleAntiAlias>true</MultiSampleAntiAlias>
+              <ScissorTestEnable>false</ScissorTestEnable>
+              <SlopeScaleDepthBias>0</SlopeScaleDepthBias>
+              <SamplerStateCount>1</SamplerStateCount>
+              <Name>SamplerState.LinearClamp</Name>
+              <AddressU>1</AddressU>
+              <AddressV>1</AddressV>
+              <AddressW>1</AddressW>
+              <Filter>0</Filter>
+              <MaxAnisotropy>4</MaxAnisotropy>
+              <MaxMipLevel>0</MaxMipLevel>
+              <MipMapLevelOfDetailBias>0</MipMapLevelOfDetailBias>
+              <DiffuseColor X="1" Y="1" Z="1" />
+              <AmbientLightColor X="0.5" Y="0.5" Z="0.5" />
+              <EmissiveColor X="0" Y="0" Z="0" />
+              <DirectionalLight0DiffuseColor X="1" Y="0.9607844" Z="0.8078432" />
+              <DirectionalLight0SpecularColor X="1" Y="0.9607844" Z="0.8078432" />
+              <DirectionalLight0Direction X="0.707" Y="-0.707" Z="-0.707" />
+              <DirectionalLight0Enabled>true</DirectionalLight0Enabled>
+              <DirectionalLight1DiffuseColor X="0.9647059" Y="0.7607844" Z="0.4078432" />
+              <DirectionalLight1SpecularColor X="0" Y="0" Z="0" />
+              <DirectionalLight1Direction X="0.7198464" Y="0.3420201" Z="0.6040227" />
+              <DirectionalLight1Enabled>false</DirectionalLight1Enabled>
+              <DirectionalLight2DiffuseColor X="0.3231373" Y="0.3607844" Z="0.3937255" />
+              <DirectionalLight2SpecularColor X="0.3231373" Y="0.3607844" Z="0.3937255" />
+              <DirectionalLight2Direction X="0.4545195" Y="-0.7660444" Z="0.4545195" />
+              <DirectionalLight2Enabled>false</DirectionalLight2Enabled>
+              <Alpha>1</Alpha>
+              <TextureEnabled>false</TextureEnabled>
+              <VertexColorEnabled>false</VertexColorEnabled>
+              <LightingEnabled>true</LightingEnabled>
+            </AetherParticle>
+          </Material>
+          <StartingPosition />
+          <ParticleSystem />
+          <TimeBetweenParticles>0.008333334</TimeBetweenParticles>
+          <VelocitySensitivity>1</VelocitySensitivity>
+          <MinHorizontalVelocity>0.2</MinHorizontalVelocity>
+          <MaxHorizontalVelocity>0.5</MaxHorizontalVelocity>
+          <VerticalVelocityMin>0.4</VerticalVelocityMin>
+          <VerticalVelocityMax>0.6</VerticalVelocityMax>
+        </AetherParticle>
+      </Particles>
+      <Position X="0" Y="0" Z="0" />
+      <Rotation X="0" Y="0" Z="0" W="1" />
+      <Scale X="1" Y="1" Z="1" />
+    </AetherParticle>
+    <AetherParticle UID="150D9F60-1533-48F1-8F5B-2F9C1ECA17A8" Name="Physics2dPlane1" Type="tainicom.Aether.Physics2D.Components.Physics2dPlane, tainicom.Aether.Physics2D.Components">
+      <Version>1</Version>
+      <GravityAcceleration>0</GravityAcceleration>
+      <TableInclineAngle>5.1</TableInclineAngle>
+      <AngularVelocityLimit>0</AngularVelocityLimit>
+      <LinearVelocityLimit>0</LinearVelocityLimit>
+      <Version>1</Version>
+      <Particles />
+      <Position X="0" Y="0.05" Z="0" />
+      <Rotation X="0" Y="0" Z="0" W="1" />
+      <Scale X="1" Y="1" Z="1" />
+    </AetherParticle>
+    <AetherParticle UID="D97E88FA-7114-4F74-BF3E-1B3EABD6C897" Name="Physics2dPlane2" Type="tainicom.Aether.Physics2D.Components.Physics2dPlane, tainicom.Aether.Physics2D.Components">
+      <Version>1</Version>
+      <GravityAcceleration>0</GravityAcceleration>
+      <TableInclineAngle>5.1</TableInclineAngle>
+      <AngularVelocityLimit>0</AngularVelocityLimit>
+      <LinearVelocityLimit>0</LinearVelocityLimit>
+      <Version>1</Version>
+      <Particles />
+      <Position X="0" Y="0.1" Z="0" />
+      <Rotation X="0" Y="0" Z="0" W="1" />
+      <Scale X="1" Y="1" Z="1" />
+    </AetherParticle>
+    <AetherParticle UID="1759CDC7-E748-4B14-A111-1C1238F3888A" Name="Physics2dPlane3" Type="tainicom.Aether.Physics2D.Components.Physics2dPlane, tainicom.Aether.Physics2D.Components">
+      <Version>1</Version>
+      <GravityAcceleration>0</GravityAcceleration>
+      <TableInclineAngle>5.1</TableInclineAngle>
+      <AngularVelocityLimit>0</AngularVelocityLimit>
+      <LinearVelocityLimit>0</LinearVelocityLimit>
+      <Version>1</Version>
+      <Particles />
+      <Position X="0" Y="0.15" Z="0" />
+      <Rotation X="0" Y="0" Z="0" W="1" />
+      <Scale X="1" Y="1" Z="1" />
+    </AetherParticle>
+    <AetherParticleRef UID="A829965D-D99B-4623-944A-10F735A16D4C" Name="Player1" />
+    <AetherParticleRef UID="98BA2F13-0592-4D09-A6F7-79B6263817BA" Name="DefaultMaterial1" />
+  </Particles>
+  <Managers>
+    <AetherParticleManager Name="Leptons" Type="tainicom.Aether.Core.Managers.LeptonsManager, tainicom.Aether">
+      <Particles>
+        <AetherParticleRef UID="CA5A12FE-8FE5-4EE0-9473-CBF72F6E5C0F" Name="Physics2dPlane0" />
+        <AetherParticleRef UID="150D9F60-1533-48F1-8F5B-2F9C1ECA17A8" Name="Physics2dPlane1" />
+        <AetherParticleRef UID="D97E88FA-7114-4F74-BF3E-1B3EABD6C897" Name="Physics2dPlane2" />
+        <AetherParticleRef UID="1759CDC7-E748-4B14-A111-1C1238F3888A" Name="Physics2dPlane3" />
+        <AetherParticleRef UID="A829965D-D99B-4623-944A-10F735A16D4C" Name="Player1" />
+      </Particles>
+      <Root>
+        <Version>1</Version>
+        <Version>1</Version>
+        <Particles>
+          <AetherParticleRef UID="CA5A12FE-8FE5-4EE0-9473-CBF72F6E5C0F" Name="Physics2dPlane0" />
+          <AetherParticleRef UID="150D9F60-1533-48F1-8F5B-2F9C1ECA17A8" Name="Physics2dPlane1" />
+          <AetherParticleRef UID="D97E88FA-7114-4F74-BF3E-1B3EABD6C897" Name="Physics2dPlane2" />
+          <AetherParticleRef UID="1759CDC7-E748-4B14-A111-1C1238F3888A" Name="Physics2dPlane3" />
+          <AetherParticleRef UID="A829965D-D99B-4623-944A-10F735A16D4C" Name="Player1" />
+        </Particles>
+      </Root>
+    </AetherParticleManager>
+    <AetherParticleManager Name="Chronons" Type="tainicom.Aether.Core.Managers.ChrononsManager, tainicom.Aether">
+      <Particles>
+        <AetherParticleRef UID="CA5A12FE-8FE5-4EE0-9473-CBF72F6E5C0F" Name="Physics2dPlane0" />
+        <AetherParticleRef UID="150D9F60-1533-48F1-8F5B-2F9C1ECA17A8" Name="Physics2dPlane1" />
+        <AetherParticleRef UID="D97E88FA-7114-4F74-BF3E-1B3EABD6C897" Name="Physics2dPlane2" />
+        <AetherParticleRef UID="1759CDC7-E748-4B14-A111-1C1238F3888A" Name="Physics2dPlane3" />
+        <AetherParticleRef UID="A829965D-D99B-4623-944A-10F735A16D4C" Name="Player1" />
+      </Particles>
+      <Root>
+        <Version>1</Version>
+        <Version>1</Version>
+        <Particles>
+          <AetherParticleRef UID="CA5A12FE-8FE5-4EE0-9473-CBF72F6E5C0F" Name="Physics2dPlane0" />
+          <AetherParticleRef UID="150D9F60-1533-48F1-8F5B-2F9C1ECA17A8" Name="Physics2dPlane1" />
+          <AetherParticleRef UID="D97E88FA-7114-4F74-BF3E-1B3EABD6C897" Name="Physics2dPlane2" />
+          <AetherParticleRef UID="1759CDC7-E748-4B14-A111-1C1238F3888A" Name="Physics2dPlane3" />
+          <AetherParticleRef UID="A829965D-D99B-4623-944A-10F735A16D4C" Name="Player1" />
+        </Particles>
+      </Root>
+    </AetherParticleManager>
+    <AetherParticleManager Name="Photons" Type="tainicom.Aether.Core.Managers.PhotonsManager, tainicom.Aether">
+      <Particles>
+        <AetherParticleRef UID="A829965D-D99B-4623-944A-10F735A16D4C" Name="Player1" />
+      </Particles>
+      <Root>
+        <Version>1</Version>
+        <Version>1</Version>
+        <Particles>
+          <AetherParticleRef UID="A829965D-D99B-4623-944A-10F735A16D4C" Name="Player1" />
+        </Particles>
+        <VisibleParticles>
+          <AetherParticleRef UID="A829965D-D99B-4623-944A-10F735A16D4C" Name="Player1" />
+        </VisibleParticles>
+      </Root>
+    </AetherParticleManager>
+    <AetherParticleManager Name="Cameras" Type="tainicom.Aether.Core.Managers.CamerasManager, tainicom.Aether">
+      <Particles />
+      <Root>
+        <Version>1</Version>
+        <Particles />
+      </Root>
+    </AetherParticleManager>
+    <AetherParticleManager Name="Materials" Type="tainicom.Aether.Core.Managers.MaterialsManager, tainicom.Aether">
+      <Particles>
+        <AetherParticleRef UID="98BA2F13-0592-4D09-A6F7-79B6263817BA" Name="DefaultMaterial1" />
+      </Particles>
+      <Root>
+        <Version>1</Version>
+        <Particles>
+          <AetherParticleRef UID="98BA2F13-0592-4D09-A6F7-79B6263817BA" Name="DefaultMaterial1" />
+        </Particles>
+      </Root>
+    </AetherParticleManager>
+    <AetherParticleManager Name="FarseerMgr" Type="tainicom.Aether.Physics2D.Components.Physics2dManager, tainicom.Aether.Physics2D.Components">
+      <Particles>
+        <AetherParticleRef UID="CA5A12FE-8FE5-4EE0-9473-CBF72F6E5C0F" Name="Physics2dPlane0" />
+        <AetherParticleRef UID="150D9F60-1533-48F1-8F5B-2F9C1ECA17A8" Name="Physics2dPlane1" />
+        <AetherParticleRef UID="D97E88FA-7114-4F74-BF3E-1B3EABD6C897" Name="Physics2dPlane2" />
+        <AetherParticleRef UID="1759CDC7-E748-4B14-A111-1C1238F3888A" Name="Physics2dPlane3" />
+        <AetherParticleRef UID="A829965D-D99B-4623-944A-10F735A16D4C" Name="Player1" />
+      </Particles>
+      <Root>
+        <Version>1</Version>
+        <Particles>
+          <AetherParticleRef UID="CA5A12FE-8FE5-4EE0-9473-CBF72F6E5C0F" Name="Physics2dPlane0" />
+          <AetherParticleRef UID="150D9F60-1533-48F1-8F5B-2F9C1ECA17A8" Name="Physics2dPlane1" />
+          <AetherParticleRef UID="D97E88FA-7114-4F74-BF3E-1B3EABD6C897" Name="Physics2dPlane2" />
+          <AetherParticleRef UID="1759CDC7-E748-4B14-A111-1C1238F3888A" Name="Physics2dPlane3" />
+        </Particles>
+      </Root>
+    </AetherParticleManager>
+  </Managers>
+</EatherEngine>
