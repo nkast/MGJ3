@@ -21,18 +21,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Effects\ParticleEffect.dx11.mgfxo" />
+    <EmbeddedResource Include="Effects\ParticleEffect.ogl.mgfxo" />
+  </ItemGroup>
+  
+  <ItemGroup>
     <PackageReference Include="MonoGame.Framework.Portable.9000" Version="3.8.9009">
       <PrivateAssets>All</PrivateAssets> 
       <NoWarn>NU1701</NoWarn>
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="Effects\ParticleEffect.dx11.mgfxo" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Aether\Aether.csproj" />
   </ItemGroup>
+
 
 </Project>
