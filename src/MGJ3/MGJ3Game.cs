@@ -59,6 +59,7 @@ namespace MGJ3
 
             // Frame rate
             TargetElapsedTime = TimeSpan.FromTicks(166666);
+            //TargetElapsedTime = TimeSpan.FromTicks( 83333); // run update at 120Hz, allow monitors with > 60Hz refresh rate.
             IsFixedTimeStep = true;
             graphics.SynchronizeWithVerticalRetrace = true;
 
