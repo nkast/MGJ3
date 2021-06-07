@@ -5,7 +5,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <RootNamespace>tainicom.Aether.Physics2D.Components</RootNamespace>
-    <AssemblyName>tainicom.Aether.Physics2D.Components</AssemblyName>
+    <AssemblyName>Aether.Physics2D.Components</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

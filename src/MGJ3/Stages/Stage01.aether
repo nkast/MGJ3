@@ -6,7 +6,7 @@
     <TotalTime>527.79788880016315</TotalTime>
   </EngineData>
   <Particles>
-    <AetherParticle UID="CA5A12FE-8FE5-4EE0-9473-CBF72F6E5C0F" Name="Physics2dPlane0" Type="tainicom.Aether.Physics2D.Components.Physics2dPlane, tainicom.Aether.Physics2D.Components">
+    <AetherParticle UID="CA5A12FE-8FE5-4EE0-9473-CBF72F6E5C0F" Name="Physics2dPlane0" Type="tainicom.Aether.Physics2D.Components.Physics2dPlane, Aether.Physics2D.Components">
       <Version>1</Version>
       <GravityAcceleration>0</GravityAcceleration>
       <TableInclineAngle>5.1</TableInclineAngle>
@@ -103,7 +103,7 @@
       <Rotation X="0" Y="0" Z="0" W="1" />
       <Scale X="1" Y="1" Z="1" />
     </AetherParticle>
-    <AetherParticle UID="150D9F60-1533-48F1-8F5B-2F9C1ECA17A8" Name="Physics2dPlane1" Type="tainicom.Aether.Physics2D.Components.Physics2dPlane, tainicom.Aether.Physics2D.Components">
+    <AetherParticle UID="150D9F60-1533-48F1-8F5B-2F9C1ECA17A8" Name="Physics2dPlane1" Type="tainicom.Aether.Physics2D.Components.Physics2dPlane, Aether.Physics2D.Components">
       <Version>1</Version>
       <GravityAcceleration>0</GravityAcceleration>
       <TableInclineAngle>5.1</TableInclineAngle>
@@ -115,7 +115,7 @@
       <Rotation X="0" Y="0" Z="0" W="1" />
       <Scale X="1" Y="1" Z="1" />
     </AetherParticle>
-    <AetherParticle UID="D97E88FA-7114-4F74-BF3E-1B3EABD6C897" Name="Physics2dPlane2" Type="tainicom.Aether.Physics2D.Components.Physics2dPlane, tainicom.Aether.Physics2D.Components">
+    <AetherParticle UID="D97E88FA-7114-4F74-BF3E-1B3EABD6C897" Name="Physics2dPlane2" Type="tainicom.Aether.Physics2D.Components.Physics2dPlane, Aether.Physics2D.Components">
       <Version>1</Version>
       <GravityAcceleration>0</GravityAcceleration>
       <TableInclineAngle>5.1</TableInclineAngle>
@@ -127,7 +127,7 @@
       <Rotation X="0" Y="0" Z="0" W="1" />
       <Scale X="1" Y="1" Z="1" />
     </AetherParticle>
-    <AetherParticle UID="1759CDC7-E748-4B14-A111-1C1238F3888A" Name="Physics2dPlane3" Type="tainicom.Aether.Physics2D.Components.Physics2dPlane, tainicom.Aether.Physics2D.Components">
+    <AetherParticle UID="1759CDC7-E748-4B14-A111-1C1238F3888A" Name="Physics2dPlane3" Type="tainicom.Aether.Physics2D.Components.Physics2dPlane, Aether.Physics2D.Components">
       <Version>1</Version>
       <GravityAcceleration>0</GravityAcceleration>
       <TableInclineAngle>5.1</TableInclineAngle>
@@ -230,7 +230,7 @@
         </Particles>
       </Root>
     </AetherParticleManager>
-    <AetherParticleManager Name="FarseerMgr" Type="tainicom.Aether.Physics2D.Components.Physics2dManager, tainicom.Aether.Physics2D.Components">
+    <AetherParticleManager Name="FarseerMgr" Type="tainicom.Aether.Physics2D.Components.Physics2dManager, Aether.Physics2D.Components">
       <Particles>
         <AetherParticleRef UID="CA5A12FE-8FE5-4EE0-9473-CBF72F6E5C0F" Name="Physics2dPlane0" />
         <AetherParticleRef UID="150D9F60-1533-48F1-8F5B-2F9C1ECA17A8" Name="Physics2dPlane1" />
