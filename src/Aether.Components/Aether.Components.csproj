@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>tainicom.ProtonType.ContentLib</RootNamespace>
+    <AssemblyName>ProtonType.ContentLib</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="AssetContentTypeAttribute.cs" />
+    <Compile Include="Components\ComponentBase.cs" />
+    <Compile Include="Components\ComponentBase.IDisposable.cs" />
+    <Compile Include="Components\LeptonImpl.cs" />
+    <Compile Include="Components\ModelMaterial.cs" />
+    <Compile Include="Components\ModelBoneComponent.cs" />
+    <Compile Include="Components\ModelBoneComponent.IPhotonNode.cs" />
+    <Compile Include="Components\ModelComponent.cs" />
+    <Compile Include="Components\ModelComponent.ILepton.cs" />
+    <Compile Include="Components\ModelComponent.IPhotonPlasma.cs" />
+    <Compile Include="Components\ModelMeshPartComponent.cs" />
+    <Compile Include="Components\SoundComponent.cs" />
+    <Compile Include="Components\TextureComponent.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.Portable.9000" Version="3.8.9009">
+      <PrivateAssets>All</PrivateAssets> 
+      <NoWarn>NU1701</NoWarn>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aether\Aether.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -130,6 +130,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Aether.Components\Aether.Components.csproj">
+      <Project>{02af6e6b-080e-448b-b3eb-aca20fa27a49}</Project>
+      <Name>Aether.Components</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Aether.Particles\Aether.Particles.csproj">
       <Project>{e69f8c18-df4b-456f-adb8-375f709b9179}</Project>
       <Name>Aether.Particles</Name>
