@@ -62,9 +62,7 @@ namespace MGJ3Lib
             //AddLibraryItem(typeof(RotatingOrthographicCamera));
 
             //particles
-            AddLibraryItem(typeof(HorizonGPUParticleMaterial));
             AddLibraryItem(typeof(PlayerGPUParticleMaterial));
-            AddLibraryItem(typeof(HorizonParticleEmmiter));
 
             _items.Sort(CompareLibraryItemDescription);
             return;
