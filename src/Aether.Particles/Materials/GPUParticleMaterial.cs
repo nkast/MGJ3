@@ -3,6 +3,7 @@ using System.IO;
 using System.Reflection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Framework.Utilities;
 using tainicom.Aether.Core.Materials;
 using tainicom.Aether.Elementary.Serialization;
 #if WINDOWS
@@ -190,16 +191,23 @@ namespace tainicom.Aether.Particles
             get { return timeParam.GetValueSingle(); }
             set { timeParam.SetValue(value); }
         }
-        
-        static readonly string resourceName =
-#if DIRECTX
-            "tainicom.Aether.Particles.Effects.ParticleEffect.dx11.mgfxo"
-#elif XNA
-            "tainicom.Aether.Particles.Effects.ParticleEffect.WinReach.bin"
+
+        string GetResourceName()
+        {
+#if XNA
+            return "tainicom.Aether.Particles.Effects.ParticleEffect.WinReach.bin";
 #else
-            "tainicom.Aether.Particles.Effects.ParticleEffect.ogl.mgfxo"
+            switch(PlatformInfo.GraphicsBackend)
+            {
+                case GraphicsBackend.DirectX:
+                    return "tainicom.Aether.Particles.Effects.ParticleEffect.dx11.mgfxo";
+                case GraphicsBackend.OpenGL:
+                    return "tainicom.Aether.Particles.Effects.ParticleEffect.ogl.mgfxo";
+                default:
+                    throw new InvalidOperationException();
+            }
 #endif
-;
+        }
 
         internal static byte[] LoadEffectResource(string name)
         {
@@ -250,7 +258,7 @@ namespace tainicom.Aether.Particles
         protected override void CreateEffect()
         {
             if (_effect != null) return; //allready initialized?
-            byte[] effectCode = LoadEffectResource(resourceName);
+            byte[] effectCode = LoadEffectResource(GetResourceName());
             _effect = new Effect(this.GraphicsDevice, effectCode);
 
             CacheEffectParameters();
