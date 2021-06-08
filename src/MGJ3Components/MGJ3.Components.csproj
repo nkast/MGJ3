@@ -27,6 +27,8 @@
     <Compile Include="Components\Agents\Comet.ParticleEmmiter.cs" />
     <Compile Include="Components\Agents\Player.cs" />
     <Compile Include="Components\Agents\Player.ParticleEmmiter.cs" />
+    <Compile Include="Components\Agents\PlayerBullet.cs" />
+    <Compile Include="Components\Agents\PlayerBullet.ParticleEmmiter .cs" />
     <Compile Include="Components\Cameras\BasicCamera.cs" />
     <Compile Include="Components\LeptonImpl.cs" />
     <Compile Include="Components\Other\StageBounds.cs" />
