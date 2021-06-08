@@ -49,6 +49,7 @@ namespace MGJ3Lib
 
             AddLibraryItem(typeof(Physics2dPlane));
 
+            AddLibraryItem(typeof(StageBounds));
             AddLibraryItem(typeof(Trigger));
                 
             AddLibraryItem(typeof(Player));

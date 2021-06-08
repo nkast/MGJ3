@@ -26,6 +26,7 @@
     <Compile Include="Components\Agents\Player.ParticleEmmiter.cs" />
     <Compile Include="Components\Cameras\BasicCamera.cs" />
     <Compile Include="Components\LeptonImpl.cs" />
+    <Compile Include="Components\Other\StageBounds.cs" />
     <Compile Include="Components\Particles\PlayerGPUParticleMaterial.cs" />
     <Compile Include="Components\PhotonModelImpl.cs" />
     <Compile Include="Components\Physics2dBodyImpl.cs" />
