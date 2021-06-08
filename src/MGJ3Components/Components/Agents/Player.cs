@@ -228,7 +228,7 @@ namespace MGJ3.Components
         // will be called whenever some other body collides with 'body'
         bool OnCollision(Fixture fixtureA, Fixture fixtureB, tainicom.Aether.Physics2D.Dynamics.Contacts.Contact contact)
         {
-            if (fixtureB.IsSensor) return false;
+            //if (fixtureB.IsSensor) return false;
 
 
             return true;

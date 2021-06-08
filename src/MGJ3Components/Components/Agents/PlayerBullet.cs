@@ -121,6 +121,7 @@ namespace MGJ3.Components
 
             fixture.CollisionCategories = CollisionCategories.PlayerBullet;
             fixture.CollidesWith = CollisionCategories.EnemyBullet
+                                 | CollisionCategories.Comet
                                  | CollisionCategories.Enemies;
 
             fixture.OnCollision += OnCollision;
@@ -180,7 +181,7 @@ namespace MGJ3.Components
         // will be called whenever some other body collides with 'body'
         bool OnCollision(Fixture fixtureA, Fixture fixtureB, tainicom.Aether.Physics2D.Dynamics.Contacts.Contact contact)
         {
-            if (fixtureB.IsSensor) return false;
+            //if (fixtureB.IsSensor) return false;
 
 
             return true;
