@@ -21,8 +21,8 @@ namespace MGJ3.Components
     {
         protected virtual string ContentModel { get { return "Agents\\Player"; } }
 
-        const float w = 20f;
-        const float h = 20f;
+        const float w = 8f;
+        const float h = 8f;
 
         public Trigger StartingPosition { get; set; }
 
@@ -121,7 +121,7 @@ namespace MGJ3.Components
             _bodyImpl.Body.FixedRotation = true;
             _bodyImpl.Body.LinearDamping = 2;
             _bodyImpl.Body.Position = Physics2dManager.XNAtoBox2DWorldPosition(_bodyImpl.Physics2dPlane, this.Position);
-            fixture = _bodyImpl.Body.CreateCircle(w / 2, 1, new Vector2(0f, w / 2));
+            fixture = _bodyImpl.Body.CreateCircle(w/2f, 1, new Vector2(0f, 0f));
 
 
             _bodyImpl.Body.Position = Vector2.Zero;
