@@ -9,8 +9,6 @@ using tainicom.Aether.Elementary.Photons;
 using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Engine;
 using tainicom.Aether.Physics2D.Components;
-//using tainicom.Aether.Physics2D.Factories;
-//using tainicom.Aether.Physics2D.Dynamics;
 
 namespace MGJ3.Components
 {
@@ -23,6 +21,9 @@ namespace MGJ3.Components
 
         const float w = 8f;
         const float h = 8f;
+
+        public bool IsFiring;
+        public TimeSpan BulletPeriod { get { return TimeSpan.FromSeconds(1f / 4f); } }
 
         public Trigger StartingPosition { get; set; }
 
@@ -157,7 +158,8 @@ namespace MGJ3.Components
         public Body Body
         {
             get { return _bodyImpl.Body; }
-        } 
+        }
+
         #endregion
 
         #region Chronons implementation
@@ -180,17 +182,14 @@ namespace MGJ3.Components
             if (kstate.IsKeyDown(Keys.Up)) input.Y += 1f;
             if (kstate.IsKeyDown(Keys.Down)) input.Y -= 1f;
 
-            if (GamePad.GetCapabilities(PlayerIndex.One).IsConnected)
+            var gamePadState = GamePad.GetState(PlayerIndex.One);
+            if (gamePadState.IsConnected)
             {
-                var gamePadState = GamePad.GetState(PlayerIndex.One);
-                if (gamePadState.IsConnected)
+                Vector2 inputl = gamePadState.ThumbSticks.Left;
+                inputl = Vector2.TransformNormal(inputl, Rotate); //rotate input
+                if (inputl != Vector2.Zero)
                 {
-                    Vector2 inputl = gamePadState.ThumbSticks.Left;
-                    inputl = Vector2.TransformNormal(inputl, Rotate); //rotate input
-                    if (inputl != Vector2.Zero)
-                    {
-                        _bodyImpl.Body.ApplyLinearImpulse(inputl * accelForce*2);
-                    }
+                    _bodyImpl.Body.ApplyLinearImpulse(inputl * accelForce*2);
                 }
             }
 
@@ -198,13 +197,20 @@ namespace MGJ3.Components
             //var lvelocity = _bodyImpl.Body.LinearVelocity;
             //_bodyImpl.Body. ApplyLinear Impulse(-lvelocity);
 
-
             if (input != Vector2.Zero)
             {
                 input.Normalize();
                 input = Vector2.TransformNormal(input, Rotate); //rotate input
                 _bodyImpl.Body.ApplyLinearImpulse(input * accelForce);
             }
+
+
+            IsFiring = false;
+            if (kstate.IsKeyDown(Keys.Space)) IsFiring = true;
+            if (gamePadState.IsConnected)
+                IsFiring = IsFiring | gamePadState.IsButtonDown(Buttons.A);
+
+
 
             _leptonImpl.Position = Physics2dManager.Box2DtoXNAWorldPosition(_bodyImpl.Physics2dPlane, Body.Position, _leptonImpl.Position);
 
@@ -216,7 +222,7 @@ namespace MGJ3.Components
 
             return;
         }
-    
+
         #endregion
 
         // will be called whenever some other body collides with 'body'

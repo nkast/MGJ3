@@ -111,6 +111,7 @@ namespace MGJ3.Components
         {
             _bodyImpl.InitializeBody(physics2dPlane, body);
             _bodyImpl.Body.BodyType = BodyType.Dynamic;
+            _bodyImpl.Body.IsBullet = true;
             _bodyImpl.Body.IgnoreGravity = false;
             _bodyImpl.Body.SleepingAllowed = false;
             _bodyImpl.Body.FixedRotation = true;
@@ -157,7 +158,7 @@ namespace MGJ3.Components
         {
             TickParticleEmmiter(gameTime);
 
-            float accelForce = 16f; // meters/sec
+            float accelForce = 64f; // meters/sec
             float seconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
             float totalSeconds = (float)gameTime.TotalGameTime.TotalSeconds;
 
@@ -165,16 +166,11 @@ namespace MGJ3.Components
             //var lvelocity = _bodyImpl.Body.LinearVelocity;
             //_bodyImpl.Body. ApplyLinear Impulse(-lvelocity);
 
-            _bodyImpl.Body.ApplyLinearImpulse(new Vector2(-accelForce,0));
+            _bodyImpl.Body.ApplyLinearImpulse(new Vector2(accelForce,0));
             
             _leptonImpl.Position = Physics2dManager.Box2DtoXNAWorldPosition(_bodyImpl.Physics2dPlane, Body.Position, _leptonImpl.Position);
 
             //System.Diagnostics.Debug.WriteLine(_bodyImpl.Body.LinearVelocity.Y);
-            float rot = -35f * MathHelper.Clamp(_bodyImpl.Body.LinearVelocity.Y/(132f*2f), -1f, 1f);
-            _leptonImpl.Rotation = Quaternion.CreateFromYawPitchRoll(
-                MathHelper.WrapAngle(MathHelper.Tau/3f * totalSeconds),
-                MathHelper.WrapAngle(MathHelper.Tau/7f * totalSeconds),
-                0);
 
             return;
         }

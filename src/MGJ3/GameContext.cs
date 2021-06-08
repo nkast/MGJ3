@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using MGJ3.Components;
-using tainicom.Devices;
 using Microsoft.Xna.Framework.Graphics;
+using tainicom.Devices;
+using tainicom.Aether.Physics2D.Components;
+using MGJ3.Components;
 using MGJ3.Stages;
+using tainicom.Aether.Physics2D.Dynamics;
 
 namespace MGJ3
 {
@@ -30,6 +32,7 @@ namespace MGJ3
             
         }
 
+        TimeSpan _bulletTime;
         internal void Update(GameTime gameTime)
         {
             _stageBackgroundStarfield.Update(gameTime);
@@ -37,10 +40,42 @@ namespace MGJ3
             Time += gameTime.ElapsedGameTime;
             float time = (float)Time.TotalSeconds;
 
+            _bulletTime += gameTime.ElapsedGameTime;
+
             var engine = _stage.Engine;
 
             //update aether
             engine.Tick(gameTime);
+
+            var player1 = (Player)engine["Player1"];
+
+            if (player1.IsFiring && _bulletTime > player1.BulletPeriod)
+            {
+                _bulletTime = TimeSpan.Zero;
+
+                var bullet = new PlayerBullet();
+                engine.RegisterParticle(bullet);
+                //engine.SetParticleName(bullet, "bullet");
+                bullet.Initialize(engine);                
+                var phmgr = engine.Managers.GetManager<Physics2dManager>();
+                var sm = phmgr.Root[0];
+                var pl= (Physics2dPlane)sm;
+                pl.Add(bullet);
+                bullet.Position = player1.Position + new Vector3(2,2,0);
+                bullet.Rotation = Quaternion.CreateFromRotationMatrix(Matrix.CreateRotationZ(MathHelper.ToRadians(-90)));
+
+                bullet = new PlayerBullet();
+                engine.RegisterParticle(bullet);
+                //engine.SetParticleName(bullet, "bullet");
+                bullet.Initialize(engine);
+                phmgr = engine.Managers.GetManager<Physics2dManager>();
+                sm = phmgr.Root[0];
+                pl = (Physics2dPlane)sm;
+                pl.Add(bullet);
+                bullet.Position = player1.Position + new Vector3(2, -2, 0);
+                bullet.Rotation = Quaternion.CreateFromRotationMatrix(Matrix.CreateRotationZ(MathHelper.ToRadians(-90)));
+            }
+
         }
 
         internal void SetUIEffect(Effect uiEffect)
