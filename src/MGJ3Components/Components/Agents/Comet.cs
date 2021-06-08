@@ -21,8 +21,8 @@ namespace MGJ3.Components
     {
         protected virtual string ContentModel { get { return "Agents\\Comet"; } }
 
-        const float w = 4f;
-        const float h = 4f;
+        const float w = 8f;
+        const float h = 8f;
 
         public Matrix Rotate = Matrix.Identity;
 
@@ -122,6 +122,7 @@ namespace MGJ3.Components
 
             fixture.CollisionCategories = CollisionCategories.Comet;
             fixture.CollidesWith = CollisionCategories.Player
+                                 | CollisionCategories.PlayerBullet
                                  | CollisionCategories.Comet 
                                  | CollisionCategories.Enemies;
 
@@ -160,7 +161,7 @@ namespace MGJ3.Components
         {
             TickParticleEmmiter(gameTime);
 
-            float accelForce = 16f; // meters/sec
+            float accelForce = 32f; // meters/sec
             float seconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
             float totalSeconds = (float)gameTime.TotalGameTime.TotalSeconds;
 
@@ -187,7 +188,7 @@ namespace MGJ3.Components
         // will be called whenever some other body collides with 'body'
         bool OnCollision(Fixture fixtureA, Fixture fixtureB, tainicom.Aether.Physics2D.Dynamics.Contacts.Contact contact)
         {
-            if (fixtureB.IsSensor) return false;
+            //if (fixtureB.IsSensor) return false;
 
 
             return true;
