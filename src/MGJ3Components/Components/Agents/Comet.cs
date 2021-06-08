@@ -1,35 +1,34 @@
 ﻿using System;
 using tainicom.Aether.Physics2D.Dynamics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using tainicom.Aether.Elementary;
+using tainicom.Aether.Elementary.Chronons;
 using tainicom.Aether.Elementary.Leptons;
+using tainicom.Aether.Elementary.Photons;
 using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Engine;
 using tainicom.Aether.Physics2D.Components;
+//using tainicom.Aether.Physics2D.Factories;
+//using tainicom.Aether.Physics2D.Dynamics;
 
 namespace MGJ3.Components
 {
-    public partial class StageBounds :
-        ILepton, IBoundingBox, IInitializable, IAetherSerialization
-        , IPhysics2dBody
+    public partial class Comet: 
+        IPhoton, 
+        ILepton, IChronon, IBoundingBox, IInitializable, IAetherSerialization
+        ,IPhysics2dBody
     {
-        public float Width 
-        {
-            get { return w; }
-            set { w = value; }
-        }
-        public float Height
-        {
-            get { return h; }
-            set { h = value; }
-        }
+        protected virtual string ContentModel { get { return "Agents\\Comet"; } }
 
-        private float w = 130f;
-        private float h = 80f;
+        const float w = 4f;
+        const float h = 4f;
+
+        public Matrix Rotate = Matrix.Identity;
 
         public void Initialize(AetherEngine engine)
         {
-
+            _photonImpl.Initialize(engine, this, ContentModel);
         }
 
 
@@ -78,6 +77,27 @@ namespace MGJ3.Components
         #endregion
 
 
+        #region Implement IPhoton
+        PhotonModelImpl _photonImpl = new PhotonModelImpl();
+        public void Accept(IGeometryVisitor geometryVisitor)
+        {
+            _photonImpl.Accept(geometryVisitor);
+        }
+
+        public IMaterial Material 
+        {
+            get { return _photonImpl.Material; }
+            set { _photonImpl.Material = value; }
+        }
+
+        public ITexture[] Textures
+        {
+            get { return _photonImpl.Textures; }
+            set {  }
+        }
+        #endregion
+        
+
         public BoundingBox GetBoundingBox()
         {
             return new BoundingBox(
@@ -87,28 +107,25 @@ namespace MGJ3.Components
 
         #region Implement IPhysics2dBody
         Physics2dBodyImpl _bodyImpl = new Physics2dBodyImpl();
-        Fixture[] fixture = new Fixture[4];
+        Fixture fixture;
 
         public void InitializeBody(Physics2dPlane physics2dPlane, Body body)
         {
             _bodyImpl.InitializeBody(physics2dPlane, body);
-            _bodyImpl.Body.BodyType = BodyType.Static;
-            _bodyImpl.Body.IgnoreGravity = true;
+            _bodyImpl.Body.BodyType = BodyType.Dynamic;
+            _bodyImpl.Body.IgnoreGravity = false;
             _bodyImpl.Body.SleepingAllowed = false;
             _bodyImpl.Body.FixedRotation = true;
             _bodyImpl.Body.LinearDamping = 2;
             _bodyImpl.Body.Position = Physics2dManager.XNAtoBox2DWorldPosition(_bodyImpl.Physics2dPlane, this.Position);
-            fixture[0] = _bodyImpl.Body.CreateEdge(new Vector2(-w/2f,-h/2f), new Vector2(-w/2f, h/2f)); // left
-            fixture[1] = _bodyImpl.Body.CreateEdge(new Vector2( w/2f,-h/2f), new Vector2( w/2f, h/2f)); // right
-            fixture[2] = _bodyImpl.Body.CreateEdge(new Vector2(-w/2f,-h/2f), new Vector2( w/2f,-h/2f)); // bottom
-            fixture[3] = _bodyImpl.Body.CreateEdge(new Vector2(-w/2f, h/2f), new Vector2( w/2f, h/2f)); // top
+            fixture = _bodyImpl.Body.CreateCircle(w/2f, 1, new Vector2(0f, 0f));
 
-            for (int i = 0; i < 4; i++)
-            {
-                fixture[i].CollisionCategories = CollisionCategories.StageBounds;
-                fixture[i].CollidesWith = CollisionCategories.Player;
-            }
+            fixture.CollisionCategories = CollisionCategories.Comet;
+            fixture.CollidesWith = CollisionCategories.Player
+                                 | CollisionCategories.Comet 
+                                 | CollisionCategories.Enemies;
 
+            fixture.OnCollision += OnCollision;
         }
         
         public float Restitution
@@ -138,17 +155,62 @@ namespace MGJ3.Components
         } 
         #endregion
 
+        #region Chronons implementation
+        public void Tick(GameTime gameTime)
+        {
+            TickParticleEmmiter(gameTime);
+
+            float accelForce = 16f; // meters/sec
+            float seconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            float totalSeconds = (float)gameTime.TotalGameTime.TotalSeconds;
+
+            //stopping force
+            //var lvelocity = _bodyImpl.Body.LinearVelocity;
+            //_bodyImpl.Body. ApplyLinear Impulse(-lvelocity);
+
+            _bodyImpl.Body.ApplyLinearImpulse(new Vector2(-accelForce,0));
+            
+            _leptonImpl.Position = Physics2dManager.Box2DtoXNAWorldPosition(_bodyImpl.Physics2dPlane, Body.Position, _leptonImpl.Position);
+
+            //System.Diagnostics.Debug.WriteLine(_bodyImpl.Body.LinearVelocity.Y);
+            float rot = -35f * MathHelper.Clamp(_bodyImpl.Body.LinearVelocity.Y/(132f*2f), -1f, 1f);
+            _leptonImpl.Rotation = Quaternion.CreateFromYawPitchRoll(
+                MathHelper.WrapAngle(MathHelper.Tau/3f * totalSeconds),
+                MathHelper.WrapAngle(MathHelper.Tau/7f * totalSeconds),
+                0);
+
+            return;
+        }
+    
+        #endregion
+
+        // will be called whenever some other body collides with 'body'
+        bool OnCollision(Fixture fixtureA, Fixture fixtureB, tainicom.Aether.Physics2D.Dynamics.Contacts.Contact contact)
+        {
+            if (fixtureB.IsSensor) return false;
+
+
+            return true;
+        }
+
+
         #region Implement IAetherSerialization
         public void Save(IAetherWriter writer)
         {
             _leptonImpl.Save(writer);
+            _photonImpl.Save(writer);
             _bodyImpl.Save(writer);
+
+            SaveParticleEmmiter(writer);
         }
         public void Load(IAetherReader reader)
         {
             IAether particle;
             _leptonImpl.Load(reader);
+            _photonImpl.Load(reader);
             _bodyImpl.Load(reader);
+
+            LoadParticleEmmiter(reader);
         }
         #endregion
         

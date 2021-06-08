@@ -119,14 +119,18 @@ namespace MGJ3.Components
             _bodyImpl.Body.IgnoreGravity = false;
             _bodyImpl.Body.SleepingAllowed = false;
             _bodyImpl.Body.FixedRotation = true;
-            _bodyImpl.Body.LinearDamping = 2;
+            _bodyImpl.Body.LinearDamping = 8;
             _bodyImpl.Body.Position = Physics2dManager.XNAtoBox2DWorldPosition(_bodyImpl.Physics2dPlane, this.Position);
             fixture = _bodyImpl.Body.CreateCircle(w/2f, 1, new Vector2(0f, 0f));
 
-
-            _bodyImpl.Body.Position = Vector2.Zero;
-
             fixture.OnCollision += OnCollision;
+
+            fixture.CollisionCategories = CollisionCategories.Player;
+            fixture.CollidesWith = CollisionCategories.Player // co-op?
+                                    | CollisionCategories.StageBounds
+                                    | CollisionCategories.Enemies
+                                    | CollisionCategories.Bonuses
+                                    ;
         }
         
         public float Restitution

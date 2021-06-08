@@ -53,6 +53,7 @@ namespace MGJ3Lib
             AddLibraryItem(typeof(Trigger));
                 
             AddLibraryItem(typeof(Player));
+            AddLibraryItem(typeof(Comet));
             //AddLibraryItem(typeof(EnemyA));
 
             //AddLibraryItem(typeof(SolidBlock));
