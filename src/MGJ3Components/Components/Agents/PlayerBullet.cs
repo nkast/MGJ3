@@ -122,7 +122,9 @@ namespace MGJ3.Components
             fixture.CollisionCategories = CollisionCategories.PlayerBullet;
             fixture.CollidesWith = CollisionCategories.EnemyBullet
                                  | CollisionCategories.Comet
-                                 | CollisionCategories.Enemies;
+                                 | CollisionCategories.Enemies
+                                 | CollisionCategories.StageBounds
+                                 ;
 
             fixture.OnCollision += OnCollision;
         }

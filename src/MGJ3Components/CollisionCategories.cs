@@ -15,6 +15,8 @@ namespace MGJ3.Components
 
         // all enemy categories
         public const Category Enemies = Comet | EnemyBullet | Enemy;
+        // all enemy categories
+        public const Category Projectiles = PlayerBullet | EnemyBullet;
         // all bonus categories
         public const Category Bonuses = (Category)0;
 

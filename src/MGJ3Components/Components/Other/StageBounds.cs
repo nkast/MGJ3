@@ -106,7 +106,9 @@ namespace MGJ3.Components
             for (int i = 0; i < 4; i++)
             {
                 fixture[i].CollisionCategories = CollisionCategories.StageBounds;
-                fixture[i].CollidesWith = CollisionCategories.Player;
+                fixture[i].CollidesWith = CollisionCategories.Player
+                                        | CollisionCategories.Projectiles
+                                        ;
             }
 
         }

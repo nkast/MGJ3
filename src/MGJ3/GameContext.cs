@@ -7,6 +7,7 @@ using tainicom.Aether.Physics2D.Components;
 using MGJ3.Components;
 using MGJ3.Stages;
 using tainicom.Aether.Physics2D.Dynamics;
+using tainicom.Aether.Physics2D.Dynamics.Contacts;
 
 namespace MGJ3
 {
@@ -18,13 +19,26 @@ namespace MGJ3
         private Stage _stage;
         private TimeSpan Time;
 
+        Physics2dPlane _physicsPlane0;
+
+
         public GameContext(Game game)
         {
-            this._game = game;
+            _game = game;
             _stageBackgroundStarfield = new StageBackgroundStarfield(_game);
             _stageBackgroundStarfield.Initialize();
 
-             this._stage = new Stage01(game);
+            _stage = new Stage01(game);
+
+            var engine = _stage.Engine;
+            var phmgr = engine.Managers.GetManager<Physics2dManager>();
+            var sm = phmgr.Root[0];
+            _physicsPlane0 = (Physics2dPlane)sm;
+            var stageBounds = (StageBounds)engine["StageBounds1"];
+
+            stageBounds.Body.OnCollision += OnStageBoundsCollision;
+            _physicsPlane0.World.ContactManager.ContactFilter += OnCollisionFilter;
+
         }
 
         internal void HandleInput(InputState input)
@@ -47,8 +61,18 @@ namespace MGJ3
             //update aether
             engine.Tick(gameTime);
 
+            while(_projectilesToRemove.Count > 0)
+            {
+                var ibody = _projectilesToRemove.Dequeue();
+                engine.UnregisterParticle(ibody);
+                // TODO: create a bullet pool
+            }
+            
+
+
             var player1 = (Player)engine["Player1"];
 
+            // player fire
             if (player1.IsFiring && _bulletTime > player1.BulletPeriod)
             {
                 _bulletTime = TimeSpan.Zero;
@@ -68,14 +92,34 @@ namespace MGJ3
                 engine.RegisterParticle(bullet);
                 //engine.SetParticleName(bullet, "bullet");
                 bullet.Initialize(engine);
-                phmgr = engine.Managers.GetManager<Physics2dManager>();
-                sm = phmgr.Root[0];
-                pl = (Physics2dPlane)sm;
-                pl.Add(bullet);
+                _physicsPlane0.Add(bullet);
                 bullet.Position = player1.Position + new Vector3(2, -2, 0);
                 bullet.Rotation = Quaternion.CreateFromRotationMatrix(Matrix.CreateRotationZ(MathHelper.ToRadians(-90)));
             }
 
+        }
+
+        Queue<IPhysics2dBody> _projectilesToRemove = new Queue<IPhysics2dBody>();
+
+        private bool OnStageBoundsCollision(Fixture sender, Fixture other, Contact contact)
+        {
+            if ((other.CollisionCategories & CollisionCategories.Projectiles) != 0)
+            {
+                var body = other.Body;
+                IPhysics2dBody ibody = (IPhysics2dBody)body.Tag;
+                _projectilesToRemove.Enqueue(ibody);
+                return false;
+            }
+
+            return true;
+        }
+
+
+        bool OnCollisionFilter(Fixture fixtureA, Fixture fixtureB)
+        {
+
+
+            return true;
         }
 
         internal void SetUIEffect(Effect uiEffect)
