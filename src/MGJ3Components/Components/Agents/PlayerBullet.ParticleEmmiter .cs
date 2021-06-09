@@ -1,5 +1,4 @@
 ﻿using System;
-using tainicom.Aether.Physics2D.Dynamics;
 using Microsoft.Xna.Framework;
 using tainicom.Aether.Elementary;
 using tainicom.Aether.Elementary.Serialization;
@@ -70,7 +69,7 @@ namespace MGJ3.Components
         public float VerticalVelocityMin { get; set; }
 
 
-        public PlayerBullet()
+        private void InitParticleEmmiter()
         {
             ParticlesPerSecond = 120;
 

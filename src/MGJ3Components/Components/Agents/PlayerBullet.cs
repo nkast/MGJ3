@@ -25,6 +25,13 @@ namespace MGJ3.Components
 
         public Matrix Rotate = Matrix.Identity;
 
+
+        public PlayerBullet()
+        {
+            InitParticleEmmiter();
+
+        }
+
         public void Initialize(AetherEngine engine)
         {
             _photonImpl.Initialize(engine, this, ContentModel);

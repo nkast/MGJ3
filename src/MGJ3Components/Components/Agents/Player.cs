@@ -16,7 +16,7 @@ namespace MGJ3.Components
     public partial class Player: 
         IPhoton, 
         ILepton, IChronon, IBoundingBox, IInitializable, IAetherSerialization
-        ,IPhysics2dBody
+        , IPhysics2dBody
     {
         protected virtual string ContentModel { get { return "Agents\\Player"; } }
 
@@ -29,6 +29,11 @@ namespace MGJ3.Components
         public Trigger StartingPosition { get; set; }
 
         public Matrix Rotate = Matrix.Identity;
+
+        public Player()
+        {
+            InitParticleEmmiter();
+        }
 
         public void Initialize(AetherEngine engine)
         {

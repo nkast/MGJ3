@@ -72,7 +72,7 @@ namespace MGJ3.Components
         public float VerticalVelocityMin { get; set; }
 
 
-        public Player()
+        private void InitParticleEmmiter()
         {
             ParticlesPerSecond = 120;
 

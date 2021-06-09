@@ -124,34 +124,61 @@ namespace MGJ3
         {
             bool colllide = true;
 
+            var ibodyA = (IPhysics2dBody)fixtureA.Body.Tag;
+            var ibodyB = (IPhysics2dBody)fixtureB.Body.Tag;
+
+            ApplyDamage(ibodyA, ibodyB);
+            ApplyDamage(ibodyB, ibodyA);
+
             // handle Projectiles
-            if ((fixtureB.CollisionCategories & CollisionCategories.Projectiles) != 0)
-            {
-                var tmp = fixtureB;
-                fixtureB = fixtureA;
-                fixtureA = tmp;
-            }
             if ((fixtureA.CollisionCategories & CollisionCategories.Projectiles) != 0)
             {
-                var ibodyA = (IPhysics2dBody)fixtureA.Body.Tag;
-                var ibodyB = (IPhysics2dBody)fixtureB.Body.Tag;
-
-                var idamage = (IDamage)ibodyA;
-                var ihealth = ibodyB as IHealth;
-
-                if (idamage!=null && ihealth!=null)
-                {
-                    ihealth.Health -= idamage.Damage;
-                    if (ihealth.Health <= 0)
-                        _bodiesToRemove.Enqueue(ibodyB);
-                }
-
                 _projectilesToRemove.Enqueue(ibodyA);
-
+                colllide = false; // disable collision
+            }
+            if ((fixtureB.CollisionCategories & CollisionCategories.Projectiles) != 0)
+            {
+                _projectilesToRemove.Enqueue(ibodyB);
                 colllide = false; // disable collision
             }
 
+            var ihealthA = ibodyA as IHealth;
+            if (ihealthA != null)
+            {
+                if (ihealthA.Health <= 0)
+                {
+                    _bodiesToRemove.Enqueue(ibodyA);
+                    colllide = false; // disable collision
+                }
+            }
+
+            var ihealthB = ibodyB as IHealth;
+            if (ihealthB != null)
+            {
+                if (ihealthB.Health <= 0)
+                {
+                    _bodiesToRemove.Enqueue(ibodyB);
+                    colllide = false; // disable collision
+                }
+            }
+
             return colllide;
+        }
+
+        private bool ApplyDamage(IPhysics2dBody ibodyA, IPhysics2dBody ibodyB)
+        {
+            var idamage = ibodyA as IDamage;
+            var ihealth = ibodyB as IHealth;
+
+            if (idamage != null && ihealth != null)
+            {
+                ihealth.Health -= idamage.Damage;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         internal void SetUIEffect(Effect uiEffect)

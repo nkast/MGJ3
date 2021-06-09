@@ -16,7 +16,7 @@ namespace MGJ3.Components
         IPhoton, 
         ILepton, IChronon, IBoundingBox, IInitializable, IAetherSerialization
         ,IPhysics2dBody
-        ,IHealth
+        , IHealth
     {
         protected virtual string ContentModel { get { return "Agents\\Comet"; } }
 
@@ -24,6 +24,13 @@ namespace MGJ3.Components
         const float h = 8f;
 
         public Matrix Rotate = Matrix.Identity;
+
+        public Comet()
+        {
+            InitParticleEmmiter();
+
+            ((IHealth)this).Health = 4;
+        }
 
         public void Initialize(AetherEngine engine)
         {
@@ -197,7 +204,6 @@ namespace MGJ3.Components
         #region  Implement IDamage
         int IHealth.Health { get; set; }
         #endregion
-
 
         #region Implement IAetherSerialization
         public void Save(IAetherWriter writer)

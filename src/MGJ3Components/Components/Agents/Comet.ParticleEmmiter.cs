@@ -72,7 +72,7 @@ namespace MGJ3.Components
         public float VerticalVelocityMin { get; set; }
 
 
-        public Comet()
+        private void InitParticleEmmiter()
         {
             ParticlesPerSecond = 120;
 
@@ -89,9 +89,6 @@ namespace MGJ3.Components
             HorizontalVelocityMin = 0.2f;
             VerticalVelocityMax = 0.6f;
             VerticalVelocityMin = 0.4f;
-
-
-            ((IHealth)this).Health = 4;
         }
 
         public void TickParticleEmmiter(GameTime gameTime)
