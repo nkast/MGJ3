@@ -9,6 +9,7 @@ using tainicom.Aether.Elementary.Photons;
 using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Engine;
 using tainicom.Aether.Physics2D.Components;
+using tainicom.Aether.Physics2D.Dynamics.Contacts;
 
 namespace MGJ3.Components
 {
@@ -226,7 +227,7 @@ namespace MGJ3.Components
         #endregion
 
         // will be called whenever some other body collides with 'body'
-        bool OnCollision(Fixture fixtureA, Fixture fixtureB, tainicom.Aether.Physics2D.Dynamics.Contacts.Contact contact)
+        bool OnCollision(Fixture sender, Fixture other, Contact contact)
         {
             //if (fixtureB.IsSensor) return false;
 
