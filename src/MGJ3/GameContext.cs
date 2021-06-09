@@ -20,6 +20,8 @@ namespace MGJ3
         private TimeSpan Time;
 
         Physics2dPlane _physicsPlane0;
+        Queue<IPhysics2dBody> _projectilesToRemove = new Queue<IPhysics2dBody>();
+        Queue<IPhysics2dBody> _bodiesToRemove = new Queue<IPhysics2dBody>();
 
 
         public GameContext(Game game)
@@ -68,6 +70,12 @@ namespace MGJ3
                 // TODO: create a bullet pool
             }
             
+            while (_bodiesToRemove.Count > 0)
+            {
+                var ibody = _bodiesToRemove.Dequeue();
+                engine.UnregisterParticle(ibody);
+            }
+
 
 
             var player1 = (Player)engine["Player1"];
@@ -99,8 +107,6 @@ namespace MGJ3
 
         }
 
-        Queue<IPhysics2dBody> _projectilesToRemove = new Queue<IPhysics2dBody>();
-
         private bool OnStageBoundsCollision(Fixture sender, Fixture other, Contact contact)
         {
             if ((other.CollisionCategories & CollisionCategories.Projectiles) != 0)
@@ -118,13 +124,13 @@ namespace MGJ3
         {
             bool colllide = true;
 
+            // handle Projectiles
             if ((fixtureB.CollisionCategories & CollisionCategories.Projectiles) != 0)
             {
                 var tmp = fixtureB;
                 fixtureB = fixtureA;
                 fixtureA = tmp;
             }
-
             if ((fixtureA.CollisionCategories & CollisionCategories.Projectiles) != 0)
             {
                 var ibodyA = (IPhysics2dBody)fixtureA.Body.Tag;
@@ -136,15 +142,15 @@ namespace MGJ3
                 if (idamage!=null && ihealth!=null)
                 {
                     ihealth.Health -= idamage.Damage;
-
+                    if (ihealth.Health <= 0)
+                        _bodiesToRemove.Enqueue(ibodyB);
                 }
 
-                var ibody = (IPhysics2dBody)ibodyA.Body.Tag;
-                _projectilesToRemove.Enqueue(ibody);
+                _projectilesToRemove.Enqueue(ibodyA);
 
                 colllide = false; // disable collision
             }
-                
+
             return colllide;
         }
 
