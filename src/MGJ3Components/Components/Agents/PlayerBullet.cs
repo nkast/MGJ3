@@ -16,6 +16,7 @@ namespace MGJ3.Components
         IPhoton, 
         ILepton, IChronon, IBoundingBox, IInitializable, IAetherSerialization
         ,IPhysics2dBody
+        ,IDamage
     {
         protected virtual string ContentModel { get { return "Agents\\PlayerBullet"; } }
 
@@ -153,7 +154,8 @@ namespace MGJ3.Components
         public Body Body
         {
             get { return _bodyImpl.Body; }
-        } 
+        }
+
         #endregion
 
         #region Chronons implementation
@@ -188,6 +190,11 @@ namespace MGJ3.Components
 
             return true;
         }
+
+
+        #region  Implement IDamage
+        int IDamage.Damage { get { return 1; } }
+        #endregion
 
 
         #region Implement IAetherSerialization

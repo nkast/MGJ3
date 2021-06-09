@@ -16,6 +16,7 @@ namespace MGJ3.Components
         IPhoton, 
         ILepton, IChronon, IBoundingBox, IInitializable, IAetherSerialization
         ,IPhysics2dBody
+        ,IHealth
     {
         protected virtual string ContentModel { get { return "Agents\\Comet"; } }
 
@@ -191,6 +192,11 @@ namespace MGJ3.Components
 
             return true;
         }
+
+
+        #region  Implement IDamage
+        int IHealth.Health { get; set; }
+        #endregion
 
 
         #region Implement IAetherSerialization

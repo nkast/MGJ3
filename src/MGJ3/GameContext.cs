@@ -105,8 +105,7 @@ namespace MGJ3
         {
             if ((other.CollisionCategories & CollisionCategories.Projectiles) != 0)
             {
-                var body = other.Body;
-                IPhysics2dBody ibody = (IPhysics2dBody)body.Tag;
+                var ibody = (IPhysics2dBody)other.Body.Tag;
                 _projectilesToRemove.Enqueue(ibody);
                 return false;
             }
@@ -117,9 +116,36 @@ namespace MGJ3
 
         bool OnCollisionFilter(Fixture fixtureA, Fixture fixtureB)
         {
+            bool colllide = true;
 
+            if ((fixtureB.CollisionCategories & CollisionCategories.Projectiles) != 0)
+            {
+                var tmp = fixtureB;
+                fixtureB = fixtureA;
+                fixtureA = tmp;
+            }
 
-            return true;
+            if ((fixtureA.CollisionCategories & CollisionCategories.Projectiles) != 0)
+            {
+                var ibodyA = (IPhysics2dBody)fixtureA.Body.Tag;
+                var ibodyB = (IPhysics2dBody)fixtureB.Body.Tag;
+
+                var idamage = (IDamage)ibodyA;
+                var ihealth = ibodyB as IHealth;
+
+                if (idamage!=null && ihealth!=null)
+                {
+                    ihealth.Health -= idamage.Damage;
+
+                }
+
+                var ibody = (IPhysics2dBody)ibodyA.Body.Tag;
+                _projectilesToRemove.Enqueue(ibody);
+
+                colllide = false; // disable collision
+            }
+                
+            return colllide;
         }
 
         internal void SetUIEffect(Effect uiEffect)
