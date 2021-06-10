@@ -12,16 +12,31 @@ using tainicom.Aether.Physics2D.Dynamics.Contacts;
 
 namespace MGJ3.Components
 {
-    public partial class EnemyA: 
+    public partial class EnemyA:
         IPhoton, 
         ILepton, IChronon, IBoundingBox, IInitializable, IAetherSerialization
-        ,IPhysics2dBody
+        , IPhysics2dBody
         , IHealth
     {
         protected virtual string ContentModel { get { return "Agents\\EnemyA0"; } }
 
         const float w = 8f;
         const float h = 8f;
+
+        float _phase = 0;
+        float _amplitude = 25;
+
+        public float Phase
+        {
+            get { return MathHelper.ToDegrees(_phase); }
+            set { _phase = MathHelper.ToRadians(value); }
+        }
+
+        public float Amplitude
+        {
+            get { return _amplitude; }
+            set { _amplitude = value; }
+        }
 
         public Matrix Rotate = Matrix.Identity;
 
@@ -175,14 +190,19 @@ namespace MGJ3.Components
             //_bodyImpl.Body. ApplyLinear Impulse(-lvelocity);
 
             _bodyImpl.Body.ApplyLinearImpulse(new Vector2(-accelForce,0));
-            
+                        
             _leptonImpl.Position = Physics2dManager.Box2DtoXNAWorldPosition(_bodyImpl.Physics2dPlane, Body.Position, _leptonImpl.Position);
 
             //System.Diagnostics.Debug.WriteLine(_bodyImpl.Body.LinearVelocity.Y);
-            float rot = -35f * MathHelper.Clamp(_bodyImpl.Body.LinearVelocity.Y / (132f * 2f), -1f, 1f);
-            _leptonImpl.Rotation = Quaternion.CreateFromRotationMatrix(Matrix.CreateRotationZ(MathHelper.ToRadians(90)))
+            float rot = 35f * MathHelper.Clamp(_bodyImpl.Body.LinearVelocity.Y / (13f * 2f), -1f, 1f);
+            _leptonImpl.Rotation = Quaternion.CreateFromYawPitchRoll(0,0,MathHelper.ToRadians(90))
                                  * Quaternion.CreateFromAxisAngle(Vector3.Up, MathHelper.ToRadians(rot));
+            
+            var targetpos = Position;
+            targetpos.Y = (float)Math.Cos(MathHelper.WrapAngle(_phase) + MathHelper.WrapAngle(MathHelper.Tau * totalSeconds * 1f/6f)) * Amplitude;
+            var diffpos = targetpos - Position;
 
+            _bodyImpl.Body.ApplyLinearImpulse(new Vector2(0, diffpos.Y * _bodyImpl.Body.Mass));
 
             return;
         }
@@ -210,6 +230,9 @@ namespace MGJ3.Components
             _photonImpl.Save(writer);
             _bodyImpl.Save(writer);
 
+            writer.WriteFloat("Amplitude", _amplitude);
+            writer.WriteFloat("Phase", _phase);
+
             SaveParticleEmmiter(writer);
         }
         public void Load(IAetherReader reader)
@@ -218,6 +241,9 @@ namespace MGJ3.Components
             _leptonImpl.Load(reader);
             _photonImpl.Load(reader);
             _bodyImpl.Load(reader);
+
+            reader.ReadFloat("Amplitude", out _amplitude);
+            reader.ReadFloat("Phase", out _phase);
 
             LoadParticleEmmiter(reader);
         }
