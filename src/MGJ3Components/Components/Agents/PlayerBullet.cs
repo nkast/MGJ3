@@ -125,7 +125,7 @@ namespace MGJ3.Components
             _bodyImpl.Body.FixedRotation = true;
             _bodyImpl.Body.LinearDamping = 2;
             _bodyImpl.Body.Position = Physics2dManager.XNAtoBox2DWorldPosition(_bodyImpl.Physics2dPlane, this.Position);
-            fixture = _bodyImpl.Body.CreateCircle(w/2f, 1, new Vector2(0f, 0f));
+            fixture = _bodyImpl.Body.CreateRectangle(2, 2, 1, new Vector2(0f, 0f));
 
             fixture.CollisionCategories = CollisionCategories.PlayerBullet;
             fixture.CollidesWith = CollisionCategories.EnemyBullet
