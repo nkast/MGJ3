@@ -21,6 +21,7 @@ namespace MGJ3
 
         Physics2dPlane _physicsPlane0;
         Queue<IPhysics2dBody> _projectilesToRemove = new Queue<IPhysics2dBody>();
+        Queue<IPhysics2dBody> _bonusesToRemove = new Queue<IPhysics2dBody>();
         Queue<IPhysics2dBody> _bodiesToRemove = new Queue<IPhysics2dBody>();
 
 
@@ -69,7 +70,13 @@ namespace MGJ3
                 engine.UnregisterParticle(ibody);
                 // TODO: create a bullet pool
             }
-            
+
+            while (_bonusesToRemove.Count > 0)
+            {
+                var ibody = _bonusesToRemove.Dequeue();
+                engine.UnregisterParticle(ibody);
+            }
+
             while (_bodiesToRemove.Count > 0)
             {
                 var ibody = _bodiesToRemove.Dequeue();
@@ -118,6 +125,12 @@ namespace MGJ3
                 _projectilesToRemove.Enqueue(ibody);
                 return false;
             }
+            if ((other.CollisionCategories & CollisionCategories.Bonuses) != 0)
+            {
+                var ibody = (IPhysics2dBody)other.Body.Tag;
+                _bonusesToRemove.Enqueue(ibody);
+                return false;
+            }
 
             return true;
         }
@@ -136,12 +149,28 @@ namespace MGJ3
             // handle Projectiles
             if ((fixtureA.CollisionCategories & CollisionCategories.Projectiles) != 0)
             {
-                _projectilesToRemove.Enqueue(ibodyA);
+                if (!_projectilesToRemove.Contains(ibodyA))
+                    _projectilesToRemove.Enqueue(ibodyA);
                 colllide = false; // disable collision
             }
             if ((fixtureB.CollisionCategories & CollisionCategories.Projectiles) != 0)
             {
-                _projectilesToRemove.Enqueue(ibodyB);
+                if (!_projectilesToRemove.Contains(ibodyB))
+                    _projectilesToRemove.Enqueue(ibodyB);
+                colllide = false; // disable collision
+            }
+
+            // handle Bonuses
+            if ((fixtureA.CollisionCategories & CollisionCategories.Bonuses) != 0)
+            {
+                if (!_bonusesToRemove.Contains(ibodyA))
+                    _bonusesToRemove.Enqueue(ibodyA);
+                colllide = false; // disable collision
+            }
+            if ((fixtureB.CollisionCategories & CollisionCategories.Bonuses) != 0)
+            {
+                  if (!_bonusesToRemove.Contains(ibodyB))
+                    _bonusesToRemove.Enqueue(ibodyB);
                 colllide = false; // disable collision
             }
 
@@ -150,7 +179,8 @@ namespace MGJ3
             {
                 if (ihealthA.Health <= 0)
                 {
-                    _bodiesToRemove.Enqueue(ibodyA);
+                    if (!_bodiesToRemove.Contains(ibodyA))
+                        _bodiesToRemove.Enqueue(ibodyA);
                     colllide = false; // disable collision
                 }
             }
@@ -160,7 +190,8 @@ namespace MGJ3
             {
                 if (ihealthB.Health <= 0)
                 {
-                    _bodiesToRemove.Enqueue(ibodyB);
+                    if (!_bodiesToRemove.Contains(ibodyB))
+                        _bodiesToRemove.Enqueue(ibodyB);
                     colllide = false; // disable collision
                 }
             }

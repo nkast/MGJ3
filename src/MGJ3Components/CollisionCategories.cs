@@ -13,12 +13,12 @@ namespace MGJ3.Components
         public const Category Enemy = Category.Cat5;
         public const Category EnemyBullet = Category.Cat6;
 
+        // all bonus categories
+        public const Category Bonuses = Category.Cat7;
         // all enemy categories
         public const Category Enemies = Comet | EnemyBullet | Enemy;
-        // all enemy categories
+        // all projectile categories
         public const Category Projectiles = PlayerBullet | EnemyBullet;
-        // all bonus categories
-        public const Category Bonuses = (Category)0;
 
     }
 }

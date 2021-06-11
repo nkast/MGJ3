@@ -211,8 +211,15 @@ namespace MGJ3.Components
         #region  Implement IEnemies
         void IEnemies.Kill()
         {
-            _engine.UnregisterParticle(this);
+            var coin = new OneCoin();
+            _engine.RegisterParticle(coin);
+            //engine.SetParticleName(coin, "coin");
+            coin.Initialize(_engine);
+            coin.Position = this.Position;
+            ((Physics2dPlane)Body.World.Tag).Add(coin);
 
+
+              _engine.UnregisterParticle(this);
         }
         #endregion
 
