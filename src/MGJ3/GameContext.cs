@@ -73,7 +73,10 @@ namespace MGJ3
             while (_bodiesToRemove.Count > 0)
             {
                 var ibody = _bodiesToRemove.Dequeue();
-                engine.UnregisterParticle(ibody);
+                if (ibody is IEnemies)
+                    ((IEnemies)ibody).Kill();
+                else
+                    engine.UnregisterParticle(ibody);
             }
 
 

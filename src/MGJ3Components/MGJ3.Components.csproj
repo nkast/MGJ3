@@ -28,6 +28,7 @@
     <Compile Include="Components\Agents\EnemyA.cs" />
     <Compile Include="Components\Agents\EnemyA.ParticleEmmiter.cs" />
     <Compile Include="Components\Agents\IDamage.cs" />
+    <Compile Include="Components\Agents\IEnemies.cs" />
     <Compile Include="Components\Agents\IHealth.cs" />
     <Compile Include="Components\Agents\Player.cs" />
     <Compile Include="Components\Agents\Player.ParticleEmmiter.cs" />
