@@ -25,6 +25,7 @@ namespace MGJ3
         Queue<IPhysics2dBody> _bodiesToRemove = new Queue<IPhysics2dBody>();
 
 
+
         public GameContext(Game game)
         {
             _game = game;
@@ -33,11 +34,10 @@ namespace MGJ3
 
             _stage = new Stage01(game);
 
-            var engine = _stage.Engine;
-            var phmgr = engine.Managers.GetManager<Physics2dManager>();
+            var phmgr = _stage.Engine.Managers.GetManager<Physics2dManager>();
             var sm = phmgr.Root[0];
             _physicsPlane0 = (Physics2dPlane)sm;
-            var stageBounds = (StageBounds)engine["StageBounds1"];
+            var stageBounds = (StageBounds)_stage.Engine["StageBounds1"];
 
             stageBounds.Body.OnCollision += OnStageBoundsCollision;
             _physicsPlane0.World.ContactManager.ContactFilter += OnCollisionFilter;
@@ -62,7 +62,7 @@ namespace MGJ3
             var engine = _stage.Engine;
 
             //update aether
-            engine.Tick(gameTime);
+            _stage.Engine.Tick(gameTime);
 
             while(_projectilesToRemove.Count > 0)
             {
@@ -87,14 +87,11 @@ namespace MGJ3
             }
 
 
-
-            var player1 = (Player)engine["Player1"];
-
             // player fire
-            if (player1.IsFiring && _bulletTime > player1.BulletPeriod)
+            if (_stage.Player1.IsFiring && _bulletTime > _stage.Player1.BulletPeriod)
             {
                 _bulletTime = TimeSpan.Zero;
-                player1.Fire();
+                _stage.Player1.Fire();
             }
 
         }
@@ -146,13 +143,22 @@ namespace MGJ3
             if ((fixtureA.CollisionCategories & CollisionCategories.Bonuses) != 0)
             {
                 if (!_bonusesToRemove.Contains(ibodyA))
+                {
                     _bonusesToRemove.Enqueue(ibodyA);
+                    if (ibodyA is IBonus && ibodyB is Player)
+                        ApplyBonus((IBonus)ibodyA);
+
+                }
                 colllide = false; // disable collision
             }
             if ((fixtureB.CollisionCategories & CollisionCategories.Bonuses) != 0)
             {
-                  if (!_bonusesToRemove.Contains(ibodyB))
+                if (!_bonusesToRemove.Contains(ibodyB))
+                {
                     _bonusesToRemove.Enqueue(ibodyB);
+                    if (ibodyA is IBonus && ibodyB is Player)
+                        ApplyBonus((IBonus)ibodyB);
+                }
                 colllide = false; // disable collision
             }
 
@@ -179,6 +185,11 @@ namespace MGJ3
             }
 
             return colllide;
+        }
+
+        private void ApplyBonus(IBonus ibodyA)
+        {
+            
         }
 
         private bool ApplyDamage(IPhysics2dBody ibodyA, IPhysics2dBody ibodyB)

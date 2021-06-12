@@ -20,6 +20,7 @@ namespace MGJ3.Stages
         ContentManager _content;
         AetherContextMG _context;
         public AetherEngine Engine { get { return engine; } }
+        public Player Player1 { get { return (Player)engine["Player1"]; } }
 
         protected AetherEngine engine;
         protected Stream stream;

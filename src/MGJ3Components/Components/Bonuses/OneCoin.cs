@@ -16,7 +16,8 @@ namespace MGJ3.Components
     public partial class OneCoin: 
         IPhoton, 
         ILepton, IChronon, IBoundingBox, IInitializable, IAetherSerialization
-        ,IPhysics2dBody
+        , IPhysics2dBody
+        , IBonus
     {
         protected virtual string ContentModel
         {
