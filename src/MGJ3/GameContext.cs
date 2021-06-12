@@ -33,9 +33,7 @@ namespace MGJ3
 
             _stage = new Stage01(game);
 
-            var stageBounds = (StageBounds)_stage.Engine["StageBounds1"];
-
-            stageBounds.Body.OnCollision += OnStageBoundsCollision;
+            _stage.StageBounds.Body.OnCollision += OnStageBoundsCollision;
             _stage.PhysicsPlane0.World.ContactManager.ContactFilter += OnCollisionFilter;
 
         }

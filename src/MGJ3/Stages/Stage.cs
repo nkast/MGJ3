@@ -21,8 +21,9 @@ namespace MGJ3.Stages
         ContentManager _content;
         AetherContextMG _context;
         public AetherEngine Engine { get { return engine; } }
+        public StageBounds StageBounds { get { return (StageBounds)engine["StageBounds1"]; } }
         public Player Player1 { get { return (Player)engine["Player1"]; } }
-        public Physics2dPlane PhysicsPlane0 { get { return (Physics2dPlane)engine["Physics2dPlane1"]; } }
+        public Physics2dPlane PhysicsPlane0 { get { return (Physics2dPlane)engine["Physics2dPlane0"]; } }
 
         protected AetherEngine engine;
         protected Stream stream;
