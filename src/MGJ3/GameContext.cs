@@ -25,12 +25,12 @@ namespace MGJ3
         Queue<IPhysics2dBody> _bodiesToRemove = new Queue<IPhysics2dBody>();
 
         // player info
-        PlayerState _playerState = PlayerState.Normal;
+        public PlayerState PlayerState { get; private set; }
         TimeSpan _stateTime = TimeSpan.Zero;
-        TimeSpan _respawnSafePeriod = TimeSpan.FromSeconds(4);
+        TimeSpan _respawnSafePeriod = TimeSpan.FromSeconds(3);
         public int RemainingLives = 2;
         public int Score = 0;
-        public static int HiScore = 4;
+        public static int HiScore = 10;
         string _scoreTxt;
         string _hiScoreTxt;
 
@@ -95,14 +95,14 @@ namespace MGJ3
 
 
             // player fire
-            if (_stage.Player1.IsFiring && _bulletTime > _stage.Player1.BulletPeriod)
+            if (PlayerState != PlayerState.Lost && _stage.Player1.IsFiring && _bulletTime > _stage.Player1.BulletPeriod)
             {
                 _bulletTime = TimeSpan.Zero;
                 _stage.Player1.Fire();
             }
 
             _stateTime += gameTime.ElapsedGameTime;
-            switch(_playerState)
+            switch(PlayerState)
             {
                 case PlayerState.Killed:
                     {
@@ -110,14 +110,14 @@ namespace MGJ3
                         {
                             RemainingLives--;
                             _stage.Player1.Position = new Vector3(-25,0,0);
-                            _playerState = PlayerState.Respawn;
+                            PlayerState = PlayerState.Respawn;
                         }
                         else
                         {
                             // TODO: game over
-                            _playerState = PlayerState.Lost;
+                            PlayerState = PlayerState.Lost;
                             _stateTime = TimeSpan.Zero;
-                            _stage.Player1.IsVisible = true;
+                            _stage.Player1.IsVisible = false;
                         }
                         _stateTime = TimeSpan.Zero;
                     }
@@ -130,7 +130,7 @@ namespace MGJ3
                         }
                         else
                         {
-                            _playerState = PlayerState.Normal;
+                            PlayerState = PlayerState.Normal;
                             _stateTime = TimeSpan.Zero;
                             _stage.Player1.IsVisible = true;
                         }
@@ -210,13 +210,16 @@ namespace MGJ3
             if ((colllide == true && ibodyA is Player && (fixtureB.CollisionCategories & CollisionCategories.Enemies) != 0) ||
                 (colllide == true && ibodyB is Player && (fixtureA.CollisionCategories & CollisionCategories.Enemies) != 0))
             {
-                switch(_playerState)
+                switch(PlayerState)
                 {
+                    case PlayerState.Lost:
+                        colllide = false; // disable collision
+                        break;
                     case PlayerState.Respawn:
                         colllide = false; // disable collision
                         break;
                     case PlayerState.Normal:
-                        _playerState = PlayerState.Killed;
+                        PlayerState = PlayerState.Killed;
                         colllide = false; // disable collision
                         break;
                 }

@@ -93,6 +93,7 @@ namespace MGJ3.Components
 
         public void TickParticleEmmiter(GameTime gameTime)
         {
+            if (!IsVisible) return;
             if (ParticleSystem == null) return;
             if (timeBetweenParticles <= 0f) return;
 

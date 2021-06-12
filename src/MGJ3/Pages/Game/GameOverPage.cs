@@ -21,13 +21,18 @@ namespace MGJ3.Pages.GamePages
         Scheduler scheduler;
         Random rnd = new Random();
 
+        GameContext _gameContext;
+
         Texture2D _txTitle;
         UIButton _btnBack;
+        UIButton _btnPlay;
         List<UIButton> _buttons = new List<UIButton>();
-        int _selectionIndex = 0;
+        int _selectionIndex = 1;
 
-        public GameOverPage(PageManager pageManager) : base(pageManager)
+        public GameOverPage(PageManager pageManager, GameContext gameContext) : base(pageManager)
         {
+            _gameContext = gameContext;
+
             TransitionStateChanged += new EventHandler<TransitionStateChangedEventArgs>(StartMenuPage_TransitionStateChanged);
         }
 
@@ -41,9 +46,12 @@ namespace MGJ3.Pages.GamePages
         public override bool SideloadContent()
         {
             content = new ContentManager(pageManager.Game.Services, "Content");
+
             _txTitle = content.Load<Texture2D>(@"Pages\Game\GameOverTitle");
             _btnBack = new UIButton(new Vector2(250, 240), 0.7f, content.Load<Texture2D>(@"Pages\UIButtons\UIButtonMenu"));
-            _buttons.AddRange(new[] { _btnBack });
+            _btnPlay = new UIButton(new Vector2(400, 240), 0.7f, content.Load<Texture2D>(@"Pages\UIButtons\UIButtonPlay"));
+            
+            _buttons.AddRange(new[] { _btnBack, _btnPlay });
 
             return base.SideloadContent();
         }
@@ -104,6 +112,10 @@ namespace MGJ3.Pages.GamePages
                                 break;
                             case 1:
                                 {
+                                    var gamePage = new GameStartPage(pageManager);
+                                    gamePage.Initialize();
+                                    pageManager.SideloadPage(gamePage);
+                                    pageManager.ReplacePage(gamePage);
                                 }
                                 break;
                             case 2:
@@ -117,11 +129,24 @@ namespace MGJ3.Pages.GamePages
 
 
             }
+
+            //_gameContext.HandleInput(input);
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+
+            if (TransitionState == EnumTransitionState.TransitionIn)
+            {
+                float invDelta = (1f - this.TransitionDelta);
+                long ticks = gameTime.ElapsedGameTime.Ticks;
+                ticks = (long)(gameTime.ElapsedGameTime.Ticks * invDelta);
+                var gt = new GameTime(gameTime.TotalGameTime, TimeSpan.FromTicks(ticks));
+                _gameContext.Update(gt);
+
+                System.Diagnostics.Debug.WriteLine("invDelta " + invDelta + ", ticks " + ticks);
+            }
 
 
             for (int i = 0; i < _buttons.Count; i++)
@@ -161,6 +186,14 @@ namespace MGJ3.Pages.GamePages
             spark = spark + (nextspark - spark) * 0.5f;
             Color scolor = Color.LightYellow * fade * spark;
             
+
+            _gameContext.SetUIEffect(this.UiEffect);
+            
+            pageManager.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.DepthRead , RasterizerState.CullNone, this.UiEffect);
+            _gameContext.Draw(gameTime, this.content , pageManager.SpriteBatch, 1f);
+            pageManager.SpriteBatch.End();
+
+
             pageManager.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.DepthRead, RasterizerState.CullNone, this.UiEffect);
 
             pageManager.SpriteBatch.Draw(_txTitle, new Vector2(400,100), null, color, 0f, new Vector2(_txTitle.Width, _txTitle.Height) / 2f, 1f, SpriteEffects.None, 0.7f);

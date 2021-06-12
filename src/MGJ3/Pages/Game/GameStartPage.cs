@@ -23,7 +23,7 @@ namespace MGJ3.Pages.GamePages
 
         public GameStartPage(PageManager pageManager) : base(pageManager)
         {
-            
+
         }
 
         public override void Initialize()
@@ -41,6 +41,12 @@ namespace MGJ3.Pages.GamePages
             return base.SideloadContent();
         }
 
+        public override void GetTransitionInfo(IPage pageB, out TimeSpan durationA, out EnumTransitionSync syncA)
+        {
+            durationA = TimeSpan.FromSeconds(0.4f);
+            syncA = EnumTransitionSync.Exclusive;
+            return;
+        }
         protected override void UnloadContent()
         {
             content.Dispose();
@@ -74,6 +80,14 @@ namespace MGJ3.Pages.GamePages
 
             _gameContext.Update(gameTime);
 
+            if (TransitionState != EnumTransitionState.TransitionOut && _gameContext.PlayerState == Components.PlayerState.Lost)
+            {
+                var gamePage = new GameOverPage(pageManager, _gameContext);
+                gamePage.Initialize();
+                pageManager.SideloadPage(gamePage);
+                pageManager.ReplacePage(gamePage);
+            }
+
         }
 
         public override void Draw(GameTime gameTime)
@@ -87,14 +101,14 @@ namespace MGJ3.Pages.GamePages
 #endif
 
             Vector2 screenSize = new Vector2(viewWidth, viewHeight);
-            Vector2 origin = Vector2.Zero;          
+            Vector2 origin = Vector2.Zero;
 
 
             float fade = 1;
             fade = this.TransitionDelta;
 
             _gameContext.SetUIEffect(this.UiEffect);
-                      
+            
             pageManager.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.DepthRead , RasterizerState.CullNone, this.UiEffect);
             _gameContext.Draw(gameTime, this.content , pageManager.SpriteBatch, fade);
             pageManager.SpriteBatch.End();
@@ -102,12 +116,6 @@ namespace MGJ3.Pages.GamePages
 
         }
 
-        public override void GetTransitionInfo(IPage pageB, out TimeSpan durationA, out EnumTransitionSync syncA)
-        {
-            durationA = TimeSpan.FromSeconds(0.4f);
-            syncA = EnumTransitionSync.Exclusive;
-            return;
-        }
 
         public override void OnRemoved(EventArgs e)
         {
