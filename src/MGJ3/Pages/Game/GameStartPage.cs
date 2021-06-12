@@ -78,7 +78,17 @@ namespace MGJ3.Pages.GamePages
         {
             base.Update(gameTime);
 
-            _gameContext.Update(gameTime);
+            if (TransitionState == EnumTransitionState.TransitionOut)
+            {
+                double invDelta = (1.0 - this.TransitionDelta);
+                double dt = gameTime.ElapsedGameTime.TotalSeconds * invDelta;
+                var gt = new GameTime(gameTime.TotalGameTime, TimeSpan.FromSeconds(dt));
+                _gameContext.Update(gt);
+            }
+            else
+            {
+                _gameContext.Update(gameTime);
+            }
 
             if (TransitionState != EnumTransitionState.TransitionOut && _gameContext.PlayerState == Components.PlayerState.Lost)
             {

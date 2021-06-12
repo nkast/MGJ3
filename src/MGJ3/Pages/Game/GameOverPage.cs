@@ -137,16 +137,7 @@ namespace MGJ3.Pages.GamePages
         {
             base.Update(gameTime);
 
-            if (TransitionState == EnumTransitionState.TransitionIn)
-            {
-                float invDelta = (1f - this.TransitionDelta);
-                long ticks = gameTime.ElapsedGameTime.Ticks;
-                ticks = (long)(gameTime.ElapsedGameTime.Ticks * invDelta);
-                var gt = new GameTime(gameTime.TotalGameTime, TimeSpan.FromTicks(ticks));
-                _gameContext.Update(gt);
-
-                System.Diagnostics.Debug.WriteLine("invDelta " + invDelta + ", ticks " + ticks);
-            }
+            //_gameContext.Update(gt);
 
 
             for (int i = 0; i < _buttons.Count; i++)
