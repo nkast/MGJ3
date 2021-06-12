@@ -21,8 +21,8 @@ namespace MGJ3.Components
         protected virtual string ContentModel { get { return "Agents\\Comet"; } }
 
         private AetherEngine _engine;
-        const float w = 8f;
-        const float h = 8f;
+        const float w = 6f;
+        const float h = 6f;
 
         public Matrix Rotate = Matrix.Identity;
 

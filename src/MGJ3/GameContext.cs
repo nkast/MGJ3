@@ -50,7 +50,7 @@ namespace MGJ3
 
         internal void HandleInput(InputState input)
         {
-            
+
         }
 
         TimeSpan _bulletTime;
@@ -68,7 +68,7 @@ namespace MGJ3
             //update aether
             _stage.Engine.Tick(gameTime);
 
-            while(_projectilesToRemove.Count > 0)
+            while (_projectilesToRemove.Count > 0)
             {
                 var ibody = _projectilesToRemove.Dequeue();
                 engine.UnregisterParticle(ibody);
@@ -132,13 +132,13 @@ namespace MGJ3
             // handle Projectiles
             if ((fixtureA.CollisionCategories & CollisionCategories.Projectiles) != 0)
             {
-                        if (!_projectilesToRemove.Contains(ibodyA))
+                if (!_projectilesToRemove.Contains(ibodyA))
                     _projectilesToRemove.Enqueue(ibodyA);
                 colllide = false; // disable collision
             }
             if ((fixtureB.CollisionCategories & CollisionCategories.Projectiles) != 0)
             {
-                  if (!_projectilesToRemove.Contains(ibodyB))
+                if (!_projectilesToRemove.Contains(ibodyB))
                     _projectilesToRemove.Enqueue(ibodyB);
                 colllide = false; // disable collision
             }
@@ -157,11 +157,24 @@ namespace MGJ3
             }
             if ((fixtureB.CollisionCategories & CollisionCategories.Bonuses) != 0)
             {
-                 if (!_bonusesToRemove.Contains(ibodyB))
+                if (!_bonusesToRemove.Contains(ibodyB))
                 {
                     _bonusesToRemove.Enqueue(ibodyB);
                     if (ibodyB is IBonus && ibodyA is Player)
                         ApplyBonus((IBonus)ibodyB);
+                }
+                colllide = false; // disable collision
+            }
+
+            if (colllide == true && (ibodyA is Player || ibodyB is Player) )
+            {
+                if (RemainingLives > 0)
+                {
+                    RemainingLives--;
+                }
+                else
+                {
+                    // TODO: game over
                 }
                 colllide = false; // disable collision
             }

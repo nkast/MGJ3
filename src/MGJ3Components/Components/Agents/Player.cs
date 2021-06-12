@@ -21,8 +21,8 @@ namespace MGJ3.Components
         protected virtual string ContentModel { get { return "Agents\\Player"; } }
 
         private AetherEngine _engine;
-        const float w = 8f;
-        const float h = 8f;
+        const float w = 6f;
+        const float h = 6f;
 
         public bool IsFiring;
         public TimeSpan BulletPeriod { get { return TimeSpan.FromSeconds(1f / 4f); } }
