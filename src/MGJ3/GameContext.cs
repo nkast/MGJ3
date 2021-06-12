@@ -19,7 +19,6 @@ namespace MGJ3
         private Stage _stage;
         private TimeSpan Time;
 
-        Physics2dPlane _physicsPlane0;
         Queue<IPhysics2dBody> _projectilesToRemove = new Queue<IPhysics2dBody>();
         Queue<IPhysics2dBody> _bonusesToRemove = new Queue<IPhysics2dBody>();
         Queue<IPhysics2dBody> _bodiesToRemove = new Queue<IPhysics2dBody>();
@@ -34,13 +33,10 @@ namespace MGJ3
 
             _stage = new Stage01(game);
 
-            var phmgr = _stage.Engine.Managers.GetManager<Physics2dManager>();
-            var sm = phmgr.Root[0];
-            _physicsPlane0 = (Physics2dPlane)sm;
             var stageBounds = (StageBounds)_stage.Engine["StageBounds1"];
 
             stageBounds.Body.OnCollision += OnStageBoundsCollision;
-            _physicsPlane0.World.ContactManager.ContactFilter += OnCollisionFilter;
+            _stage.PhysicsPlane0.World.ContactManager.ContactFilter += OnCollisionFilter;
 
         }
 

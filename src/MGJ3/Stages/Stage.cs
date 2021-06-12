@@ -11,6 +11,7 @@ using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Engine;
 using tainicom.Aether.Maths;
 using tainicom.Aether.MonoGame;
+using tainicom.Aether.Physics2D.Components;
 
 namespace MGJ3.Stages
 {
@@ -21,6 +22,7 @@ namespace MGJ3.Stages
         AetherContextMG _context;
         public AetherEngine Engine { get { return engine; } }
         public Player Player1 { get { return (Player)engine["Player1"]; } }
+        public Physics2dPlane PhysicsPlane0 { get { return (Physics2dPlane)engine["Physics2dPlane1"]; } }
 
         protected AetherEngine engine;
         protected Stream stream;
