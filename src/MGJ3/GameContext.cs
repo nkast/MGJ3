@@ -25,6 +25,7 @@ namespace MGJ3
         Queue<IPhysics2dBody> _bodiesToRemove = new Queue<IPhysics2dBody>();
 
         // player info
+        public int RemainingLives = 2;
         public int Score = 0;
         public static int HiScore = 4;
         string _scoreTxt;
@@ -239,6 +240,10 @@ namespace MGJ3
 
             spriteBatch.DrawString(font, "HI SCORE", new Vector2(400-20, 6), Color.White * fade);
             spriteBatch.DrawString(font, _hiScoreTxt, new Vector2(400-20, 24), Color.White * fade);
+
+
+
+            spriteBatch.DrawString(font, "Remaining Lives: " + RemainingLives, new Vector2(40, 480-6-24), Color.White * fade);
 
 
 
