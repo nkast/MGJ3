@@ -24,7 +24,7 @@ namespace MGJ3.Components
             set { h = value; }
         }
 
-        private float w = 134f;
+        private float w = 129f;
         private float h = 80f;
 
         public void Initialize(AetherEngine engine)
