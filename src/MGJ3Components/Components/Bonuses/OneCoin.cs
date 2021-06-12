@@ -198,6 +198,11 @@ namespace MGJ3.Components
         }
 
 
+        #region Implement IBonus
+        int IBonus.Score { get { return 1; } }
+        #endregion
+
+
         #region Implement IAetherSerialization
         public void Save(IAetherWriter writer)
         {

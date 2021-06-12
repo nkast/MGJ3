@@ -26,9 +26,9 @@ namespace MGJ3
 
         // player info
         public int Score = 0;
-        public static int HiScore = 10;
-        string _scoreTxt = "00000";
-        string _hiScoreTxt = "00000010";
+        public static int HiScore = 4;
+        string _scoreTxt;
+        string _hiScoreTxt;
 
 
         public GameContext(Game game)
@@ -41,6 +41,9 @@ namespace MGJ3
 
             _stage.StageBounds.Body.OnCollision += OnStageBoundsCollision;
             _stage.PhysicsPlane0.World.ContactManager.ContactFilter += OnCollisionFilter;
+
+            _scoreTxt = String.Format("{0:D5}", Score);
+            _hiScoreTxt = String.Format("{0:D8}", HiScore);
 
         }
 
@@ -128,13 +131,13 @@ namespace MGJ3
             // handle Projectiles
             if ((fixtureA.CollisionCategories & CollisionCategories.Projectiles) != 0)
             {
-                if (!_projectilesToRemove.Contains(ibodyA))
+                        if (!_projectilesToRemove.Contains(ibodyA))
                     _projectilesToRemove.Enqueue(ibodyA);
                 colllide = false; // disable collision
             }
             if ((fixtureB.CollisionCategories & CollisionCategories.Projectiles) != 0)
             {
-                if (!_projectilesToRemove.Contains(ibodyB))
+                  if (!_projectilesToRemove.Contains(ibodyB))
                     _projectilesToRemove.Enqueue(ibodyB);
                 colllide = false; // disable collision
             }
@@ -153,10 +156,10 @@ namespace MGJ3
             }
             if ((fixtureB.CollisionCategories & CollisionCategories.Bonuses) != 0)
             {
-                if (!_bonusesToRemove.Contains(ibodyB))
+                 if (!_bonusesToRemove.Contains(ibodyB))
                 {
                     _bonusesToRemove.Enqueue(ibodyB);
-                    if (ibodyA is IBonus && ibodyB is Player)
+                    if (ibodyB is IBonus && ibodyA is Player)
                         ApplyBonus((IBonus)ibodyB);
                 }
                 colllide = false; // disable collision
@@ -187,13 +190,14 @@ namespace MGJ3
             return colllide;
         }
 
-        private void ApplyBonus(IBonus ibodyA)
+        private void ApplyBonus(IBonus bonus)
         {
+            Score += bonus.Score;
+            HiScore = Math.Max(HiScore, Score);
 
 
-
-            _scoreTxt = String.Format("{0:X5}", this.Score);
-            _hiScoreTxt = String.Format("{0:X8}", this.Score);
+            _scoreTxt = String.Format("{0:D5}", Score);
+            _hiScoreTxt = String.Format("{0:D8}", HiScore);
         }
 
         private bool ApplyDamage(IPhysics2dBody ibodyA, IPhysics2dBody ibodyB)
