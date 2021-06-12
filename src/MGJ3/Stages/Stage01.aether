@@ -2,8 +2,8 @@
 <EatherEngine>
   <EngineData>
     <UniqueIdCounter>0</UniqueIdCounter>
-    <NextUniqueId>00000000-0000-0000-0000-000000000000</NextUniqueId>
-    <TotalTime>1861.0425558007828</TotalTime>
+    <NextUniqueId>D9FD5721-0E16-44EB-843B-F4DA59042787</NextUniqueId>
+    <TotalTime>1861.0758890007828</TotalTime>
   </EngineData>
   <Particles>
     <AetherParticle UID="CA5A12FE-8FE5-4EE0-9473-CBF72F6E5C0F" Name="Physics2dPlane0" Type="tainicom.Aether.Physics2D.Components.Physics2dPlane, Aether.Physics2D.Components">
@@ -185,7 +185,7 @@
         <AetherParticle UID="4182EA8C-5D84-4FCC-950C-03A72E1BCF0A" Name="Comet1" Type="MGJ3.Components.Comet, MGJ3.Components">
           <Position X="129.41539" Y="31.8223152" Z="0" />
           <Scale X="1" Y="1" Z="1" />
-          <Rotation X="-0.426558763" Y="-0.536057353" Z="-0.6324282" W="0.361558735" />
+          <Rotation X="0.007478744" Y="0.0174518488" Z="-0.000130541433" W="0.999819756" />
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
@@ -200,7 +200,7 @@
         <AetherParticle UID="04A3E94B-0E58-4608-9A77-805C4E02F46F" Name="Comet2" Type="MGJ3.Components.Comet, MGJ3.Components">
           <Position X="140.838211" Y="18.0092068" Z="0" />
           <Scale X="1" Y="1" Z="1" />
-          <Rotation X="-0.426558763" Y="-0.536057353" Z="-0.6324282" W="0.361558735" />
+          <Rotation X="0.007478744" Y="0.0174518488" Z="-0.000130541433" W="0.999819756" />
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
@@ -215,7 +215,7 @@
         <AetherParticle UID="AAB51BF1-376C-4ABD-A732-A88EFCE7639F" Name="Comet3" Type="MGJ3.Components.Comet, MGJ3.Components">
           <Position X="126.493279" Y="-22.1012859" Z="0" />
           <Scale X="1" Y="1" Z="1" />
-          <Rotation X="-0.426558763" Y="-0.536057353" Z="-0.6324282" W="0.361558735" />
+          <Rotation X="0.007478744" Y="0.0174518488" Z="-0.000130541433" W="0.999819756" />
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
@@ -230,7 +230,7 @@
         <AetherParticle UID="108C33EA-7A41-403C-A474-5CD8A7B730E5" Name="Comet4" Type="MGJ3.Components.Comet, MGJ3.Components">
           <Position X="136.056564" Y="-5.90980339" Z="0" />
           <Scale X="1" Y="1" Z="1" />
-          <Rotation X="-0.426558763" Y="-0.536057353" Z="-0.6324282" W="0.361558735" />
+          <Rotation X="0.007478744" Y="0.0174518488" Z="-0.000130541433" W="0.999819756" />
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
@@ -245,7 +245,7 @@
         <AetherParticle UID="24BD3DCF-341A-42A8-84ED-CC8A63D5B70B" Name="Comet5" Type="MGJ3.Components.Comet, MGJ3.Components">
           <Position X="100.459885" Y="-7.76340675" Z="0" />
           <Scale X="1" Y="1" Z="1" />
-          <Rotation X="-0.426558763" Y="-0.536057353" Z="-0.6324282" W="0.361558735" />
+          <Rotation X="0.007478744" Y="0.0174518488" Z="-0.000130541433" W="0.999819756" />
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
@@ -260,7 +260,7 @@
         <AetherParticle UID="EA50E267-73C9-4A5F-B78D-8E3BF5CD1475" Name="Comet6" Type="MGJ3.Components.Comet, MGJ3.Components">
           <Position X="157.314529" Y="-8.691074" Z="0" />
           <Scale X="1" Y="1" Z="1" />
-          <Rotation X="-0.426558763" Y="-0.536057353" Z="-0.6324282" W="0.361558735" />
+          <Rotation X="0.007478744" Y="0.0174518488" Z="-0.000130541433" W="0.999819756" />
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
@@ -275,7 +275,7 @@
         <AetherParticle UID="99BE6CF6-A298-48D7-BDC0-55C88DF33487" Name="Comet7" Type="MGJ3.Components.Comet, MGJ3.Components">
           <Position X="180.532974" Y="18.7843838" Z="0" />
           <Scale X="1" Y="1" Z="1" />
-          <Rotation X="-0.426558763" Y="-0.536057353" Z="-0.6324282" W="0.361558735" />
+          <Rotation X="0.007478744" Y="0.0174518488" Z="-0.000130541433" W="0.999819756" />
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
@@ -290,7 +290,7 @@
         <AetherParticle UID="DA954E9D-DB46-48EB-A19A-A8674C234A49" Name="Comet8" Type="MGJ3.Components.Comet, MGJ3.Components">
           <Position X="169.069626" Y="35.7917633" Z="0" />
           <Scale X="1" Y="1" Z="1" />
-          <Rotation X="-0.426558763" Y="-0.536057353" Z="-0.6324282" W="0.361558735" />
+          <Rotation X="0.007478744" Y="0.0174518488" Z="-0.000130541433" W="0.999819756" />
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
@@ -305,7 +305,7 @@
         <AetherParticle UID="936B6369-0FE5-4646-AE57-74C5EB30DF13" Name="Comet9" Type="MGJ3.Components.Comet, MGJ3.Components">
           <Position X="184.4305" Y="-20.1387482" Z="0" />
           <Scale X="1" Y="1" Z="1" />
-          <Rotation X="-0.426558763" Y="-0.536057353" Z="-0.6324282" W="0.361558735" />
+          <Rotation X="0.007478744" Y="0.0174518488" Z="-0.000130541433" W="0.999819756" />
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
@@ -320,7 +320,7 @@
         <AetherParticle UID="7EC79FA5-92BD-4B17-ABB6-7B68E34B2232" Name="Comet10" Type="MGJ3.Components.Comet, MGJ3.Components">
           <Position X="205.689713" Y="8.316303" Z="0" />
           <Scale X="1" Y="1" Z="1" />
-          <Rotation X="-0.426558763" Y="-0.536057353" Z="-0.6324282" W="0.361558735" />
+          <Rotation X="0.007478744" Y="0.0174518488" Z="-0.000130541433" W="0.999819756" />
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
@@ -335,7 +335,7 @@
         <AetherParticle UID="F264FCDB-A682-486A-B0B2-48D2340AC74B" Name="Comet11" Type="MGJ3.Components.Comet, MGJ3.Components">
           <Position X="214.1934" Y="23.3592873" Z="0" />
           <Scale X="1" Y="1" Z="1" />
-          <Rotation X="-0.426558763" Y="-0.536057353" Z="-0.6324282" W="0.361558735" />
+          <Rotation X="0.007478744" Y="0.0174518488" Z="-0.000130541433" W="0.999819756" />
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
@@ -662,6 +662,39 @@
     <AetherParticleRef UID="209DCD67-52C0-468A-9A1B-A60699C72C64" Name="EnemyA8" />
     <AetherParticleRef UID="3604DFF7-F0A8-46C1-854A-73B7230564CF" Name="EnemyA9" />
     <AetherParticleRef UID="A3B74828-C4BE-4AC3-9E35-6D6DADA930FF" Name="EnemyA10" />
+    <AetherParticle UID="BFF0D71F-A10E-4754-965A-446E2A67D6C0" Name="wave1" Type="tainicom.Aether.Core.LeptonPlasma, tainicom.Aether">
+      <Version>1</Version>
+      <Version>1</Version>
+      <Particles>
+        <AetherParticleRef UID="4182EA8C-5D84-4FCC-950C-03A72E1BCF0A" Name="Comet1" />
+        <AetherParticleRef UID="04A3E94B-0E58-4608-9A77-805C4E02F46F" Name="Comet2" />
+        <AetherParticleRef UID="AAB51BF1-376C-4ABD-A732-A88EFCE7639F" Name="Comet3" />
+        <AetherParticleRef UID="108C33EA-7A41-403C-A474-5CD8A7B730E5" Name="Comet4" />
+        <AetherParticleRef UID="24BD3DCF-341A-42A8-84ED-CC8A63D5B70B" Name="Comet5" />
+        <AetherParticleRef UID="EA50E267-73C9-4A5F-B78D-8E3BF5CD1475" Name="Comet6" />
+        <AetherParticleRef UID="99BE6CF6-A298-48D7-BDC0-55C88DF33487" Name="Comet7" />
+        <AetherParticleRef UID="DA954E9D-DB46-48EB-A19A-A8674C234A49" Name="Comet8" />
+        <AetherParticleRef UID="936B6369-0FE5-4646-AE57-74C5EB30DF13" Name="Comet9" />
+        <AetherParticleRef UID="7EC79FA5-92BD-4B17-ABB6-7B68E34B2232" Name="Comet10" />
+        <AetherParticleRef UID="F264FCDB-A682-486A-B0B2-48D2340AC74B" Name="Comet11" />
+      </Particles>
+    </AetherParticle>
+    <AetherParticle UID="D9FD5721-0E16-44EB-843B-F4DA59042787" Name="wave2" Type="tainicom.Aether.Core.LeptonPlasma, tainicom.Aether">
+      <Version>1</Version>
+      <Version>1</Version>
+      <Particles>
+        <AetherParticleRef UID="1827D395-9EF9-417A-8FF3-7C111C6A75B0" Name="EnemyA1" />
+        <AetherParticleRef UID="01D4778D-FC5B-4195-ADF3-0721ABA776CA" Name="EnemyA2" />
+        <AetherParticleRef UID="B3509A8E-1D51-43E0-AD8E-2710907DE3CD" Name="EnemyA3" />
+        <AetherParticleRef UID="6BD3A411-5C8A-40D3-893C-B93F08800BE1" Name="EnemyA4" />
+        <AetherParticleRef UID="97FEED42-0D9D-48FC-9CCD-51CB936A5B01" Name="EnemyA5" />
+        <AetherParticleRef UID="9C1A2D1F-EAF8-4053-9799-8DFA47E61E30" Name="EnemyA6" />
+        <AetherParticleRef UID="91F7364E-2165-493F-AC04-4EA323C8AD17" Name="EnemyA7" />
+        <AetherParticleRef UID="209DCD67-52C0-468A-9A1B-A60699C72C64" Name="EnemyA8" />
+        <AetherParticleRef UID="3604DFF7-F0A8-46C1-854A-73B7230564CF" Name="EnemyA9" />
+        <AetherParticleRef UID="A3B74828-C4BE-4AC3-9E35-6D6DADA930FF" Name="EnemyA10" />
+      </Particles>
+    </AetherParticle>
   </Particles>
   <Managers>
     <AetherParticleManager Name="Leptons" Type="tainicom.Aether.Core.Managers.LeptonsManager, tainicom.Aether">
@@ -695,6 +728,8 @@
         <AetherParticleRef UID="209DCD67-52C0-468A-9A1B-A60699C72C64" Name="EnemyA8" />
         <AetherParticleRef UID="3604DFF7-F0A8-46C1-854A-73B7230564CF" Name="EnemyA9" />
         <AetherParticleRef UID="A3B74828-C4BE-4AC3-9E35-6D6DADA930FF" Name="EnemyA10" />
+        <AetherParticleRef UID="BFF0D71F-A10E-4754-965A-446E2A67D6C0" Name="wave1" />
+        <AetherParticleRef UID="D9FD5721-0E16-44EB-843B-F4DA59042787" Name="wave2" />
       </Particles>
       <Root>
         <Version>1</Version>
@@ -708,27 +743,8 @@
           <AetherParticleRef UID="D39416C3-AB69-42AB-A911-22A4194B4D37" Name="DefaultCamera" />
           <AetherParticleRef UID="63A394E7-6BC5-4FA5-AEDC-BC70A4AB2EB8" Name="PlayerGPUParticleSystem1" />
           <AetherParticleRef UID="9DEFD068-63DC-47AA-87CE-90B294BCD07D" Name="StageBounds1" />
-          <AetherParticleRef UID="4182EA8C-5D84-4FCC-950C-03A72E1BCF0A" Name="Comet1" />
-          <AetherParticleRef UID="04A3E94B-0E58-4608-9A77-805C4E02F46F" Name="Comet2" />
-          <AetherParticleRef UID="AAB51BF1-376C-4ABD-A732-A88EFCE7639F" Name="Comet3" />
-          <AetherParticleRef UID="108C33EA-7A41-403C-A474-5CD8A7B730E5" Name="Comet4" />
-          <AetherParticleRef UID="24BD3DCF-341A-42A8-84ED-CC8A63D5B70B" Name="Comet5" />
-          <AetherParticleRef UID="EA50E267-73C9-4A5F-B78D-8E3BF5CD1475" Name="Comet6" />
-          <AetherParticleRef UID="99BE6CF6-A298-48D7-BDC0-55C88DF33487" Name="Comet7" />
-          <AetherParticleRef UID="DA954E9D-DB46-48EB-A19A-A8674C234A49" Name="Comet8" />
-          <AetherParticleRef UID="936B6369-0FE5-4646-AE57-74C5EB30DF13" Name="Comet9" />
-          <AetherParticleRef UID="7EC79FA5-92BD-4B17-ABB6-7B68E34B2232" Name="Comet10" />
-          <AetherParticleRef UID="F264FCDB-A682-486A-B0B2-48D2340AC74B" Name="Comet11" />
-          <AetherParticleRef UID="1827D395-9EF9-417A-8FF3-7C111C6A75B0" Name="EnemyA1" />
-          <AetherParticleRef UID="01D4778D-FC5B-4195-ADF3-0721ABA776CA" Name="EnemyA2" />
-          <AetherParticleRef UID="B3509A8E-1D51-43E0-AD8E-2710907DE3CD" Name="EnemyA3" />
-          <AetherParticleRef UID="6BD3A411-5C8A-40D3-893C-B93F08800BE1" Name="EnemyA4" />
-          <AetherParticleRef UID="97FEED42-0D9D-48FC-9CCD-51CB936A5B01" Name="EnemyA5" />
-          <AetherParticleRef UID="9C1A2D1F-EAF8-4053-9799-8DFA47E61E30" Name="EnemyA6" />
-          <AetherParticleRef UID="91F7364E-2165-493F-AC04-4EA323C8AD17" Name="EnemyA7" />
-          <AetherParticleRef UID="209DCD67-52C0-468A-9A1B-A60699C72C64" Name="EnemyA8" />
-          <AetherParticleRef UID="3604DFF7-F0A8-46C1-854A-73B7230564CF" Name="EnemyA9" />
-          <AetherParticleRef UID="A3B74828-C4BE-4AC3-9E35-6D6DADA930FF" Name="EnemyA10" />
+          <AetherParticleRef UID="BFF0D71F-A10E-4754-965A-446E2A67D6C0" Name="wave1" />
+          <AetherParticleRef UID="D9FD5721-0E16-44EB-843B-F4DA59042787" Name="wave2" />
         </Particles>
       </Root>
     </AetherParticleManager>
