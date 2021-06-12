@@ -197,8 +197,8 @@ namespace MGJ3.Components
 
             //System.Diagnostics.Debug.WriteLine(_bodyImpl.Body.LinearVelocity.Y);
             float rot = 35f * MathHelper.Clamp(_bodyImpl.Body.LinearVelocity.Y / (13f * 2f), -1f, 1f);
-            _leptonImpl.Rotation = Quaternion.CreateFromYawPitchRoll(0,0,MathHelper.ToRadians(90))
-                                 * Quaternion.CreateFromAxisAngle(Vector3.Up, MathHelper.ToRadians(rot));
+            _leptonImpl.Rotation = Quaternion.CreateFromYawPitchRoll(0,0,MathHelper.ToRadians(-90))
+                                 * Quaternion.CreateFromAxisAngle(Vector3.Up, MathHelper.ToRadians(-rot));
             
             var targetpos = Position;
             targetpos.Y = (float)Math.Cos(MathHelper.WrapAngle(_phase) + MathHelper.WrapAngle(MathHelper.Tau * t * 1f/6f)) * Amplitude;
