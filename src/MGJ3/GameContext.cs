@@ -25,6 +25,9 @@ namespace MGJ3
         Queue<IPhysics2dBody> _bodiesToRemove = new Queue<IPhysics2dBody>();
 
         // player info
+        PlayerState _playerState = PlayerState.Normal;
+        TimeSpan _stateTime = TimeSpan.Zero;
+        TimeSpan _respawnSafePeriod = TimeSpan.FromSeconds(4);
         public int RemainingLives = 2;
         public int Score = 0;
         public static int HiScore = 4;
@@ -98,6 +101,44 @@ namespace MGJ3
                 _stage.Player1.Fire();
             }
 
+            _stateTime += gameTime.ElapsedGameTime;
+            switch(_playerState)
+            {
+                case PlayerState.Killed:
+                    {
+                        if (RemainingLives > 0)
+                        {
+                            RemainingLives--;
+                            _stage.Player1.Position = new Vector3(-25,0,0);
+                            _playerState = PlayerState.Respawn;
+                        }
+                        else
+                        {
+                            // TODO: game over
+                            _playerState = PlayerState.Lost;
+                            _stateTime = TimeSpan.Zero;
+                            _stage.Player1.IsVisible = true;
+                        }
+                        _stateTime = TimeSpan.Zero;
+                    }
+                    break;
+                case PlayerState.Respawn:
+                    {
+                        if (_stateTime < _respawnSafePeriod)
+                        {
+                            _stage.Player1.IsVisible = (((int)(_stateTime.TotalSeconds * 16f))%2)==0;
+                        }
+                        else
+                        {
+                            _playerState = PlayerState.Normal;
+                            _stateTime = TimeSpan.Zero;
+                            _stage.Player1.IsVisible = true;
+                        }
+                    }
+                    break;
+            }
+           
+
         }
 
         private bool OnStageBoundsCollision(Fixture sender, Fixture other, Contact contact)
@@ -166,17 +207,20 @@ namespace MGJ3
                 colllide = false; // disable collision
             }
 
-            if (colllide == true && (ibodyA is Player || ibodyB is Player) )
+            if ((colllide == true && ibodyA is Player && (fixtureB.CollisionCategories & CollisionCategories.Enemies) != 0) ||
+                (colllide == true && ibodyB is Player && (fixtureA.CollisionCategories & CollisionCategories.Enemies) != 0))
             {
-                if (RemainingLives > 0)
+                switch(_playerState)
                 {
-                    RemainingLives--;
+                    case PlayerState.Respawn:
+                        colllide = false; // disable collision
+                        break;
+                    case PlayerState.Normal:
+                        _playerState = PlayerState.Killed;
+                        colllide = false; // disable collision
+                        break;
                 }
-                else
-                {
-                    // TODO: game over
-                }
-                colllide = false; // disable collision
+                
             }
 
             var ihealthA = ibodyA as IHealth;

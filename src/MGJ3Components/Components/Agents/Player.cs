@@ -13,8 +13,8 @@ using tainicom.Aether.Physics2D.Dynamics.Contacts;
 
 namespace MGJ3.Components
 {
-    public partial class Player: 
-        IPhoton, 
+    public partial class Player :
+        IPhoton,
         ILepton, IChronon, IBoundingBox, IInitializable, IAetherSerialization
         , IPhysics2dBody
     {
@@ -50,36 +50,36 @@ namespace MGJ3.Components
         {
             get { return _leptonImpl.LocalTransform; }
         }
-        #if WINDOWS
+#if WINDOWS
         [System.ComponentModel.Category("ILepton")]
         [System.ComponentModel.TypeConverter(typeof(QuaternionEditAsYawPitchRollConverter))]
-        #endif
+#endif
         public Quaternion Rotation
         {
             get { return _leptonImpl.Rotation; }
-            set 
-            { 
+            set
+            {
                 _leptonImpl.Rotation = value;
                 _bodyImpl.Body.Rotation = Physics2dManager.XNAtoBOX2DRotation(_bodyImpl.Physics2dPlane, value);
             }
         }
-        #if WINDOWS
+#if WINDOWS
         [System.ComponentModel.Category("ILepton")]
         [System.ComponentModel.TypeConverter(typeof(Vector3EditConverter))]
-        #endif
+#endif
         public Vector3 Scale
         {
             get { return _leptonImpl.Scale; }
             set { _leptonImpl.Scale = value; }
         }
-        #if WINDOWS
+#if WINDOWS
         [System.ComponentModel.Category("ILepton")]
         [System.ComponentModel.TypeConverter(typeof(Vector3EditConverter))]
-        #endif
+#endif
         public Vector3 Position
         {
             get { return _leptonImpl.Position; }
-            set 
+            set
             {
                 _leptonImpl.Position = value;
                 if (_bodyImpl.Physics2dPlane != null)
@@ -93,10 +93,12 @@ namespace MGJ3.Components
         PhotonModelImpl _photonImpl = new PhotonModelImpl();
         public void Accept(IGeometryVisitor geometryVisitor)
         {
+            if (!IsVisible) return;
+
             _photonImpl.Accept(geometryVisitor);
         }
 
-        public IMaterial Material 
+        public IMaterial Material
         {
             get { return _photonImpl.Material; }
             set { _photonImpl.Material = value; }
@@ -105,10 +107,11 @@ namespace MGJ3.Components
         public ITexture[] Textures
         {
             get { return _photonImpl.Textures; }
-            set {  }
+            set { }
         }
         #endregion
-        
+
+        public bool IsVisible = true;
 
         public BoundingBox GetBoundingBox()
         {
@@ -119,7 +122,7 @@ namespace MGJ3.Components
 
         #region Implement IPhysics2dBody
         Physics2dBodyImpl _bodyImpl = new Physics2dBodyImpl();
-        Fixture fixture;
+        public Fixture fixture;
 
         public void InitializeBody(Physics2dPlane physics2dPlane, Body body)
         {
