@@ -20,6 +20,7 @@ namespace MGJ3.Components
     {
         protected virtual string ContentModel { get { return "Agents\\Player"; } }
 
+        private AetherEngine _engine;
         const float w = 8f;
         const float h = 8f;
 
@@ -37,6 +38,7 @@ namespace MGJ3.Components
 
         public void Initialize(AetherEngine engine)
         {
+            _engine = engine;
             _photonImpl.Initialize(engine, this, ContentModel);
 
         }
@@ -230,6 +232,31 @@ namespace MGJ3.Components
         }
 
         #endregion
+
+
+        public void Fire()
+        {
+            FireBullet(new Vector3(2, 2, 0));
+            FireBullet(new Vector3(2,-2, 0));
+        }
+
+        private void FireBullet(Vector3 offset)
+        {
+            var phmgr = _engine.Managers.GetManager<Physics2dManager>();
+            var sm = phmgr.Root[0];
+            var physicsPlane = (Physics2dPlane)sm;
+            
+
+            var bullet = new PlayerBullet();
+            _engine.RegisterParticle(bullet);
+            //engine.SetParticleName(bullet, "bullet");
+            bullet.Initialize(_engine);
+            physicsPlane.Add(bullet);
+
+            bullet.Position = this.Position + offset;
+            bullet.Rotation = Quaternion.CreateFromRotationMatrix(Matrix.CreateRotationZ(MathHelper.ToRadians(-90)));
+        }
+
 
         // will be called whenever some other body collides with 'body'
         bool OnCollision(Fixture sender, Fixture other, Contact contact)

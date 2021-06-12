@@ -94,25 +94,7 @@ namespace MGJ3
             if (player1.IsFiring && _bulletTime > player1.BulletPeriod)
             {
                 _bulletTime = TimeSpan.Zero;
-
-                var bullet = new PlayerBullet();
-                engine.RegisterParticle(bullet);
-                //engine.SetParticleName(bullet, "bullet");
-                bullet.Initialize(engine);                
-                var phmgr = engine.Managers.GetManager<Physics2dManager>();
-                var sm = phmgr.Root[0];
-                var pl= (Physics2dPlane)sm;
-                pl.Add(bullet);
-                bullet.Position = player1.Position + new Vector3(2,2,0);
-                bullet.Rotation = Quaternion.CreateFromRotationMatrix(Matrix.CreateRotationZ(MathHelper.ToRadians(-90)));
-
-                bullet = new PlayerBullet();
-                engine.RegisterParticle(bullet);
-                //engine.SetParticleName(bullet, "bullet");
-                bullet.Initialize(engine);
-                _physicsPlane0.Add(bullet);
-                bullet.Position = player1.Position + new Vector3(2, -2, 0);
-                bullet.Rotation = Quaternion.CreateFromRotationMatrix(Matrix.CreateRotationZ(MathHelper.ToRadians(-90)));
+                player1.Fire();
             }
 
         }
