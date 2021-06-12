@@ -170,8 +170,8 @@ namespace MGJ3.Components
             TickParticleEmmiter(gameTime);
 
             float accelForce = 32f; // meters/sec
-            float seconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            float totalSeconds = (float)gameTime.TotalGameTime.TotalSeconds;
+            float t = (float)gameTime.TotalGameTime.TotalSeconds;
+            float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             //stopping force
             //var lvelocity = _bodyImpl.Body.LinearVelocity;
@@ -184,8 +184,8 @@ namespace MGJ3.Components
             //System.Diagnostics.Debug.WriteLine(_bodyImpl.Body.LinearVelocity.Y);
             float rot = -35f * MathHelper.Clamp(_bodyImpl.Body.LinearVelocity.Y/(132f*2f), -1f, 1f);
             _leptonImpl.Rotation = Quaternion.CreateFromYawPitchRoll(
-                MathHelper.WrapAngle(MathHelper.Tau/3f * totalSeconds),
-                MathHelper.WrapAngle(MathHelper.Tau/7f * totalSeconds),
+                MathHelper.WrapAngle(MathHelper.Tau/3f * t),
+                MathHelper.WrapAngle(MathHelper.Tau/7f * t),
                 0);
 
             return;

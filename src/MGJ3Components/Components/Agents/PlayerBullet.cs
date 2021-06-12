@@ -171,8 +171,8 @@ namespace MGJ3.Components
             TickParticleEmmiter(gameTime);
 
             float accelForce = 64f; // meters/sec
-            float seconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            float totalSeconds = (float)gameTime.TotalGameTime.TotalSeconds;
+            float t = (float)gameTime.TotalGameTime.TotalSeconds;
+            float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             //stopping force
             //var lvelocity = _bodyImpl.Body.LinearVelocity;

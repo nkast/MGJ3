@@ -172,15 +172,15 @@ namespace MGJ3.Components
         public void Tick(GameTime gameTime)
         {
             float accelForce = -32f * 2f; // meters/sec
-            float seconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            float totalSeconds = (float)gameTime.TotalGameTime.TotalSeconds;
+            float t = (float)gameTime.TotalGameTime.TotalSeconds;
+            float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             if (q < 0.5f)
                 _bodyImpl.Body.ApplyLinearImpulse(new Vector2(-accelForce, 0));
             
             _leptonImpl.Position = Physics2dManager.Box2DtoXNAWorldPosition(_bodyImpl.Physics2dPlane, Body.Position, _leptonImpl.Position);
 
-            q -= q * seconds;
+            q -= q * dt;
             _leptonImpl.Rotation = Quaternion.CreateFromYawPitchRoll(0, -q * q * q, 0);
 
             return;

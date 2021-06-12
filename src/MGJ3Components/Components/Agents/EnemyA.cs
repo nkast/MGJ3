@@ -184,8 +184,8 @@ namespace MGJ3.Components
             TickParticleEmmiter(gameTime);
 
             float accelForce = 32f; // meters/sec
-            float seconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            float totalSeconds = (float)gameTime.TotalGameTime.TotalSeconds;
+            float t = (float)gameTime.TotalGameTime.TotalSeconds;
+            float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             //stopping force
             //var lvelocity = _bodyImpl.Body.LinearVelocity;
@@ -201,7 +201,7 @@ namespace MGJ3.Components
                                  * Quaternion.CreateFromAxisAngle(Vector3.Up, MathHelper.ToRadians(rot));
             
             var targetpos = Position;
-            targetpos.Y = (float)Math.Cos(MathHelper.WrapAngle(_phase) + MathHelper.WrapAngle(MathHelper.Tau * totalSeconds * 1f/6f)) * Amplitude;
+            targetpos.Y = (float)Math.Cos(MathHelper.WrapAngle(_phase) + MathHelper.WrapAngle(MathHelper.Tau * t * 1f/6f)) * Amplitude;
             var diffpos = targetpos - Position;
 
             _bodyImpl.Body.ApplyLinearImpulse(new Vector2(0, diffpos.Y * _bodyImpl.Body.Mass));

@@ -94,17 +94,17 @@ namespace MGJ3.Components
             if (timeBetweenParticles <= 0f) return;
 
             // Work out how much time has passed since the previous update.
-            float elapsedTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (elapsedTime > 0)
+            if (dt > 0)
             {
                 // Work out how fast we are moving.
-                //Vector3 velocity = (Position - previousPosition) / elapsedTime;
+                //Vector3 velocity = (Position - previousPosition) / dt;
                 Vector3 velocity = Vector3.Zero;
 
                 // If we had any time left over that we didn't use during the
                 // previous update, add that to the current elapsed time.
-                float timeToSpend = timeLeftOver + elapsedTime;
+                float timeToSpend = timeLeftOver + dt;
 
                 // Counter for looping over the time interval.
                 float currentTime = -timeLeftOver;
@@ -118,7 +118,7 @@ namespace MGJ3.Components
                     // Work out the optimal position for this particle. This will produce
                     // evenly spaced particles regardless of the object speed, particle
                     // creation frequency, or game update rate.
-                    float mu = currentTime / elapsedTime;
+                    float mu = currentTime / dt;
                     Vector3 position = Vector3.Lerp(previousPosition, Position, mu);
                     //Vector3 position = Position;
 
