@@ -16,7 +16,7 @@ namespace MGJ3.Components
         readonly Stopwatch sw = Stopwatch.StartNew();
         int fps = 0;
         int fc = 0;
-        string _fpsTxt = "?? fps";
+        string _fpsTxt = "??";
 
 
         public FpsComponent(Game game) : base(game)
@@ -44,7 +44,7 @@ namespace MGJ3.Components
                 sw.Restart();
                 fc = 0;
 
-                _fpsTxt = fps.ToString() + " fps";
+                _fpsTxt = fps.ToString();
                 //this.Game.Window.Title = fps.ToString() + "fps";
             }
 

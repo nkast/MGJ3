@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using tainicom.Devices;
 using tainicom.Aether.Physics2D.Components;
@@ -23,6 +24,11 @@ namespace MGJ3
         Queue<IPhysics2dBody> _bonusesToRemove = new Queue<IPhysics2dBody>();
         Queue<IPhysics2dBody> _bodiesToRemove = new Queue<IPhysics2dBody>();
 
+        // player info
+        public int Score = 0;
+        public static int HiScore = 10;
+        string _scoreTxt = "00000";
+        string _hiScoreTxt = "00000010";
 
 
         public GameContext(Game game)
@@ -183,7 +189,11 @@ namespace MGJ3
 
         private void ApplyBonus(IBonus ibodyA)
         {
-            
+
+
+
+            _scoreTxt = String.Format("{0:X5}", this.Score);
+            _hiScoreTxt = String.Format("{0:X8}", this.Score);
         }
 
         private bool ApplyDamage(IPhysics2dBody ibodyA, IPhysics2dBody ibodyB)
@@ -207,13 +217,27 @@ namespace MGJ3
             _stageBackgroundStarfield.UiEffect = uiEffect;
         }
 
-        internal void Draw(GameTime gameTime)
+        internal void Draw(GameTime gameTime, ContentManager content, SpriteBatch spriteBatch, float fade)
         {
             _stageBackgroundStarfield.Draw(gameTime);
 
             _stage.UpdateCamera();
             _stage.Engine.Render(gameTime);
+
+            DrawScore(gameTime, content, spriteBatch, fade);
         }
 
+        private void DrawScore(GameTime gameTime, ContentManager content, SpriteBatch spriteBatch, float fade)
+        {
+            SpriteFont font = content.Load<SpriteFont>("Pages/Game/ScoreFont");
+            
+            spriteBatch.DrawString(font, _scoreTxt, new Vector2(40,6), Color.White * fade);
+
+            spriteBatch.DrawString(font, "HI SCORE", new Vector2(400-20, 6), Color.White * fade);
+            spriteBatch.DrawString(font, _hiScoreTxt, new Vector2(400-20, 24), Color.White * fade);
+
+
+
+        }
     }
 }

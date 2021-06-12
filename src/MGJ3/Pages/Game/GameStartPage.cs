@@ -91,15 +91,12 @@ namespace MGJ3.Pages.GamePages
 
 
             float fade = 1;
-            fade = this.TransitionDelta;            
+            fade = this.TransitionDelta;
 
             _gameContext.SetUIEffect(this.UiEffect);
-            _gameContext.Draw(gameTime);
-
-            Color color = new Color(fade, fade, fade, fade);
-          
+                      
             pageManager.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.DepthRead , RasterizerState.CullNone, this.UiEffect);
-            
+            _gameContext.Draw(gameTime, this.content , pageManager.SpriteBatch, fade);
             pageManager.SpriteBatch.End();
 
 

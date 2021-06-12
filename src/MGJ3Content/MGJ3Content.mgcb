@@ -127,6 +127,13 @@
 /processorParam:TextureFormat=Color
 /build:Pages/Game/GameOverTitle.png
 
+#begin Pages/Game/ScoreFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Pages/Game/ScoreFont.spritefont
+
 #begin DebugFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
