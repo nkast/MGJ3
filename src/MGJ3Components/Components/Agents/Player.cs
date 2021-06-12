@@ -242,11 +242,8 @@ namespace MGJ3.Components
 
         private void FireBullet(Vector3 offset)
         {
-            var phmgr = _engine.Managers.GetManager<Physics2dManager>();
-            var sm = phmgr.Root[0];
-            var physicsPlane = (Physics2dPlane)sm;
+            var physicsPlane = (Physics2dPlane)_engine["Physics2dPlane0"];
             
-
             var bullet = new PlayerBullet();
             _engine.RegisterParticle(bullet);
             //engine.SetParticleName(bullet, "bullet");
