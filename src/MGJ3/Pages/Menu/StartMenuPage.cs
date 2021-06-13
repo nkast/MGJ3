@@ -175,9 +175,9 @@ namespace MGJ3.Pages.MenuPages
             
             pageManager.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.DepthRead, RasterizerState.CullNone, this.UiEffect);
             
-            pageManager.SpriteBatch.Draw(_txBackground, Vector2.Zero, null, scolor, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.2f);
+            pageManager.SpriteBatch.Draw(_txBackground, Vector2.Zero, null, color, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.2f);
 
-            pageManager.SpriteBatch.Draw(_txTitle, new Vector2(400,100), null, color, 0f, new Vector2(_txTitle.Width, _txTitle.Height) / 2f, 1f, SpriteEffects.None, 0.7f);
+            pageManager.SpriteBatch.Draw(_txTitle, new Vector2(400,100), null, scolor, 0f, new Vector2(_txTitle.Width, _txTitle.Height) / 2f, 1f, SpriteEffects.None, 0.7f);
 
             for (int i=0; i<_buttons.Count;i++)
             {
