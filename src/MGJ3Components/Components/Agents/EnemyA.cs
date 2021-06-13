@@ -179,13 +179,12 @@ namespace MGJ3.Components
         #endregion
 
 
-        static EnemyA test = null;
         #region Chronons implementation
         public void Tick(GameTime gameTime)
         {
             TickParticleEmmiter(gameTime);
 
-            float accelForce = 67.906105f; // meters/sec
+            float accelForce = 64f; // meters/sec
             float t = (float)gameTime.TotalGameTime.TotalSeconds;
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 

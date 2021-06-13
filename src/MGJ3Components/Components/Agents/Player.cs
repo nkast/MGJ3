@@ -180,7 +180,7 @@ namespace MGJ3.Components
         {
             TickParticleEmmiter(gameTime);
 
-            float accelForce = 4244.132f; // meters/sec
+            float accelForce = 4200f; // meters/sec
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             KeyboardState kstate = Keyboard.GetState();

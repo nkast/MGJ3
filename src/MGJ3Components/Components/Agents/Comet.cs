@@ -170,7 +170,7 @@ namespace MGJ3.Components
         {
             TickParticleEmmiter(gameTime);
 
-            float accelForce = 67.906105f; // meters/sec
+            float accelForce = 64f; // meters/sec
             float t = (float)gameTime.TotalGameTime.TotalSeconds;
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 

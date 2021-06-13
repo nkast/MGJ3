@@ -172,7 +172,7 @@ namespace MGJ3.Components
         #region Chronons implementation
         public void Tick(GameTime gameTime)
         {
-            float accelForce = 135.81221f; // meters/sec
+            float accelForce = 128f; // meters/sec
             float t = (float)gameTime.TotalGameTime.TotalSeconds;
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
