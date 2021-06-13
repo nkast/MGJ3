@@ -89,12 +89,12 @@ namespace MGJ3.Pages
 
             Vector2 screenSize = new Vector2(viewWidth, viewHeight);
             Vector2 txSize2 = new Vector2(_txTitle.Width, _txTitle.Height);
-            Vector2 origin = Vector2.Zero;            
-            Vector2 txPos2 = new Vector2(0, (screenSize.Y - txSize2.Y) / 2f ); //left-center            
+            Vector2 origin = Vector2.Zero;
+            Vector2 txPos2 = new Vector2((screenSize.X - txSize2.X) / 2f, (screenSize.Y - txSize2.Y) / 2f ); //center
 
 
             float fade = 1;
-            fade = this.TransitionDelta;            
+            fade = this.TransitionDelta;
             switch (scheduler.SpanId)
             {
                 case 0:
