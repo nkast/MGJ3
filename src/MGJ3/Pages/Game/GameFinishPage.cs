@@ -127,7 +127,16 @@ namespace MGJ3.Pages.GamePages
 
                 }
 
-
+                if (input.IsButtonPressed(Buttons.B) ||
+                    input.IsKeyReleased(Keys.Escape) ||
+                    input.IsKeyReleased(Keys.Back)
+                    )
+                {
+                    var startMenuPage = new StartMenuPage(pageManager);
+                    startMenuPage.Initialize();
+                    pageManager.SideloadPage(startMenuPage);
+                    pageManager.ReplacePage(startMenuPage);
+                }
             }
 
             //_gameContext.HandleInput(input);
