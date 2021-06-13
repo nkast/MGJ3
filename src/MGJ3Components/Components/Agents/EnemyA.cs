@@ -185,7 +185,7 @@ namespace MGJ3.Components
         {
             TickParticleEmmiter(gameTime);
 
-            float accelForce = 1.13176847f; // meters/sec
+            float accelForce = 67.906105f; // meters/sec
             float t = (float)gameTime.TotalGameTime.TotalSeconds;
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -193,7 +193,7 @@ namespace MGJ3.Components
             //var lvelocity = _bodyImpl.Body.LinearVelocity;
             //_bodyImpl.Body. ApplyLinear Impulse(-lvelocity);
 
-            Body.ApplyLinearImpulse(Body.Mass * new Vector2(-accelForce,0));
+            Body.ApplyLinearImpulse(Body.Mass * dt * new Vector2(-accelForce,0));
                         
             _leptonImpl.Position = Physics2dManager.Box2DtoXNAWorldPosition(_bodyImpl.Physics2dPlane, Body.Position, _leptonImpl.Position);
 

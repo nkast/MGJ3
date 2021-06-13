@@ -172,12 +172,12 @@ namespace MGJ3.Components
         #region Chronons implementation
         public void Tick(GameTime gameTime)
         {
-            float accelForce = 2.263537f; // meters/sec
+            float accelForce = 135.81221f; // meters/sec
             float t = (float)gameTime.TotalGameTime.TotalSeconds;
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             if (q < 0.5f)
-                Body.ApplyLinearImpulse(Body.Mass * new Vector2(accelForce, 0));
+                Body.ApplyLinearImpulse(Body.Mass * dt * new Vector2(accelForce, 0));
             
             _leptonImpl.Position = Physics2dManager.Box2DtoXNAWorldPosition(_bodyImpl.Physics2dPlane, Body.Position, _leptonImpl.Position);
 

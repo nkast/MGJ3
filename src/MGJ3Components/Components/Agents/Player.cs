@@ -180,7 +180,7 @@ namespace MGJ3.Components
         {
             TickParticleEmmiter(gameTime);
 
-            float accelForce = 70.73553f; // meters/sec
+            float accelForce = 4244.132f; // meters/sec
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             KeyboardState kstate = Keyboard.GetState();
@@ -202,7 +202,7 @@ namespace MGJ3.Components
                 inputl = Vector2.TransformNormal(inputl, Rotate); //rotate input
                 if (inputl != Vector2.Zero)
                 {
-                    Body.ApplyLinearImpulse(Body.Mass * accelForce * 2*inputl);
+                    Body.ApplyLinearImpulse(Body.Mass * dt * accelForce * 2*inputl);
                 }
             }
 
@@ -214,7 +214,7 @@ namespace MGJ3.Components
             {
                 input.Normalize();
                 input = Vector2.TransformNormal(input, Rotate); //rotate input
-                Body.ApplyLinearImpulse(Body.Mass * accelForce * input);
+                Body.ApplyLinearImpulse(Body.Mass * dt * accelForce * input);
             }
 
 
