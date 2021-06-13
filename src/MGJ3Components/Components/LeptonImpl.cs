@@ -4,7 +4,7 @@ using tainicom.Aether.Elementary.Serialization;
 
 namespace MGJ3.Components
 {
-    class LeptonImpl: ILepton, IAetherSerialization
+    class LeptonImpl: ILocalTransform, IPosition, IAetherSerialization
     {
         #region Implement ILepton Properties
         protected Matrix _localTransform = Matrix.Identity;

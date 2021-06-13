@@ -13,8 +13,8 @@ using tainicom.Aether.Physics2D.Dynamics.Contacts;
 namespace MGJ3.Components
 {
     public partial class EnemyA:
-        IPhoton, 
-        ILepton, IChronon, IBoundingBox, IInitializable, IAetherSerialization
+        IPhoton,
+        ILocalTransform, IPosition, IChronon, IBoundingBox, IInitializable, IAetherSerialization
         , IPhysics2dBody
         , IHealth, IEnemies
     {

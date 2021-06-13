@@ -11,7 +11,7 @@ using tainicom.Aether.Physics2D.Components;
 
 namespace MGJ3.Components
 {
-    public class Trigger: ILepton, IBoundingBox, IInitializable, IAetherSerialization
+    public class Trigger: ILocalTransform, IPosition, IBoundingBox, IInitializable, IAetherSerialization
         ,IPhysics2dBody
     {
         const float r = 1f/2;
