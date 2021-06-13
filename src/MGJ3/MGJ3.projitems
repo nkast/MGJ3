@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)GameContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MGJ3Game.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\BasicPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\Game\GameFinishPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Game\GameOverPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Game\GameStartPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\IntroPage.cs" />

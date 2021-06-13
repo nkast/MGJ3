@@ -11,6 +11,7 @@ using tainicom.PageManager.Enums;
 using tainicom.PageManager.Events;
 using tainicom.Tweens;
 using MGJ3.Pages.MenuPages;
+using MGJ3.Components;
 
 namespace MGJ3.Pages.GamePages
 {
@@ -90,9 +91,18 @@ namespace MGJ3.Pages.GamePages
                 _gameContext.Update(gameTime);
             }
 
-            if (TransitionState != EnumTransitionState.TransitionOut && _gameContext.PlayerState == Components.PlayerState.Lost)
+            if (TransitionState != EnumTransitionState.TransitionOut && _gameContext.PlayerState == PlayerState.Lost)
             {
                 var gamePage = new GameOverPage(pageManager, _gameContext);
+                gamePage.Initialize();
+                pageManager.SideloadPage(gamePage);
+                pageManager.ReplacePage(gamePage);
+            }
+
+
+            if (TransitionState == EnumTransitionState.Active && _gameContext.PlayerState == PlayerState.Win)
+            {
+                var gamePage = new GameFinishPage(pageManager, _gameContext);
                 gamePage.Initialize();
                 pageManager.SideloadPage(gamePage);
                 pageManager.ReplacePage(gamePage);

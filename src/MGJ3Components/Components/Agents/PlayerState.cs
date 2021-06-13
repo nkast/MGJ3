@@ -10,6 +10,7 @@ namespace MGJ3.Components
         Respawn,
         Killed,
         Lost,
+        Win,
 
     }
 }

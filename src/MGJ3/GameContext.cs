@@ -136,14 +136,15 @@ namespace MGJ3
                         }
                     }
                     break;
+                case PlayerState.Normal:
+                    {
+                        if (_stage.StageFinish1.Position.X < 0)
+                        {
+                            PlayerState = PlayerState.Win;
+                        }
+                    }
+                    break;
             }
-
-            if (_stage.StageFinish1.Position.X < 0)
-            {
-
-
-            }
-           
 
         }
 

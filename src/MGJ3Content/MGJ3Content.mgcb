@@ -127,6 +127,18 @@
 /processorParam:TextureFormat=Color
 /build:Pages/Game/GameOverTitle.png
 
+#begin Pages/Game/GameFinishTitle.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Pages/Game/GameFinishTitle.png
+
 #begin Pages/Game/ScoreFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
