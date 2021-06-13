@@ -15,14 +15,14 @@ using MGJ3.Components;
 
 namespace MGJ3.Pages.GamePages
 {
-    internal class GameStartPage : BasicPage
+    internal class GamePlayPage : BasicPage
     {
         ContentManager content;
         Random rnd = new Random();
 
         GameContext _gameContext;
 
-        public GameStartPage(PageManager pageManager) : base(pageManager)
+        public GamePlayPage(PageManager pageManager) : base(pageManager)
         {
 
         }

@@ -16,7 +16,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Pages\BasicPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Game\GameFinishPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Game\GameOverPage.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Pages\Game\GameStartPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\Game\GamePlayPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\IntroPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Menu\StartMenuPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Menu\AboutMenuPage.cs" />
