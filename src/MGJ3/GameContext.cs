@@ -28,6 +28,8 @@ namespace MGJ3
 
         // player info
         public PlayerState PlayerState { get; private set; }
+        public Stage Stage { get { return _stage; } }
+        public int Round { get { return round; } }
 
         internal void IncRound()
         {
@@ -52,7 +54,10 @@ namespace MGJ3
             _stageBackgroundStarfield = new StageBackgroundStarfield(_game);
             _stageBackgroundStarfield.Initialize();
 
-            _stage = new Stage01(game);
+            if (round == 1)
+                _stage = new Stage01(game);
+            else
+                throw new InvalidOperationException();
 
             _stage.StageBounds.Body.OnCollision += OnStageBoundsCollision;
             _stage.PhysicsPlane0.World.ContactManager.ContactFilter += OnCollisionFilter;

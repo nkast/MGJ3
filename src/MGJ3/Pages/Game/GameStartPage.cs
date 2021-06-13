@@ -15,27 +15,39 @@ using MGJ3.Components;
 
 namespace MGJ3.Pages.GamePages
 {
-    internal class GamePlayPage : BasicPage
+    internal class GameStartPage : BasicPage
     {
         ContentManager content;
         Random rnd = new Random();
 
         GameContext _gameContext;
+        SpriteFont _font;
 
-        public GamePlayPage(PageManager pageManager, GameContext gameContext) : base(pageManager)
+        public GameStartPage(PageManager pageManager) : base(pageManager)
+        {
+
+        }
+
+        public GameStartPage(PageManager pageManager, GameContext gameContext) : base(pageManager)
         {
             _gameContext = gameContext;
+            gameContext.IncRound();
 
         }
 
         public override void Initialize()
         {
             base.Initialize();
+
+            if (_gameContext == null)
+                _gameContext = new GameContext(Game);
         }
 
         public override bool SideloadContent()
         {
             content = new ContentManager(pageManager.Game.Services, "Content");
+
+            _font = content.Load<SpriteFont>(@"Pages\Menu\About\AboutFont");
 
             return base.SideloadContent();
         }
@@ -70,42 +82,31 @@ namespace MGJ3.Pages.GamePages
             }
 
 
-            _gameContext.HandleInput(input);
+            //_gameContext.HandleInput(input);
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
 
-            if (TransitionState == EnumTransitionState.TransitionOut)
-            {
-                double invDelta = (1.0 - this.TransitionDelta);
-                double dt = gameTime.ElapsedGameTime.TotalSeconds * invDelta;
-                var gt = new GameTime(gameTime.TotalGameTime, TimeSpan.FromSeconds(dt));
-                _gameContext.Update(gt);
-            }
-            else
-            {
-                _gameContext.Update(gameTime);
-            }
+            var dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
+          
+            _gameContext.Update(gameTime);
 
-            if (TransitionState != EnumTransitionState.TransitionOut && _gameContext.PlayerState == PlayerState.Lost)
+            // move player to starting position
+            var player = _gameContext.Stage.Player1;
+            var trgt = new Vector2(-120,0);
+            var diff = trgt - player.Body.Position;
+            player.Body.ApplyLinearImpulse(player.Body.Mass * dt * diff);
+
+
+            if (TransitionState == EnumTransitionState.Active)
             {
-                var gamePage = new GameOverPage(pageManager, _gameContext);
+                var gamePage = new GamePlayPage(pageManager, _gameContext);
                 gamePage.Initialize();
                 pageManager.SideloadPage(gamePage);
                 pageManager.ReplacePage(gamePage);
             }
-
-
-            if (TransitionState == EnumTransitionState.Active && _gameContext.PlayerState == PlayerState.Win)
-            {
-                var gamePage = new GameFinishPage(pageManager, _gameContext);
-                gamePage.Initialize();
-                pageManager.SideloadPage(gamePage);
-                pageManager.ReplacePage(gamePage);
-            }
-
         }
 
         public override void Draw(GameTime gameTime)
@@ -129,6 +130,11 @@ namespace MGJ3.Pages.GamePages
             
             pageManager.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.DepthRead , RasterizerState.CullNone, this.UiEffect);
             _gameContext.Draw(gameTime, this.content , pageManager.SpriteBatch, fade);
+
+            var txt = "ROUND " + _gameContext.Round;
+
+            pageManager.SpriteBatch.DrawString(_font, txt, screenSize/2f - _font.MeasureString(txt), Color.White * fade);
+
             pageManager.SpriteBatch.End();
 
 
