@@ -19,6 +19,8 @@ namespace MGJ3
         StageBackgroundStarfield _stageBackgroundStarfield;
         private Stage _stage;
         private TimeSpan Time;
+        int round = 1;
+        const int rounds = 1;
 
         Queue<IPhysics2dBody> _projectilesToRemove = new Queue<IPhysics2dBody>();
         Queue<IPhysics2dBody> _bonusesToRemove = new Queue<IPhysics2dBody>();
@@ -26,6 +28,15 @@ namespace MGJ3
 
         // player info
         public PlayerState PlayerState { get; private set; }
+
+        internal void IncRound()
+        {
+            if (round + 1 > rounds)
+                throw new System.InvalidOperationException();
+
+            round++;
+        }
+
         TimeSpan _stateTime = TimeSpan.Zero;
         TimeSpan _respawnSafePeriod = TimeSpan.FromSeconds(3);
         public int RemainingLives = 2;
