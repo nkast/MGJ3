@@ -20,7 +20,7 @@ namespace MGJ3
         private Stage _stage;
         private TimeSpan Time;
         int round = 1;
-        const int rounds = 1;
+        const int rounds = 3;
 
         Queue<IPhysics2dBody> _projectilesToRemove = new Queue<IPhysics2dBody>();
         Queue<IPhysics2dBody> _bonusesToRemove = new Queue<IPhysics2dBody>();
@@ -31,12 +31,13 @@ namespace MGJ3
         public Stage Stage { get { return _stage; } }
         public int Round { get { return round; } }
 
-        internal void IncRound()
+        public bool IncRound()
         {
             if (round + 1 > rounds)
-                throw new System.InvalidOperationException();
+                return false;
 
             round++;
+            return true;
         }
 
         TimeSpan _stateTime = TimeSpan.Zero;
@@ -54,17 +55,26 @@ namespace MGJ3
             _stageBackgroundStarfield = new StageBackgroundStarfield(_game);
             _stageBackgroundStarfield.Initialize();
 
+            LoadStage(game);
+
+            _scoreTxt = String.Format("{0:D5}", Score);
+            _hiScoreTxt = String.Format("{0:D8}", HiScore);
+
+        }
+
+        public void LoadStage(Game game)
+        {
             if (round == 1)
                 _stage = new Stage01(game);
+            else if (round == 2)
+                _stage = new Stage02(game);
+            else if (round == 3)
+                _stage = new Stage03(game);
             else
                 throw new InvalidOperationException();
 
             _stage.StageBounds.Body.OnCollision += OnStageBoundsCollision;
             _stage.PhysicsPlane0.World.ContactManager.ContactFilter += OnCollisionFilter;
-
-            _scoreTxt = String.Format("{0:D5}", Score);
-            _hiScoreTxt = String.Format("{0:D8}", HiScore);
-
         }
 
         internal void HandleInput(InputState input)
@@ -150,6 +160,12 @@ namespace MGJ3
                             _stateTime = TimeSpan.Zero;
                             _stage.Player1.IsVisible = true;
                         }
+                    }
+                    break;
+
+                case PlayerState.Win:
+                    {
+                        PlayerState = PlayerState.Normal;
                     }
                     break;
                 case PlayerState.Normal:

@@ -100,10 +100,21 @@ namespace MGJ3.Pages.GamePages
 
             if (TransitionState == EnumTransitionState.Active && _gameContext.PlayerState == PlayerState.Win)
             {
-                var gamePage = new GameFinishPage(pageManager, _gameContext);
-                gamePage.Initialize();
-                pageManager.SideloadPage(gamePage);
-                pageManager.ReplacePage(gamePage);
+                if (_gameContext.IncRound())
+                {
+                    var gamePage = new GameStartPage(pageManager, _gameContext);
+                    gamePage.Initialize();
+                    pageManager.SideloadPage(gamePage);
+                    pageManager.ReplacePage(gamePage);
+                    //_gameContext.PlayerState = PlayerState.Normal;
+                }
+                else
+                {
+                    var gamePage = new GameFinishPage(pageManager, _gameContext);
+                    gamePage.Initialize();
+                    pageManager.SideloadPage(gamePage);
+                    pageManager.ReplacePage(gamePage);
+                }
             }
 
         }

@@ -31,8 +31,6 @@ namespace MGJ3.Pages.GamePages
         public GameStartPage(PageManager pageManager, GameContext gameContext) : base(pageManager)
         {
             _gameContext = gameContext;
-            gameContext.IncRound();
-
         }
 
         public override void Initialize()
@@ -40,7 +38,13 @@ namespace MGJ3.Pages.GamePages
             base.Initialize();
 
             if (_gameContext == null)
+            {
                 _gameContext = new GameContext(Game);
+            }
+            else
+            {
+                _gameContext.LoadStage(Game);
+            }
         }
 
         public override bool SideloadContent()
@@ -54,7 +58,7 @@ namespace MGJ3.Pages.GamePages
 
         public override void GetTransitionInfo(IPage pageB, out TimeSpan durationA, out EnumTransitionSync syncA)
         {
-            durationA = TimeSpan.FromSeconds(0.4f);
+            durationA = TimeSpan.FromSeconds(0.6f);
             syncA = EnumTransitionSync.Exclusive;
             return;
         }

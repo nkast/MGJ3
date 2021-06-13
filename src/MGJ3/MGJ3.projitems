@@ -25,9 +25,21 @@
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Menu\UI\UIButton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Stages\Stage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Stages\Stage01.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Stages\Stage02.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Stages\Stage03.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Stages\Stage01.aether">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Stages\Stage02.aether">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Stages\Stage03.aether">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
