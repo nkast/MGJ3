@@ -7,7 +7,7 @@ using tainicom.Aether.Elementary.Leptons;
 
 namespace tainicom.ProtonType.ContentLib.Components
 {
-    public partial class ModelComponent : ILepton, IWorldTransform, IWorldTransformUpdateable,
+    public partial class ModelComponent : ILocalTransform, IPosition, IWorldTransform, IWorldTransformUpdateable,
         IPlasma<ILeptonNode>,
         ILeptonNode
     {

@@ -13,8 +13,8 @@ using tainicom.Aether.Maths;
 
 namespace tainicom.Aether.Particles
 {
-    public class ParticleEmmiter : 
-        ILepton, IWorldTransform, IWorldTransformUpdateable, ILocalTransform, IPosition, ILeptonNode,
+    public class ParticleEmmiter :
+        IWorldTransform, IWorldTransformUpdateable, ILocalTransform, IPosition,
         IChronon, IAetherSerialization
     {
         float timeBetweenParticles;

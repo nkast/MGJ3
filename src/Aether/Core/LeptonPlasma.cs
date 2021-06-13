@@ -23,7 +23,7 @@ using tainicom.Aether.Engine.Data;
 
 namespace tainicom.Aether.Core
 {
-    public class LeptonPlasma : BasePlasma<ILeptonNode>, ILeptonPlasma, ILepton, IPosition, ILocalTransform, IWorldTransform, IWorldTransformUpdateable
+    public class LeptonPlasma : BasePlasma<ILeptonNode>, ILeptonPlasma, ILocalTransform, IPosition, IWorldTransform, IWorldTransformUpdateable
     {
         Vector3 _position;
         Vector3 _scale = Vector3.One;

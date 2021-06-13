@@ -13,7 +13,7 @@ using tainicom.Aether.Elementary.Chronons;
 namespace tainicom.Aether.Physics2D.Components
 {
     public class Physics2dPlane : BasePlasma<IPhysics2dNode>, IPhysics2dNode, IChronon, IInitializable, IAetherSerialization,
-        ILepton, ILocalTransform, IPosition,
+        ILocalTransform, IPosition,
         IWorldTransform, IWorldTransformUpdateable,
         IAether
     {

@@ -27,7 +27,7 @@ using tainicom.Aether.Engine;
 
 namespace tainicom.Aether.Core.Walkers
 {
-    public class PhotonsWalker : BaseWalker<IPhotonNode>, IPhotonWalker, IInitializable, ILepton
+    public class PhotonsWalker : BaseWalker<IPhotonNode>, IPhotonWalker, IInitializable, ILocalTransform, IPosition
     {
         protected IPhotonNode startingElement;
 

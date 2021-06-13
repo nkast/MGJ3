@@ -5,7 +5,7 @@ using tainicom.Aether.Elementary.Serialization;
 
 namespace tainicom.ProtonType.ContentLib.Components
 {
-    class LeptonImpl: ILepton, IWorldTransform, IWorldTransformUpdateable, IAetherSerialization
+    class LeptonImpl: ILocalTransform, IPosition, IWorldTransform, IWorldTransformUpdateable, IAetherSerialization
     {
         #region Implement ILepton Properties
 
