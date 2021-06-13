@@ -196,13 +196,16 @@ namespace MGJ3.Components
                         
             _leptonImpl.Position = Physics2dManager.Box2DtoXNAWorldPosition(_bodyImpl.Physics2dPlane, Body.Position, _leptonImpl.Position);
 
-            //System.Diagnostics.Debug.WriteLine(_bodyImpl.Body.LinearVelocity.Y);
-            float rot = 35f * MathHelper.Clamp(_bodyImpl.Body.LinearVelocity.Y / (13f * 2f), -1f, 1f);
+
+            var cos = (float)Math.Cos(MathHelper.WrapAngle(_phase) + MathHelper.WrapAngle(MathHelper.Tau * t * 1f / 6f));
+            var sin = (float)Math.Sin(MathHelper.WrapAngle(_phase) + MathHelper.WrapAngle(MathHelper.Tau * t * 1f / 6f));
+
+            float rot = 40f * cos * Math.Sign(Amplitude);
             _leptonImpl.Rotation = Quaternion.CreateFromYawPitchRoll(0,0,MathHelper.ToRadians(-90))
                                  * Quaternion.CreateFromAxisAngle(Vector3.Up, MathHelper.ToRadians(-rot));
             
             var targetpos = Position;
-            targetpos.Y = (float)Math.Cos(MathHelper.WrapAngle(_phase) + MathHelper.WrapAngle(MathHelper.Tau * t * 1f/6f)) * Amplitude;
+            targetpos.Y = sin * Amplitude;
             var diffpos = targetpos - Position;
 
             Body.LinearVelocity = new Vector2(Body.LinearVelocity.X, 0);
