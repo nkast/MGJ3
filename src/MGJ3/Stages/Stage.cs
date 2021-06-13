@@ -22,6 +22,7 @@ namespace MGJ3.Stages
         AetherContextMG _context;
         public AetherEngine Engine { get { return engine; } }
         public StageBounds StageBounds { get { return (StageBounds)engine["StageBounds1"]; } }
+        public StageFinish StageFinish1 { get { return (StageFinish)engine["StageFinish1"]; } }
         public Player Player1 { get { return (Player)engine["Player1"]; } }
         public Physics2dPlane PhysicsPlane0 { get { return (Physics2dPlane)engine["Physics2dPlane0"]; } }
 

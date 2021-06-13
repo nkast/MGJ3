@@ -137,6 +137,12 @@ namespace MGJ3
                     }
                     break;
             }
+
+            if (_stage.StageFinish1.Position.X < 0)
+            {
+
+
+            }
            
 
         }

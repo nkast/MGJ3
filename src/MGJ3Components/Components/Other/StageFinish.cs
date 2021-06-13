@@ -4,39 +4,33 @@ using Microsoft.Xna.Framework;
 using tainicom.Aether.Elementary;
 using tainicom.Aether.Elementary.Chronons;
 using tainicom.Aether.Elementary.Leptons;
-using tainicom.Aether.Elementary.Photons;
 using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Engine;
 using tainicom.Aether.Physics2D.Components;
-using tainicom.Aether.Physics2D.Dynamics.Contacts;
 
 namespace MGJ3.Components
 {
-    public partial class Comet :
-        IPhoton,
+    public partial class StageFinish :
         ILocalTransform, IPosition, IChronon, IBoundingBox, IInitializable, IAetherSerialization
         , IPhysics2dBody
-        , IHealth, IEnemies
     {
-        protected virtual string ContentModel { get { return "Agents\\Comet"; } }
-
-        private AetherEngine _engine;
-        const float w = 6f;
-        const float h = 6f;
-
-        public Matrix Rotate = Matrix.Identity;
-
-        public Comet()
+        public float Width 
         {
-            InitParticleEmmiter();
-
-            ((IHealth)this).Health = 4;
+            get { return w; }
+            set { w = value; }
         }
+        public float Height
+        {
+            get { return h; }
+            set { h = value; }
+        }
+
+        private float w = 129f;
+        private float h = 80f;
 
         public void Initialize(AetherEngine engine)
         {
-            _engine = engine;
-            _photonImpl.Initialize(engine, this, ContentModel);
+
         }
 
 
@@ -85,27 +79,6 @@ namespace MGJ3.Components
         #endregion
 
 
-        #region Implement IPhoton
-        PhotonModelImpl _photonImpl = new PhotonModelImpl();
-        public void Accept(IGeometryVisitor geometryVisitor)
-        {
-            _photonImpl.Accept(geometryVisitor);
-        }
-
-        public IMaterial Material 
-        {
-            get { return _photonImpl.Material; }
-            set { _photonImpl.Material = value; }
-        }
-
-        public ITexture[] Textures
-        {
-            get { return _photonImpl.Textures; }
-            set {  }
-        }
-        #endregion
-        
-
         public BoundingBox GetBoundingBox()
         {
             return new BoundingBox(
@@ -126,15 +99,11 @@ namespace MGJ3.Components
             _bodyImpl.Body.FixedRotation = true;
             _bodyImpl.Body.LinearDamping = 2;
             _bodyImpl.Body.Position = Physics2dManager.XNAtoBox2DWorldPosition(_bodyImpl.Physics2dPlane, this.Position);
-            fixture = _bodyImpl.Body.CreateCircle(w/2f, 1, new Vector2(0f, 0f));
+            fixture = _bodyImpl.Body.CreateEdge(new Vector2(0,-h/2f), new Vector2( 0, h/2f));
 
-            fixture.CollisionCategories = CollisionCategories.Comet;
-            fixture.CollidesWith = CollisionCategories.Player
-                                 | CollisionCategories.PlayerBullet
-                                 | CollisionCategories.Comet 
-                                 | CollisionCategories.Enemies;
-
-            fixture.OnCollision += OnCollision;
+            fixture.IsSensor = true;
+            fixture.CollisionCategories = CollisionCategories.StageBounds;
+            fixture.CollidesWith = CollisionCategories.Player;
         }
         
         public float Restitution
@@ -168,8 +137,6 @@ namespace MGJ3.Components
         #region Chronons implementation
         public void Tick(GameTime gameTime)
         {
-            TickParticleEmmiter(gameTime);
-
             float accelForce = 64f; // meters/sec
             float t = (float)gameTime.TotalGameTime.TotalSeconds;
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -195,54 +162,17 @@ namespace MGJ3.Components
         #endregion
 
 
-        // will be called whenever some other body collides with 'body'
-        bool OnCollision(Fixture sender, Fixture other, Contact contact)
-        {
-            //if (fixtureB.IsSensor) return false;
-
-
-            return true;
-        }
-
-
-        #region  Implement IDamage
-        int IHealth.Health { get; set; }
-        #endregion
-
-
-        #region  Implement IEnemies
-        void IEnemies.Kill()
-        {
-            var coin = new OneCoin();
-            _engine.RegisterParticle(coin);
-            //engine.SetParticleName(coin, "coin");
-            coin.Initialize(_engine);
-            coin.Position = this.Position;
-            ((Physics2dPlane)Body.World.Tag).Add(coin);
-
-
-              _engine.UnregisterParticle(this);
-        }
-        #endregion
-
-
         #region Implement IAetherSerialization
         public void Save(IAetherWriter writer)
         {
             _leptonImpl.Save(writer);
-            _photonImpl.Save(writer);
             _bodyImpl.Save(writer);
-
-            SaveParticleEmmiter(writer);
         }
         public void Load(IAetherReader reader)
         {
             IAether particle;
             _leptonImpl.Load(reader);
-            _photonImpl.Load(reader);
             _bodyImpl.Load(reader);
-
-            LoadParticleEmmiter(reader);
         }
         #endregion
         
