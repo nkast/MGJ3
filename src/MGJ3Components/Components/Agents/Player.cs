@@ -120,6 +120,7 @@ namespace MGJ3.Components
                 new Vector3(+w / 2f, h, +w / 2f));
         }
 
+
         #region Implement IPhysics2dBody
         Physics2dBodyImpl _bodyImpl = new Physics2dBodyImpl();
         public Fixture fixture;
@@ -173,12 +174,13 @@ namespace MGJ3.Components
 
         #endregion
 
+
         #region Chronons implementation
         public void Tick(GameTime gameTime)
         {
             TickParticleEmmiter(gameTime);
 
-            float accelForce = 2000f; // meters/sec
+            float accelForce = 70.73553f; // meters/sec
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             KeyboardState kstate = Keyboard.GetState();
@@ -200,7 +202,7 @@ namespace MGJ3.Components
                 inputl = Vector2.TransformNormal(inputl, Rotate); //rotate input
                 if (inputl != Vector2.Zero)
                 {
-                    Body.ApplyLinearImpulse(inputl * accelForce*2);
+                    Body.ApplyLinearImpulse(Body.Mass * accelForce * 2*inputl);
                 }
             }
 
@@ -212,7 +214,7 @@ namespace MGJ3.Components
             {
                 input.Normalize();
                 input = Vector2.TransformNormal(input, Rotate); //rotate input
-                Body.ApplyLinearImpulse(input * accelForce);
+                Body.ApplyLinearImpulse(Body.Mass * accelForce * input);
             }
 
 
