@@ -175,15 +175,17 @@ namespace MGJ3.Components
         public Body Body
         {
             get { return _bodyImpl.Body; }
-        } 
+        }
         #endregion
 
+
+        static EnemyA test = null;
         #region Chronons implementation
         public void Tick(GameTime gameTime)
         {
             TickParticleEmmiter(gameTime);
 
-            float accelForce = 32f; // meters/sec
+            float accelForce = 1.13176847f; // meters/sec
             float t = (float)gameTime.TotalGameTime.TotalSeconds;
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -191,7 +193,7 @@ namespace MGJ3.Components
             //var lvelocity = _bodyImpl.Body.LinearVelocity;
             //_bodyImpl.Body. ApplyLinear Impulse(-lvelocity);
 
-            _bodyImpl.Body.ApplyLinearImpulse(new Vector2(-accelForce,0));
+            _bodyImpl.Body.ApplyLinearImpulse(Body.Mass * new Vector2(-accelForce,0));
                         
             _leptonImpl.Position = Physics2dManager.Box2DtoXNAWorldPosition(_bodyImpl.Physics2dPlane, Body.Position, _leptonImpl.Position);
 
@@ -204,12 +206,13 @@ namespace MGJ3.Components
             targetpos.Y = (float)Math.Cos(MathHelper.WrapAngle(_phase) + MathHelper.WrapAngle(MathHelper.Tau * t * 1f/6f)) * Amplitude;
             var diffpos = targetpos - Position;
 
-            _bodyImpl.Body.ApplyLinearImpulse(new Vector2(0, diffpos.Y * _bodyImpl.Body.Mass));
+            _bodyImpl.Body.ApplyLinearImpulse(_bodyImpl.Body.Mass * new Vector2(0, diffpos.Y));
 
             return;
         }
     
         #endregion
+
 
         // will be called whenever some other body collides with 'body'
         bool OnCollision(Fixture sender, Fixture other, Contact contact)

@@ -165,12 +165,13 @@ namespace MGJ3.Components
 
         #endregion
 
+
         #region Chronons implementation
         public void Tick(GameTime gameTime)
         {
             TickParticleEmmiter(gameTime);
 
-            float accelForce = 64f; // meters/sec
+            float accelForce = 16f; // meters/sec
             float t = (float)gameTime.TotalGameTime.TotalSeconds;
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -178,7 +179,7 @@ namespace MGJ3.Components
             //var lvelocity = _bodyImpl.Body.LinearVelocity;
             //_bodyImpl.Body. ApplyLinear Impulse(-lvelocity);
 
-            _bodyImpl.Body.ApplyLinearImpulse(new Vector2(accelForce,0));
+            _bodyImpl.Body.ApplyLinearImpulse(Body.Mass * new Vector2(accelForce,0));
             
             _leptonImpl.Position = Physics2dManager.Box2DtoXNAWorldPosition(_bodyImpl.Physics2dPlane, Body.Position, _leptonImpl.Position);
 
@@ -188,6 +189,7 @@ namespace MGJ3.Components
         }
     
         #endregion
+
 
         // will be called whenever some other body collides with 'body'
         bool OnCollision(Fixture sender, Fixture other, Contact contact)
