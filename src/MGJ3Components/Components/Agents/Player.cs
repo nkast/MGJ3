@@ -183,10 +183,10 @@ namespace MGJ3.Components
 
             KeyboardState kstate = Keyboard.GetState();
             Vector2 input = Vector2.Zero;
-            if (kstate.IsKeyDown(Keys.F)) input.X -= 1f;
-            if (kstate.IsKeyDown(Keys.H)) input.X += 1f;
-            if (kstate.IsKeyDown(Keys.T)) input.Y += 1f;
-            if (kstate.IsKeyDown(Keys.G)) input.Y -= 1f;
+            if (kstate.IsKeyDown(Keys.A)) input.X -= 1f;
+            if (kstate.IsKeyDown(Keys.D)) input.X += 1f;
+            if (kstate.IsKeyDown(Keys.W)) input.Y += 1f;
+            if (kstate.IsKeyDown(Keys.S)) input.Y -= 1f;
 
             if (kstate.IsKeyDown(Keys.Left)) input.X -= 1f;
             if (kstate.IsKeyDown(Keys.Right)) input.X += 1f;
