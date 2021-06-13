@@ -193,7 +193,7 @@ namespace MGJ3.Components
             //var lvelocity = _bodyImpl.Body.LinearVelocity;
             //_bodyImpl.Body. ApplyLinear Impulse(-lvelocity);
 
-            _bodyImpl.Body.ApplyLinearImpulse(Body.Mass * new Vector2(-accelForce,0));
+            Body.ApplyLinearImpulse(Body.Mass * new Vector2(-accelForce,0));
                         
             _leptonImpl.Position = Physics2dManager.Box2DtoXNAWorldPosition(_bodyImpl.Physics2dPlane, Body.Position, _leptonImpl.Position);
 
@@ -206,7 +206,7 @@ namespace MGJ3.Components
             targetpos.Y = (float)Math.Cos(MathHelper.WrapAngle(_phase) + MathHelper.WrapAngle(MathHelper.Tau * t * 1f/6f)) * Amplitude;
             var diffpos = targetpos - Position;
 
-            _bodyImpl.Body.ApplyLinearImpulse(_bodyImpl.Body.Mass * new Vector2(0, diffpos.Y));
+            Body.ApplyLinearImpulse(_bodyImpl.Body.Mass * new Vector2(0, diffpos.Y));
 
             return;
         }

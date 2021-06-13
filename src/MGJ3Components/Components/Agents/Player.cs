@@ -200,7 +200,7 @@ namespace MGJ3.Components
                 inputl = Vector2.TransformNormal(inputl, Rotate); //rotate input
                 if (inputl != Vector2.Zero)
                 {
-                    _bodyImpl.Body.ApplyLinearImpulse(inputl * accelForce*2);
+                    Body.ApplyLinearImpulse(inputl * accelForce*2);
                 }
             }
 
@@ -212,7 +212,7 @@ namespace MGJ3.Components
             {
                 input.Normalize();
                 input = Vector2.TransformNormal(input, Rotate); //rotate input
-                _bodyImpl.Body.ApplyLinearImpulse(input * accelForce);
+                Body.ApplyLinearImpulse(input * accelForce);
             }
 
 
