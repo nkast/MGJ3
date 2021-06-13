@@ -48,7 +48,7 @@ namespace MGJ3.Pages.MenuPages
 
             _txBackground = content.Load<Texture2D>(@"Pages\Menu\Background");
             _font = content.Load<SpriteFont>(@"Pages\Menu\About\AboutFont");
-            _txTitle = content.Load<Texture2D>(@"Pages\Menu\StartTitle");
+            _txTitle = content.Load<Texture2D>(@"Pages\Menu\MenuTitle");
             _btnBack = new UIButton(new Vector2(100, 240), 0.7f, content.Load<Texture2D>(@"Pages\UIButtons\UIButtonMenu"));
             _buttons.AddRange(new[] { _btnBack });
 
@@ -168,7 +168,7 @@ namespace MGJ3.Pages.MenuPages
 
             string aboutText = @" 
 MonoGame Jam 3, 
-Game Title: MGJ3
+Game Title: Alien Exterminator
 Designed: Kastellanos Nikos (c) 2021
             ";
             pageManager.SpriteBatch.DrawString(_font, aboutText, new Vector2(200, 20), Color.LightGreen, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.3f);
