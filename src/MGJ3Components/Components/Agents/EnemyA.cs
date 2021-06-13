@@ -206,7 +206,7 @@ namespace MGJ3.Components
             targetpos.Y = (float)Math.Cos(MathHelper.WrapAngle(_phase) + MathHelper.WrapAngle(MathHelper.Tau * t * 1f/6f)) * Amplitude;
             var diffpos = targetpos - Position;
 
-            Body.ApplyLinearImpulse(_bodyImpl.Body.Mass * new Vector2(0, diffpos.Y));
+            Body.ApplyLinearImpulse(Body.Mass * new Vector2(0, diffpos.Y));
 
             return;
         }
