@@ -125,7 +125,7 @@ namespace MGJ3.Components
         {
             _bodyImpl.InitializeBody(physics2dPlane, body);
             _bodyImpl.Body.BodyType = BodyType.Dynamic;
-            _bodyImpl.Body.IgnoreGravity = false;
+            _bodyImpl.Body.IgnoreGravity = true;
             _bodyImpl.Body.SleepingAllowed = false;
             _bodyImpl.Body.FixedRotation = true;
             _bodyImpl.Body.LinearDamping = 2;
