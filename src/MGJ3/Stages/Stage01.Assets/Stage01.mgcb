@@ -166,6 +166,12 @@
 /processorParam:TextureFormat=Compressed
 /build:Bonuses/OneEuro.vox
 
+#begin Bonuses/PickUpBonus.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Bonuses/PickUpBonus.wav
+
 #begin Particles/PlayerParticleTx.png
 /importer:TextureImporter
 /processor:TextureProcessor

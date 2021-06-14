@@ -232,7 +232,10 @@ namespace MGJ3
                 {
                     _bonusesToRemove.Enqueue(ibodyA);
                     if (ibodyA is IBonus && ibodyB is Player)
+                    {
                         ApplyBonus((IBonus)ibodyA);
+                        _game.Content.Load<SoundEffect>("Bonuses/PickUpBonus").Play();
+                    }
 
                 }
                 colllide = false; // disable collision
@@ -243,7 +246,10 @@ namespace MGJ3
                 {
                     _bonusesToRemove.Enqueue(ibodyB);
                     if (ibodyB is IBonus && ibodyA is Player)
-                        ApplyBonus((IBonus)ibodyB);
+                    {
+                        ApplyBonus((IBonus)ibodyB); 
+                        _game.Content.Load<SoundEffect>("Bonuses/PickUpBonus").Play();
+                    }
                 }
                 colllide = false; // disable collision
             }
