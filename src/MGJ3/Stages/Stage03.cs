@@ -7,7 +7,7 @@ namespace MGJ3.Stages
 {
     class Stage03 : Stage
     {
-        public Stage03(Game game) : base(game, "Stages\\Stage03.aether")
+        public Stage03(Game game) : base(game, "Stage03.aether")
         {
             while(!LoadStage());
         }

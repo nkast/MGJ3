@@ -50,7 +50,12 @@ namespace MGJ3.Stages
             //create stream
             if (stream == null)
             {
-                stream = TitleContainer.OpenStream(_stageFilename);
+                #if UWP
+                var assembly = System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(IntroPage)).Assembly;
+                stream = assembly.GetManifestResourceStream("Chervil.Stages.HardHatZone.aebin");
+                #else
+                stream = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("MGJ3.Stages."+_stageFilename);
+			    #endif
                 if (stream == null) throw new Exception("Stage not found");
                 return false;
             }
