@@ -101,10 +101,10 @@ namespace MGJ3.Pages.GamePages
 
             // move player to starting position
             var player = _gameContext.Stage.Player1;
-            var trgt = new Vector2(-120,0);
-            var diff = trgt - player.Body.Position;
+            var trgt = new Vector2(-40,0);
+            var diff = (trgt - player.Body.Position) * 2f;
             player.Body.LinearVelocity = Vector2.Zero;
-            player.Body.ApplyLinearImpulse(player.Body.Mass * TransitionDelta * diff);
+            player.Body.ApplyLinearImpulse(player.Body.Mass * diff);
 
 
             if (TransitionState == EnumTransitionState.Active)
@@ -138,8 +138,8 @@ namespace MGJ3.Pages.GamePages
             pageManager.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.DepthRead , RasterizerState.CullNone, this.UiEffect);
             //_gameContext.Draw(gameTime, this.content , pageManager.SpriteBatch, fade);
 
-            var txt = "ROUND " + _gameContext.Round;
-            pageManager.SpriteBatch.DrawString(_font, txt, screenSize/2f - _font.MeasureString(txt), Color.White * fade);
+            var txt = "LEVEL " + _gameContext.Round;
+            pageManager.SpriteBatch.DrawString(_font, txt, screenSize/2f - _font.MeasureString(txt), Color.White * fade, 0, Vector2.Zero, 2f, SpriteEffects.None, 1f);
 
             pageManager.SpriteBatch.End();
 
