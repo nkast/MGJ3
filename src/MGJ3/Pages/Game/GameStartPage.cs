@@ -43,7 +43,9 @@ namespace MGJ3.Pages.GamePages
             }
             else
             {
+                var pp1 = _gameContext.Stage.Player1.Position;
                 _gameContext.LoadStage(Game);
+                _gameContext.Stage.Player1.Position = pp1;
             }
         }
 
@@ -95,13 +97,14 @@ namespace MGJ3.Pages.GamePages
 
             var dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
           
-            _gameContext.Update(gameTime);
+            //_gameContext.Update(gameTime);
 
             // move player to starting position
             var player = _gameContext.Stage.Player1;
             var trgt = new Vector2(-120,0);
             var diff = trgt - player.Body.Position;
-            player.Body.ApplyLinearImpulse(player.Body.Mass * dt * diff);
+            player.Body.LinearVelocity = Vector2.Zero;
+            player.Body.ApplyLinearImpulse(player.Body.Mass * TransitionDelta * diff);
 
 
             if (TransitionState == EnumTransitionState.Active)
@@ -133,10 +136,9 @@ namespace MGJ3.Pages.GamePages
             _gameContext.SetUIEffect(this.UiEffect);
             
             pageManager.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.DepthRead , RasterizerState.CullNone, this.UiEffect);
-            _gameContext.Draw(gameTime, this.content , pageManager.SpriteBatch, fade);
+            //_gameContext.Draw(gameTime, this.content , pageManager.SpriteBatch, fade);
 
             var txt = "ROUND " + _gameContext.Round;
-
             pageManager.SpriteBatch.DrawString(_font, txt, screenSize/2f - _font.MeasureString(txt), Color.White * fade);
 
             pageManager.SpriteBatch.End();
