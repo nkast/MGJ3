@@ -132,7 +132,7 @@ namespace MGJ3.Components
             _bodyImpl.Body.IgnoreGravity = true;
             _bodyImpl.Body.SleepingAllowed = false;
             _bodyImpl.Body.FixedRotation = true;
-            _bodyImpl.Body.LinearDamping = 8;
+            _bodyImpl.Body.LinearDamping = 16;
             _bodyImpl.Body.Position = Physics2dManager.XNAtoBox2DWorldPosition(_bodyImpl.Physics2dPlane, this.Position);
             fixture = _bodyImpl.Body.CreateCircle(w/2f, 1, new Vector2(0f, 0f));
 
@@ -180,7 +180,7 @@ namespace MGJ3.Components
         {
             TickParticleEmmiter(gameTime);
 
-            float accelForce = 4200f; // meters/sec
+            float accelForce = 1200f; // meters/sec
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             KeyboardState kstate = Keyboard.GetState();
@@ -202,7 +202,7 @@ namespace MGJ3.Components
                 inputl = Vector2.TransformNormal(inputl, Rotate); //rotate input
                 if (inputl != Vector2.Zero)
                 {
-                    Body.ApplyLinearImpulse(Body.Mass * dt * accelForce * 2*inputl);
+                    Body.ApplyLinearImpulse(Body.Mass * dt * accelForce * inputl);
                 }
             }
 

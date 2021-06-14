@@ -176,7 +176,7 @@ namespace MGJ3.Components
             float t = (float)gameTime.TotalGameTime.TotalSeconds;
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (q < 0.5f)
+            if (q < 0.3f)
                 Body.ApplyLinearImpulse(Body.Mass * dt * new Vector2(accelForce, 0));
             
             _leptonImpl.Position = Physics2dManager.Box2DtoXNAWorldPosition(_bodyImpl.Physics2dPlane, Body.Position, _leptonImpl.Position);
