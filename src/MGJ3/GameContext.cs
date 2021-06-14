@@ -126,6 +126,7 @@ namespace MGJ3
             {
                 _bulletTime = TimeSpan.Zero;
                 _stage.Player1.Fire();
+                _game.Content.Load<SoundEffect>("Agents/PlayerFireBullet").Play();
             }
 
             _stateTime += gameTime.ElapsedGameTime;

@@ -109,6 +109,13 @@
 /processorParam:TextureFormat=Compressed
 /build:Agents/EnemyA1.vox
 
+
+#begin Agents/PlayerFireBullet.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Agents/PlayerFireBullet.wav
+
 #begin Agents/BulletHit.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
