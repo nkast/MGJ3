@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -123,6 +124,7 @@ namespace MGJ3.Pages.GamePages
                                 }
                                 break;
                         }
+                        content.Load<SoundEffect>("Pages/Menu/Select").Play();
                     }
 
                 }
@@ -136,6 +138,7 @@ namespace MGJ3.Pages.GamePages
                     startMenuPage.Initialize();
                     pageManager.SideloadPage(startMenuPage);
                     pageManager.ReplacePage(startMenuPage);
+                    content.Load<SoundEffect>("Pages/Menu/Select").Play();
                 }
             }
 

@@ -48,6 +48,12 @@
 /processorParam:TextureFormat=Color
 /build:Pages/Menu/MenuTitle.png
 
+#begin Pages/Menu/Select.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Pages/Menu/Select.wav
+
 #begin Pages/UIButtons/UIButtonPlay.png
 /importer:TextureImporter
 /processor:TextureProcessor
