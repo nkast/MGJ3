@@ -109,6 +109,17 @@
 /processorParam:TextureFormat=Compressed
 /build:Agents/EnemyA1.vox
 
+#begin Agents/BulletHit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Agents/BulletHit.wav
+
+#begin Agents/Explosion.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Agents/Explosion.wav
 
 #begin Bonuses/OneDollar.vox
 /importer:VoxelModelImporter
@@ -147,7 +158,6 @@
 /processorParam:SwapWindingOrder=False
 /processorParam:TextureFormat=Compressed
 /build:Bonuses/OneEuro.vox
-
 
 #begin Particles/PlayerParticleTx.png
 /importer:TextureImporter

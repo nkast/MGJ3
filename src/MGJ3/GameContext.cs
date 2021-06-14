@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using tainicom.Devices;
@@ -259,6 +260,7 @@ namespace MGJ3
                         break;
                     case PlayerState.Normal:
                         PlayerState = PlayerState.Killed;
+                        _game.Content.Load<SoundEffect>("Agents/Explosion").Play();
                         colllide = false; // disable collision
                         break;
                 }
@@ -271,8 +273,15 @@ namespace MGJ3
                 if (ihealthA.Health <= 0)
                 {
                     if (!_bodiesToRemove.Contains(ibodyA))
+                    {
                         _bodiesToRemove.Enqueue(ibodyA);
+                        _game.Content.Load<SoundEffect>("Agents/Explosion").Play();
+                    }
                     colllide = false; // disable collision
+                }
+                else
+                {
+                    _game.Content.Load<SoundEffect>("Agents/BulletHit").Play();
                 }
             }
 
@@ -282,8 +291,15 @@ namespace MGJ3
                 if (ihealthB.Health <= 0)
                 {
                     if (!_bodiesToRemove.Contains(ibodyB))
+                    {
                         _bodiesToRemove.Enqueue(ibodyB);
+                        _game.Content.Load<SoundEffect>("Agents/Explosion").Play();
+                    }
                     colllide = false; // disable collision
+                }
+                else
+                {
+                    _game.Content.Load<SoundEffect>("Agents/BulletHit").Play();
                 }
             }
 
