@@ -15,7 +15,7 @@ namespace MGJ3.Components
 {
     public partial class Player :
         IPhoton,
-        ILocalTransform, IPosition, IChronon, IBoundingBox, IInitializable, IAetherSerialization
+        ILepton, IChronon, IBoundingBox, IInitializable, IAetherSerialization
         , IPhysics2dBody
     {
         protected virtual string ContentModel { get { return "Agents\\Player"; } }

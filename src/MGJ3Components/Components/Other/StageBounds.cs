@@ -10,7 +10,7 @@ using tainicom.Aether.Physics2D.Components;
 namespace MGJ3.Components
 {
     public partial class StageBounds :
-        ILocalTransform, IPosition, IBoundingBox, IInitializable, IAetherSerialization
+        ILepton, IBoundingBox, IInitializable, IAetherSerialization
         , IPhysics2dBody
     {
         public float Width 

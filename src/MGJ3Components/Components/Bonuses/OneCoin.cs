@@ -14,8 +14,8 @@ using System.Globalization;
 namespace MGJ3.Components
 {
     public partial class OneCoin: 
-        IPhoton,
-        ILocalTransform, IPosition, IChronon, IBoundingBox, IInitializable, IAetherSerialization
+        IPhoton, 
+        ILepton, IChronon, IBoundingBox, IInitializable, IAetherSerialization
         , IPhysics2dBody
         , IBonus
     {

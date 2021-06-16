@@ -13,8 +13,8 @@ using tainicom.Aether.Physics2D.Dynamics.Contacts;
 namespace MGJ3.Components
 {
     public partial class PlayerBullet: 
-        IPhoton,
-        ILocalTransform, IPosition, IChronon, IBoundingBox, IInitializable, IAetherSerialization
+        IPhoton, 
+        ILepton, IChronon, IBoundingBox, IInitializable, IAetherSerialization
         ,IPhysics2dBody
         ,IDamage
     {
