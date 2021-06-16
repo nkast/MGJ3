@@ -13,8 +13,8 @@ using tainicom.Aether.Elementary.Serialization;
 
 namespace tainicom.Aether.Particles
 {
-    public abstract class ParticleSystemBase :
-        ILocalTransform, IPosition,
+    public abstract class ParticleSystemBase : 
+        ILepton, 
         IWorldTransform, IWorldTransformUpdateable,
         IPhoton, IAetherSerialization
     {
