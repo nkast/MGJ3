@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MGJ3Components\MGJ3.Components.csproj">
+    <ProjectReference Include="..\MGJ3Components\MGJ3.Components.NETSTANDARD2_0.csproj">
     </ProjectReference>
   </ItemGroup>
 
