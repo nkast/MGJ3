@@ -1,7 +1,6 @@
 ﻿using System;
 
-//TODO: move to 'tainicom.ProtonType.Contracts' ?
-namespace tainicom.ProtonType.ContentLib
+namespace tainicom.Aether.Components
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class AssetContentTypeAttribute: Attribute

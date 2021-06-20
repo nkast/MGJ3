@@ -24,7 +24,7 @@ using tainicom.Aether.Core.Materials.Data;
 using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Core.Materials;
 
-namespace tainicom.ProtonType.ContentLib.Components
+namespace tainicom.Aether.Components.Components
 {
     public class ModelMaterial : MaterialBase
     {

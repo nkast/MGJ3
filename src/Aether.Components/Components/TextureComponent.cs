@@ -5,7 +5,7 @@ using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Engine;
 using tainicom.Aether.MonoGame;
 
-namespace tainicom.ProtonType.ContentLib.Components
+namespace tainicom.Aether.Components.Components
 {
     [AssetContentTypeAttribute("Microsoft.Xna.Framework.Content.Pipeline.Graphics.TextureContent")]
     public class TextureComponent: ComponentBase, ITexture, IAether, IInitializable

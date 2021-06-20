@@ -6,7 +6,7 @@ using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Engine;
 using tainicom.Aether.MonoGame;
 
-namespace tainicom.ProtonType.ContentLib.Components
+namespace tainicom.Aether.Components.Components
 {
     [AssetContentTypeAttribute("Microsoft.Xna.Framework.Content.Pipeline.Processors.ModelContent")]
     public partial class ModelComponent : ComponentBase, IAether, IInitializable, IEnumerable
