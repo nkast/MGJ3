@@ -47,6 +47,10 @@ namespace MGJ3
             graphics.HardwareModeSwitch = false;
 
 #if ANDROID || CARDBOARD || !DEBUG
+#if WINDOWS || WUP || DESKTOPGL
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+#endif
             graphics.IsFullScreen = true;
 #endif
 #if CARDBOARD
@@ -124,13 +128,13 @@ namespace MGJ3
             inputState.Update(this.IsActive);
 
             // toggle FullScreen
-#if (WINDOWS || WUP)
+#if (WINDOWS || WUP || DESKTOPGL)
             if (inputState.IsKeyReleased(Keys.F11))
             {
                 if (!graphics.IsFullScreen)
                 {
-                    graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width/2;
-                    graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height/2;
+                    graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+                    graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
                     graphics.IsFullScreen = true;
                     graphics.ApplyChanges();
                 }
