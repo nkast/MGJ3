@@ -1,7 +1,7 @@
 ﻿using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Engine;
 
-namespace tainicom.Aether.Components.Components
+namespace tainicom.Aether.Components
 {
     public partial class ComponentBase : IAetherSerialization
     {

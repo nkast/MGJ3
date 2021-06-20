@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework;
 using tainicom.Aether.Core.Materials;
 using tainicom.Aether.Core.Photons;
 
-namespace tainicom.Aether.Components.Components
+namespace tainicom.Aether.Components
 {
     public class ModelMeshPartComponent : IPhoton, ILocalTransform, IWorldTransform, IWorldTransformUpdateable,
         ILeptonNode

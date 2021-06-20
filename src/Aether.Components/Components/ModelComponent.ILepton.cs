@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using tainicom.Aether.Elementary;
 using tainicom.Aether.Elementary.Leptons;
 
-namespace tainicom.Aether.Components.Components
+namespace tainicom.Aether.Components
 {
     public partial class ModelComponent : ILepton, IWorldTransform, IWorldTransformUpdateable,
         IPlasma<ILeptonNode>,

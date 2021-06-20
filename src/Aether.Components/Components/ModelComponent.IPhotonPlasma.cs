@@ -2,7 +2,7 @@
 using tainicom.Aether.Elementary;
 using tainicom.Aether.Elementary.Photons;
 
-namespace tainicom.Aether.Components.Components
+namespace tainicom.Aether.Components
 {
     public partial class ModelComponent :
         IPhotonPlasma, IPlasma<IPhotonNode>,

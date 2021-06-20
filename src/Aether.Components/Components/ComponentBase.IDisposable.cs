@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace tainicom.Aether.Components.Components
+namespace tainicom.Aether.Components
 {
     public partial class ComponentBase : IDisposable
     {

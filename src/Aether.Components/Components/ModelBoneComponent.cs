@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using tainicom.Aether.Elementary;
 using tainicom.Aether.Elementary.Leptons;
 
-namespace tainicom.Aether.Components.Components
+namespace tainicom.Aether.Components
 {
     partial class ModelBoneComponent : IEnumerable,
         ILocalTransform, 

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using tainicom.Aether.Elementary.Leptons;
 using tainicom.Aether.Elementary.Serialization;
 
-namespace tainicom.Aether.Components.Components
+namespace tainicom.Aether.Components
 {
     class LeptonImpl: ILepton, IWorldTransform, IWorldTransformUpdateable, IAetherSerialization
     {
