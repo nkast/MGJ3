@@ -19,7 +19,7 @@
           <Scale X="1" Y="1" Z="1" />
           <Rotation X="0" Y="0" Z="-0.707106769" W="0.707106769" />
           <Material>
-            <AetherParticle UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" Type="tainicom.Aether.Core.Materials.BasicMaterial, tainicom.Aether">
+            <AetherParticle UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" Type="tainicom.Aether.Core.Materials.BasicMaterial, Aether">
               <PrimitiveType>0</PrimitiveType>
               <Name>BlendState.Opaque</Name>
               <BlendStateName>BlendState.Opaque</BlendStateName>
@@ -530,7 +530,7 @@
       <Scale X="1" Y="1" Z="1" />
     </AetherParticle>
     <AetherParticleRef UID="A829965D-D99B-4623-944A-10F735A16D4C" Name="Player1" />
-    <AetherParticle UID="98BA2F13-0592-4D09-A6F7-79B6263817BA" Name="DefaultMaterial1" Type="tainicom.Aether.Core.Materials.BasicMaterial, tainicom.Aether">
+    <AetherParticle UID="98BA2F13-0592-4D09-A6F7-79B6263817BA" Name="DefaultMaterial1" Type="tainicom.Aether.Core.Materials.BasicMaterial, Aether">
       <PrimitiveType>0</PrimitiveType>
       <Name>BlendState.Opaque</Name>
       <BlendStateName>BlendState.Opaque</BlendStateName>
@@ -631,7 +631,7 @@
     <AetherParticleRef UID="91F7364E-2165-493F-AC04-4EA323C8AD17" Name="EnemyA7" />
     <AetherParticleRef UID="209DCD67-52C0-468A-9A1B-A60699C72C64" Name="EnemyA8" />
     <AetherParticleRef UID="3604DFF7-F0A8-46C1-854A-73B7230564CF" Name="EnemyA9" />
-    <AetherParticle UID="BFF0D71F-A10E-4754-965A-446E2A67D6C0" Name="wave1" Type="tainicom.Aether.Core.LeptonPlasma, tainicom.Aether">
+    <AetherParticle UID="BFF0D71F-A10E-4754-965A-446E2A67D6C0" Name="wave1" Type="tainicom.Aether.Core.LeptonPlasma, Aether">
       <Version>1</Version>
       <Version>1</Version>
       <Particles>
@@ -648,7 +648,7 @@
         <AetherParticleRef UID="F264FCDB-A682-486A-B0B2-48D2340AC74B" Name="Comet11" />
       </Particles>
     </AetherParticle>
-    <AetherParticle UID="D9FD5721-0E16-44EB-843B-F4DA59042787" Name="wave2" Type="tainicom.Aether.Core.LeptonPlasma, tainicom.Aether">
+    <AetherParticle UID="D9FD5721-0E16-44EB-843B-F4DA59042787" Name="wave2" Type="tainicom.Aether.Core.LeptonPlasma, Aether">
       <Version>1</Version>
       <Version>1</Version>
       <Particles>
@@ -662,7 +662,7 @@
         <AetherParticleRef UID="3604DFF7-F0A8-46C1-854A-73B7230564CF" Name="EnemyA9" />
       </Particles>
     </AetherParticle>
-    <AetherParticle UID="8D4A13E7-7AFE-4684-9C5D-AAA801509068" Name="Stage1" Type="tainicom.Aether.Core.LeptonPlasma, tainicom.Aether">
+    <AetherParticle UID="8D4A13E7-7AFE-4684-9C5D-AAA801509068" Name="Stage1" Type="tainicom.Aether.Core.LeptonPlasma, Aether">
       <Version>1</Version>
       <Version>1</Version>
       <Particles>
@@ -674,7 +674,7 @@
     <AetherParticleRef UID="4120E8AF-9DBE-4CD4-A470-835039915EA7" Name="StageFinish1" />
   </Particles>
   <Managers>
-    <AetherParticleManager Name="Leptons" Type="tainicom.Aether.Core.Managers.LeptonsManager, tainicom.Aether">
+    <AetherParticleManager Name="Leptons" Type="tainicom.Aether.Core.Managers.LeptonsManager, Aether">
       <Particles>
         <AetherParticleRef UID="CA5A12FE-8FE5-4EE0-9473-CBF72F6E5C0F" Name="Physics2dPlane0" />
         <AetherParticleRef UID="150D9F60-1533-48F1-8F5B-2F9C1ECA17A8" Name="Physics2dPlane1" />
@@ -724,7 +724,7 @@
         </Particles>
       </Root>
     </AetherParticleManager>
-    <AetherParticleManager Name="Chronons" Type="tainicom.Aether.Core.Managers.ChrononsManager, tainicom.Aether">
+    <AetherParticleManager Name="Chronons" Type="tainicom.Aether.Core.Managers.ChrononsManager, Aether">
       <Particles>
         <AetherParticleRef UID="CA5A12FE-8FE5-4EE0-9473-CBF72F6E5C0F" Name="Physics2dPlane0" />
         <AetherParticleRef UID="150D9F60-1533-48F1-8F5B-2F9C1ECA17A8" Name="Physics2dPlane1" />
@@ -786,7 +786,7 @@
         </Particles>
       </Root>
     </AetherParticleManager>
-    <AetherParticleManager Name="Photons" Type="tainicom.Aether.Core.Managers.PhotonsManager, tainicom.Aether">
+    <AetherParticleManager Name="Photons" Type="tainicom.Aether.Core.Managers.PhotonsManager, Aether">
       <Particles>
         <AetherParticleRef UID="A829965D-D99B-4623-944A-10F735A16D4C" Name="Player1" />
         <AetherParticleRef UID="63A394E7-6BC5-4FA5-AEDC-BC70A4AB2EB8" Name="PlayerGPUParticleSystem1" />
@@ -861,7 +861,7 @@
         </VisibleParticles>
       </Root>
     </AetherParticleManager>
-    <AetherParticleManager Name="Cameras" Type="tainicom.Aether.Core.Managers.CamerasManager, tainicom.Aether">
+    <AetherParticleManager Name="Cameras" Type="tainicom.Aether.Core.Managers.CamerasManager, Aether">
       <Particles>
         <AetherParticleRef UID="D39416C3-AB69-42AB-A911-22A4194B4D37" Name="DefaultCamera" />
       </Particles>
@@ -872,7 +872,7 @@
         </Particles>
       </Root>
     </AetherParticleManager>
-    <AetherParticleManager Name="Materials" Type="tainicom.Aether.Core.Managers.MaterialsManager, tainicom.Aether">
+    <AetherParticleManager Name="Materials" Type="tainicom.Aether.Core.Managers.MaterialsManager, Aether">
       <Particles>
         <AetherParticleRef UID="98BA2F13-0592-4D09-A6F7-79B6263817BA" Name="DefaultMaterial1" />
         <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
