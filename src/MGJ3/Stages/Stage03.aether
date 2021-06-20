@@ -163,7 +163,7 @@
                 </AetherParticle>
               </Material>
               <Textures>
-                <AetherParticle UID="2C3F83F8-E0E6-4F9B-B938-CCE73723CE26" Name="PlayerParticleTx1" Type="tainicom.ProtonType.ContentLib.Components.TextureComponent, ProtonType.ContentLib">
+                <AetherParticle UID="2C3F83F8-E0E6-4F9B-B938-CCE73723CE26" Name="PlayerParticleTx1" Type="tainicom.ProtonType.ContentLib.Components.TextureComponent, Aether.Components">
                   <AssetFilename>Particles\PlayerParticleTx</AssetFilename>
                 </AetherParticle>
               </Textures>
