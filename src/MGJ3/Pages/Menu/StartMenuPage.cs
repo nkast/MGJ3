@@ -129,6 +129,22 @@ namespace MGJ3.Pages.MenuPages
 
                 }
 
+                if (input.IsButtonPressed(Buttons.B) ||
+                    input.IsKeyReleased(Keys.Escape) ||
+                    input.IsKeyReleased(Keys.Back)
+                    )
+                {
+                    try
+                    {
+                        Game.Exit();
+                    }
+                    catch
+                    {
+#if ANDROID
+                        Game.Activity.MoveTaskToBack(true);
+#endif
+                    }
+                }
 
             }
         }
