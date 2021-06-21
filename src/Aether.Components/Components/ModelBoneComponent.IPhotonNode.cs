@@ -1,21 +1,21 @@
 ﻿using System.Collections.Generic;
 using tainicom.Aether.Elementary;
-using tainicom.Aether.Elementary.Photons;
+using tainicom.Aether.Elementary.Visual;
 
 namespace tainicom.Aether.Components
 {
     partial class ModelBoneComponent :
-        IPhotonPlasma, IPlasma<IPhotonNode>,
-        IPhotonNode
+        IVisualPlasma, IPlasma<IVisualNode>,
+        IVisualNode
     {
-        List<IPhotonNode> _photons = new List<IPhotonNode>();
+        List<IVisualNode> _photons = new List<IVisualNode>();
         
-        IEnumerator<IPhotonNode> IPhotonPlasma.VisibleParticles
+        IEnumerator<IVisualNode> IVisualPlasma.VisibleParticles
         {
             get { return _photons.GetEnumerator(); }
         }
         
-        IEnumerator<IPhotonNode> IEnumerable<IPhotonNode>.GetEnumerator()
+        IEnumerator<IVisualNode> IEnumerable<IVisualNode>.GetEnumerator()
         {
             return _photons.GetEnumerator();
         }

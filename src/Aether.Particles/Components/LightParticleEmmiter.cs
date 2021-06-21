@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 #if WINDOWS
 using tainicom.Aether.Design.Converters;
 #endif
-using tainicom.Aether.Elementary.Photons;
+using tainicom.Aether.Elementary.Visual;
 using tainicom.Aether.Elementary.Serialization;
 
 namespace tainicom.Aether.Particles

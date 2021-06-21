@@ -6,15 +6,15 @@ using System.ComponentModel;
 using Microsoft.Xna.Framework;
 using tainicom.Aether.Core.Managers;
 using tainicom.Aether.Elementary;
-using tainicom.Aether.Elementary.Chronons;
-using tainicom.Aether.Elementary.Leptons;
+using tainicom.Aether.Elementary.Temporal;
+using tainicom.Aether.Elementary.Spatial;
 using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Maths;
 
 namespace tainicom.Aether.Particles
 {
     public class ParticleEmmiter : 
-        ILepton, IWorldTransform, IWorldTransformUpdateable, ILocalTransform, IPosition, ILeptonNode,
+        ILepton, IWorldTransform, IWorldTransformUpdateable, ILocalTransform, IPosition, ISpatialNode,
         IChronon, IAetherSerialization
     {
         float timeBetweenParticles;
@@ -105,7 +105,7 @@ namespace tainicom.Aether.Particles
             // Work out how much time has passed since the previous update.
             float elapsedTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            var worldTransform = LeptonsManager.GetWorldTransform(this);
+            var worldTransform = SpatialManager.GetWorldTransform(this);
             Vector3 nextPosition = worldTransform.Translation;
 
             Matrix invWorldTransform = Matrix.Invert(ParticleSystem.WorldTransform);

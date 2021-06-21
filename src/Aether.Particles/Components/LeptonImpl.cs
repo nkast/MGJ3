@@ -1,11 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using tainicom.Aether.Elementary;
-using tainicom.Aether.Elementary.Leptons;
+using tainicom.Aether.Elementary.Spatial;
 using tainicom.Aether.Elementary.Serialization;
 
 namespace tainicom.Aether.Particles
 {
-    class LeptonImpl : ILepton, IWorldTransform, IWorldTransformUpdateable, ILocalTransform, IPosition, ILeptonNode, IAetherSerialization, IAether
+    class LeptonImpl : ILepton, IWorldTransform, IWorldTransformUpdateable, ILocalTransform, IPosition, ISpatialNode, IAetherSerialization, IAether
     {
         #region Implement IWorldTransform, IWorldTransformUpdateable
         Matrix _parentWorldTransform = Matrix.Identity;

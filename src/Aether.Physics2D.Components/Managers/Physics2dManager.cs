@@ -119,7 +119,7 @@ namespace tainicom.Aether.Physics2D.Components
         public static float XNAtoBOX2DRotation(Physics2dPlane physics2dPlane, Quaternion value)
         {
             Matrix planeWorld;
-            LeptonsManager.GetWorldTransform(physics2dPlane, out planeWorld);
+            SpatialManager.GetWorldTransform(physics2dPlane, out planeWorld);
             Vector3 planeNormal = planeWorld.Forward;
             
             //Decomposing quaternion to twist/swing
@@ -141,7 +141,7 @@ namespace tainicom.Aether.Physics2D.Components
         
         public static Vector3 Box2DtoXNAWorldPosition(Physics2dPlane physics2dPlane, Vector2 position2, Vector3 worldPosition)
         {
-            Matrix fpWorldTransform = LeptonsManager.GetWorldTransform(physics2dPlane);
+            Matrix fpWorldTransform = SpatialManager.GetWorldTransform(physics2dPlane);
             Matrix fpInvWorldTransform = physics2dPlane.InvWorldTransform;
 
             Vector3 fpPos = Vector3.Transform(worldPosition, fpInvWorldTransform);

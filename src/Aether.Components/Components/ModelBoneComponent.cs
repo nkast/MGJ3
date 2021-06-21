@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using tainicom.Aether.Elementary;
-using tainicom.Aether.Elementary.Leptons;
+using tainicom.Aether.Elementary.Spatial;
 
 namespace tainicom.Aether.Components
 {
@@ -14,8 +14,8 @@ namespace tainicom.Aether.Components
         IPosition,
         IBoundingBox,
         IWorldTransform, IWorldTransformUpdateable,
-        IPlasma<ILeptonNode>,
-        ILeptonNode
+        IPlasma<ISpatialNode>,
+        ISpatialNode
     {
         private ModelComponent _modelComponent;
         private int _boneIndex;
@@ -122,13 +122,13 @@ namespace tainicom.Aether.Components
         }
 
 
-        #region  Implement IPlasma<ILeptonNode>
+        #region  Implement IPlasma<ISpatialNode>
 
-        List<ILeptonNode> _leptons = new List<ILeptonNode>();
+        List<ISpatialNode> _leptons = new List<ISpatialNode>();
 
-        IEnumerator<ILeptonNode> IEnumerable<ILeptonNode>.GetEnumerator()
+        IEnumerator<ISpatialNode> IEnumerable<ISpatialNode>.GetEnumerator()
         {
-            return ((IEnumerable<ILeptonNode>)_leptons).GetEnumerator();
+            return ((IEnumerable<ISpatialNode>)_leptons).GetEnumerator();
         }
 
         #endregion

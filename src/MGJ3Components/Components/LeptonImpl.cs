@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using tainicom.Aether.Elementary.Leptons;
+using tainicom.Aether.Elementary.Spatial;
 using tainicom.Aether.Elementary.Serialization;
 
 namespace MGJ3.Components

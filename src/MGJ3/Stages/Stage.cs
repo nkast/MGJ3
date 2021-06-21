@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Content;
 using tainicom.Aether.Core.Serialization;
 using tainicom.Aether.Elementary;
 using tainicom.Aether.Elementary.Cameras;
-using tainicom.Aether.Elementary.Photons;
+using tainicom.Aether.Elementary.Visual;
 using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Engine;
 using tainicom.Aether.Maths;
@@ -90,7 +90,7 @@ namespace MGJ3.Stages
         {
             ICamera camera = engine["DefaultCamera"] as ICamera;
 
-            IPhotonWalker viewProj = Engine.PhotonsMgr.DefaultWalker;
+            IVisualWalker viewProj = Engine.VisualMgr.DefaultWalker;
             viewProj.Projection = camera.Projection;
             viewProj.View = camera.View;
 

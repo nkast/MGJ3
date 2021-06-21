@@ -6,8 +6,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Microsoft.Xna.Framework;
 using tainicom.Aether.Elementary;
-using tainicom.Aether.Elementary.Leptons;
-using tainicom.Aether.Elementary.Photons;
+using tainicom.Aether.Elementary.Spatial;
+using tainicom.Aether.Elementary.Visual;
 using tainicom.Aether.Elementary.Serialization;
 
 

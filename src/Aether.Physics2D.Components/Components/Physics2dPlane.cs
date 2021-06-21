@@ -5,10 +5,10 @@ using tainicom.Aether.Physics2D.Controllers;
 using tainicom.Aether.Physics2D.Dynamics;
 using tainicom.Aether.Core;
 using tainicom.Aether.Elementary;
-using tainicom.Aether.Elementary.Leptons;
+using tainicom.Aether.Elementary.Spatial;
 using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Engine;
-using tainicom.Aether.Elementary.Chronons;
+using tainicom.Aether.Elementary.Temporal;
 
 namespace tainicom.Aether.Physics2D.Components
 {

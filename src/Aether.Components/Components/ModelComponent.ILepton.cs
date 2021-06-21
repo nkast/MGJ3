@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Microsoft.Xna.Framework;
 using tainicom.Aether.Elementary;
-using tainicom.Aether.Elementary.Leptons;
+using tainicom.Aether.Elementary.Spatial;
 
 namespace tainicom.Aether.Components
 {
     public partial class ModelComponent : ILepton, IWorldTransform, IWorldTransformUpdateable,
-        IPlasma<ILeptonNode>,
-        ILeptonNode
+        IPlasma<ISpatialNode>,
+        ISpatialNode
     {
         #region  Implement ILepton
         LeptonImpl _leptonImpl = new LeptonImpl();
@@ -78,13 +78,13 @@ namespace tainicom.Aether.Components
             }
         }
 
-        #region  Implement IPlasma<ILeptonNode>
+        #region  Implement IPlasma<ISpatialNode>
 
-        List<ILeptonNode> _leptons = new List<ILeptonNode>();
+        List<ISpatialNode> _leptons = new List<ISpatialNode>();
 
-        IEnumerator<ILeptonNode> IEnumerable<ILeptonNode>.GetEnumerator()
+        IEnumerator<ISpatialNode> IEnumerable<ISpatialNode>.GetEnumerator()
         {
-            return ((IEnumerable<ILeptonNode>)_leptons).GetEnumerator();
+            return ((IEnumerable<ISpatialNode>)_leptons).GetEnumerator();
         }
         
         #endregion

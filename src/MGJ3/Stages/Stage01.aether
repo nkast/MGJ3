@@ -674,7 +674,7 @@
     <AetherParticleRef UID="4120E8AF-9DBE-4CD4-A470-835039915EA7" Name="StageFinish1" />
   </Particles>
   <Managers>
-    <AetherParticleManager Name="Leptons" Type="tainicom.Aether.Core.Managers.LeptonsManager, Aether">
+    <AetherParticleManager Name="Leptons" Type="tainicom.Aether.Core.Managers.SpatialManager, Aether">
       <Particles>
         <AetherParticleRef UID="CA5A12FE-8FE5-4EE0-9473-CBF72F6E5C0F" Name="Physics2dPlane0" />
         <AetherParticleRef UID="150D9F60-1533-48F1-8F5B-2F9C1ECA17A8" Name="Physics2dPlane1" />
@@ -724,7 +724,7 @@
         </Particles>
       </Root>
     </AetherParticleManager>
-    <AetherParticleManager Name="Chronons" Type="tainicom.Aether.Core.Managers.ChrononsManager, Aether">
+    <AetherParticleManager Name="Chronons" Type="tainicom.Aether.Core.Managers.TemporalManager, Aether">
       <Particles>
         <AetherParticleRef UID="CA5A12FE-8FE5-4EE0-9473-CBF72F6E5C0F" Name="Physics2dPlane0" />
         <AetherParticleRef UID="150D9F60-1533-48F1-8F5B-2F9C1ECA17A8" Name="Physics2dPlane1" />
@@ -786,7 +786,7 @@
         </Particles>
       </Root>
     </AetherParticleManager>
-    <AetherParticleManager Name="Photons" Type="tainicom.Aether.Core.Managers.PhotonsManager, Aether">
+    <AetherParticleManager Name="Photons" Type="tainicom.Aether.Core.Managers.VisualManager, Aether">
       <Particles>
         <AetherParticleRef UID="A829965D-D99B-4623-944A-10F735A16D4C" Name="Player1" />
         <AetherParticleRef UID="63A394E7-6BC5-4FA5-AEDC-BC70A4AB2EB8" Name="PlayerGPUParticleSystem1" />

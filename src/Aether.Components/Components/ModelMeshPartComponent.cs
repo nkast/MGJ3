@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using tainicom.Aether.Elementary.Photons;
+using tainicom.Aether.Elementary.Visual;
 using Microsoft.Xna.Framework.Graphics;
-using tainicom.Aether.Elementary.Leptons;
+using tainicom.Aether.Elementary.Spatial;
 using Microsoft.Xna.Framework;
 using tainicom.Aether.Core.Materials;
 using tainicom.Aether.Core.Photons;
@@ -11,7 +11,7 @@ using tainicom.Aether.Core.Photons;
 namespace tainicom.Aether.Components
 {
     public class ModelMeshPartComponent : IPhoton, ILocalTransform, IWorldTransform, IWorldTransformUpdateable,
-        ILeptonNode
+        ISpatialNode
     {
         private ModelComponent _modelComponent;
         private int _meshIndex;

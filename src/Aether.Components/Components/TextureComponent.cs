@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using tainicom.Aether.Elementary;
-using tainicom.Aether.Elementary.Photons;
+using tainicom.Aether.Elementary.Visual;
 using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Engine;
 using tainicom.Aether.MonoGame;

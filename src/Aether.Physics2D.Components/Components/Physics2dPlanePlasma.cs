@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using tainicom.Aether.Elementary;
-using tainicom.Aether.Elementary.Chronons;
+using tainicom.Aether.Elementary.Temporal;
 using tainicom.Aether.Core;
 
 namespace tainicom.Aether.Physics2D.Components
