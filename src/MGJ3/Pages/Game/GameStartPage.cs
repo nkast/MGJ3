@@ -43,9 +43,12 @@ namespace MGJ3.Pages.GamePages
             }
             else
             {
-                var pp1 = _gameContext.Stage.Player1.Position;
+                var prevplayer1 = _gameContext.Stage.Player1;
                 _gameContext.LoadStage(Game);
-                _gameContext.Stage.Player1.Position = pp1;
+                _gameContext.Stage.Player1.Position = prevplayer1.Position;
+                _gameContext.Stage.Player1.Rotation = prevplayer1.Rotation;
+                _gameContext.Stage.Player1.Body.LinearVelocity = prevplayer1.Body.LinearVelocity;
+                _gameContext.Stage.Player1.Body.AngularVelocity = prevplayer1.Body.AngularVelocity;
             }
         }
 
