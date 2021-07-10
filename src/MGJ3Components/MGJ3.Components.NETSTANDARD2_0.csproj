@@ -23,10 +23,12 @@
 
   <ItemGroup>
     <Compile Include="CollisionCategories.cs" />
+    <Compile Include="Components\Bonuses\BonusType.cs" />
     <Compile Include="Components\Agents\Comet.cs" />
     <Compile Include="Components\Agents\Comet.ParticleEmmiter.cs" />
     <Compile Include="Components\Agents\EnemyA.cs" />
     <Compile Include="Components\Agents\EnemyA.ParticleEmmiter.cs" />
+    <Compile Include="Components\Agents\IBonusProvider.cs" />
     <Compile Include="Components\Agents\IDamage.cs" />
     <Compile Include="Components\Agents\IEnemies.cs" />
     <Compile Include="Components\Agents\IHealth.cs" />
@@ -36,7 +38,9 @@
     <Compile Include="Components\Agents\PlayerBullet.cs" />
     <Compile Include="Components\Agents\PlayerBullet.ParticleEmmiter .cs" />
     <Compile Include="Components\Bonuses\IBonus.cs" />
-    <Compile Include="Components\Bonuses\OneCoin.cs" />
+    <Compile Include="Components\Bonuses\LivesUp.cs" />
+    <Compile Include="Components\Bonuses\ScoreUp.cs" />
+    <Compile Include="Components\Bonuses\PowerUp.cs" />
     <Compile Include="Components\Cameras\BasicCamera.cs" />
     <Compile Include="Components\LeptonImpl.cs" />
     <Compile Include="Components\Other\StageBounds.cs" />

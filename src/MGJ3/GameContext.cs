@@ -10,6 +10,7 @@ using MGJ3.Components;
 using MGJ3.Stages;
 using tainicom.Aether.Physics2D.Dynamics;
 using tainicom.Aether.Physics2D.Dynamics.Contacts;
+using tainicom.Aether.Elementary.Spatial;
 
 namespace MGJ3
 {
@@ -44,6 +45,7 @@ namespace MGJ3
         TimeSpan _stateTime = TimeSpan.Zero;
         TimeSpan _respawnSafePeriod = TimeSpan.FromSeconds(3);
         public int RemainingLives = 2;
+        public int Power = 1;
         public int Score = 0;
         public static int HiScore = 10;
         string _scoreTxt;
@@ -115,7 +117,14 @@ namespace MGJ3
             {
                 var ibody = _bodiesToRemove.Dequeue();
                 if (ibody is IEnemies)
+                {
+                    if (ibody is IBonusProvider)
+                    {
+                        CreateBonus(((IBonusProvider)ibody));
+                    }
+
                     ((IEnemies)ibody).Kill();
+                }
                 else
                     engine.UnregisterParticle(ibody);
             }
@@ -125,7 +134,7 @@ namespace MGJ3
             if (PlayerState != PlayerState.Lost && _stage.Player1.IsFiring && _bulletTime > _stage.Player1.BulletPeriod)
             {
                 _bulletTime = TimeSpan.Zero;
-                _stage.Player1.Fire();
+                _stage.Player1.Fire(Power);
                 _game.Content.Load<SoundEffect>("Agents/PlayerFireBullet").Play();
             }
 
@@ -180,6 +189,46 @@ namespace MGJ3
                     break;
             }
 
+        }
+
+        private void CreateBonus(IBonusProvider bonusProvider)
+        {   
+            switch (bonusProvider.BonusType)
+            {
+                case BonusType.ScoreUp:
+                    {
+                        var bonus = new ScoreUp();
+                        Stage.Engine.RegisterParticle(bonus);
+                        //engine.SetParticleName(bonus, "scoreUp");
+                        bonus.Initialize(Stage.Engine);
+                        bonus.Position = ((IPosition)bonusProvider).Position;
+                        Stage.PhysicsPlane0.Add(bonus);
+                    }
+                    break;
+
+                case BonusType.PowerUp:
+                    {
+                        var bonus = new PowerUp();
+                        Stage.Engine.RegisterParticle(bonus);
+                        //engine.SetParticleName(bonus, "powerUp");
+                        bonus.Initialize(Stage.Engine);
+                        bonus.Position = ((IPosition)bonusProvider).Position;
+                        Stage.PhysicsPlane0.Add(bonus);
+                    }
+                    break;
+
+                case BonusType.LivesUp:
+                    {
+                        var bonus = new LivesUp();
+                        Stage.Engine.RegisterParticle(bonus);
+                        //engine.SetParticleName(bonus, "livesUp");
+                        bonus.Initialize(Stage.Engine);
+                        bonus.Position = ((IPosition)bonusProvider).Position;
+                        Stage.PhysicsPlane0.Add(bonus);
+                    }
+                    break;
+
+            }
         }
 
         private bool OnStageBoundsCollision(Fixture sender, Fixture other, Contact contact)
@@ -318,6 +367,9 @@ namespace MGJ3
             Score += bonus.Score;
             HiScore = Math.Max(HiScore, Score);
 
+            Power += bonus.Power;
+
+            RemainingLives += bonus.Lives;
 
             _scoreTxt = String.Format("{0:D5}", Score);
             _hiScoreTxt = String.Format("{0:D8}", HiScore);

@@ -189,6 +189,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <ParticleSystem />
           <TimeBetweenParticles>0.008333334</TimeBetweenParticles>
           <VelocitySensitivity>1</VelocitySensitivity>
@@ -204,6 +205,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <ParticleSystem />
           <TimeBetweenParticles>0.008333334</TimeBetweenParticles>
           <VelocitySensitivity>1</VelocitySensitivity>
@@ -219,6 +221,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <ParticleSystem />
           <TimeBetweenParticles>0.008333334</TimeBetweenParticles>
           <VelocitySensitivity>1</VelocitySensitivity>
@@ -234,6 +237,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <ParticleSystem />
           <TimeBetweenParticles>0.008333334</TimeBetweenParticles>
           <VelocitySensitivity>1</VelocitySensitivity>
@@ -249,6 +253,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <ParticleSystem />
           <TimeBetweenParticles>0.008333334</TimeBetweenParticles>
           <VelocitySensitivity>1</VelocitySensitivity>
@@ -264,6 +269,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <ParticleSystem />
           <TimeBetweenParticles>0.008333334</TimeBetweenParticles>
           <VelocitySensitivity>1</VelocitySensitivity>
@@ -279,6 +285,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <ParticleSystem />
           <TimeBetweenParticles>0.008333334</TimeBetweenParticles>
           <VelocitySensitivity>1</VelocitySensitivity>
@@ -294,6 +301,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <ParticleSystem />
           <TimeBetweenParticles>0.008333334</TimeBetweenParticles>
           <VelocitySensitivity>1</VelocitySensitivity>
@@ -309,6 +317,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <ParticleSystem />
           <TimeBetweenParticles>0.008333334</TimeBetweenParticles>
           <VelocitySensitivity>1</VelocitySensitivity>
@@ -324,6 +333,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <ParticleSystem />
           <TimeBetweenParticles>0.008333334</TimeBetweenParticles>
           <VelocitySensitivity>1</VelocitySensitivity>
@@ -339,6 +349,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <ParticleSystem />
           <TimeBetweenParticles>0.008333334</TimeBetweenParticles>
           <VelocitySensitivity>1</VelocitySensitivity>
@@ -354,6 +365,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <Amplitude>30</Amplitude>
           <Phase>5.69413662</Phase>
           <ParticleSystem />
@@ -371,6 +383,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <Amplitude>30</Amplitude>
           <Phase>6.086836</Phase>
           <ParticleSystem />
@@ -388,6 +401,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <Amplitude>30</Amplitude>
           <Phase>6.479535</Phase>
           <ParticleSystem />
@@ -405,6 +419,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <Amplitude>30</Amplitude>
           <Phase>6.87223434</Phase>
           <ParticleSystem />
@@ -422,6 +437,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <Amplitude>30</Amplitude>
           <Phase>7.264933</Phase>
           <ParticleSystem />
@@ -439,6 +455,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <Amplitude>-30</Amplitude>
           <Phase>5.89048672</Phase>
           <ParticleSystem />
@@ -456,6 +473,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <Amplitude>-30</Amplitude>
           <Phase>6.28318548</Phase>
           <ParticleSystem />
@@ -473,6 +491,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <Amplitude>-30</Amplitude>
           <Phase>6.67588425</Phase>
           <ParticleSystem />
@@ -490,6 +509,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <Amplitude>-30</Amplitude>
           <Phase>7.06858349</Phase>
           <ParticleSystem />
@@ -507,6 +527,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <Amplitude>-30</Amplitude>
           <Phase>7.461283</Phase>
           <ParticleSystem />
@@ -529,6 +550,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <ParticleSystem />
           <TimeBetweenParticles>0.008333334</TimeBetweenParticles>
           <VelocitySensitivity>1</VelocitySensitivity>
@@ -544,6 +566,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <ParticleSystem />
           <TimeBetweenParticles>0.008333334</TimeBetweenParticles>
           <VelocitySensitivity>1</VelocitySensitivity>
@@ -559,6 +582,7 @@
           <Material>
             <AetherParticleRef UID="15BD950B-D497-4C4D-9347-7B777A0B49B3" Name="DefaultMaterial1Vx" />
           </Material>
+          <BonusType>1</BonusType>
           <Amplitude>35</Amplitude>
           <Phase>0</Phase>
           <ParticleSystem />

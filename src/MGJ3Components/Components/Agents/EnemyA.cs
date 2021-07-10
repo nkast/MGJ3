@@ -16,7 +16,7 @@ namespace MGJ3.Components
         IPhoton, 
         ILepton, IChronon, IBoundingBox, IInitializable, IAetherSerialization
         , IPhysics2dBody
-        , IHealth, IEnemies
+        , IHealth, IEnemies, IBonusProvider
     {
         protected virtual string ContentModel { get { return "Agents\\EnemyA0"; } }
 
@@ -232,16 +232,19 @@ namespace MGJ3.Components
         #endregion
 
 
+        #region  Implement IBonusProvider
+        BonusType _bonusType = BonusType.PowerUp;
+        public BonusType BonusType 
+        { 
+            get { return _bonusType; }
+            set { _bonusType = value; }
+        }
+        #endregion
+
+
         #region  Implement IEnemies
         void IEnemies.Kill()
         {
-            var coin = new OneCoin();
-            _engine.RegisterParticle(coin);
-            //engine.SetParticleName(coin, "coin");
-            coin.Initialize(_engine);
-            coin.Position = this.Position;
-            ((Physics2dPlane)Body.World.Tag).Add(coin);
-
             _engine.UnregisterParticle(this);
         }
         #endregion
@@ -254,6 +257,8 @@ namespace MGJ3.Components
             _photonImpl.Save(writer);
             _bodyImpl.Save(writer);
 
+            writer.WriteInt32("BonusType", (int)_bonusType);
+
             writer.WriteFloat("Amplitude", _amplitude);
             writer.WriteFloat("Phase", _phase);
 
@@ -261,17 +266,18 @@ namespace MGJ3.Components
         }
         public void Load(IAetherReader reader)
         {
-            IAether particle;
+            IAether particle; int i;
             _leptonImpl.Load(reader);
             _photonImpl.Load(reader);
             _bodyImpl.Load(reader);
+
+            reader.ReadInt32("BonusType", out i); _bonusType = (BonusType)i;
 
             reader.ReadFloat("Amplitude", out _amplitude);
             reader.ReadFloat("Phase", out _phase);
 
             LoadParticleEmmiter(reader);
         }
-
         #endregion
 
     }

@@ -13,7 +13,7 @@ using System.Globalization;
 
 namespace MGJ3.Components
 {
-    public partial class OneCoin: 
+    public partial class LivesUp:
         IPhoton, 
         ILepton, IChronon, IBoundingBox, IInitializable, IAetherSerialization
         , IPhysics2dBody
@@ -21,12 +21,7 @@ namespace MGJ3.Components
     {
         protected virtual string ContentModel
         {
-            get
-            {
-                return (CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol == "$")
-                    ? "Bonuses\\OneDollar"
-                    : "Bonuses\\OneEuro";
-            }
+            get { return "Bonuses\\LivesUp"; }
         }
 
         const float w = 6f;
@@ -34,7 +29,7 @@ namespace MGJ3.Components
 
         public float q = MathHelper.PiOver2;
 
-        public OneCoin()
+        public LivesUp()
         {
         }
 
@@ -201,7 +196,9 @@ namespace MGJ3.Components
 
 
         #region Implement IBonus
-        int IBonus.Score { get { return 1; } }
+        int IBonus.Score { get { return 0; } }
+        int IBonus.Power { get { return 0; } }
+        int IBonus.Lives { get { return 1; } }
         #endregion
 
 
