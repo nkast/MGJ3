@@ -13,7 +13,7 @@ using tainicom.Aether.Physics2D.Dynamics.Contacts;
 namespace MGJ3.Components
 {
     public partial class EnemyA:
-        IPhoton, 
+        IVisual, 
         ILepton, IChronon, IBoundingBox, IInitializable, IAetherSerialization
         , IPhysics2dBody
         , IHealth, IEnemies, IBonusProvider
@@ -51,7 +51,7 @@ namespace MGJ3.Components
         public void Initialize(AetherEngine engine)
         {
             _engine = engine;
-            _photonImpl.Initialize(engine, this, ContentModel);
+            _visualImpl.Initialize(engine, this, ContentModel);
         }
 
 
@@ -100,22 +100,22 @@ namespace MGJ3.Components
         #endregion
 
 
-        #region Implement IPhoton
-        PhotonModelImpl _photonImpl = new PhotonModelImpl();
+        #region Implement IVisual
+        PhotonModelImpl _visualImpl = new PhotonModelImpl();
         public void Accept(IGeometryVisitor geometryVisitor)
         {
-            _photonImpl.Accept(geometryVisitor);
+            _visualImpl.Accept(geometryVisitor);
         }
 
         public IMaterial Material 
         {
-            get { return _photonImpl.Material; }
-            set { _photonImpl.Material = value; }
+            get { return _visualImpl.Material; }
+            set { _visualImpl.Material = value; }
         }
 
         public ITexture[] Textures
         {
-            get { return _photonImpl.Textures; }
+            get { return _visualImpl.Textures; }
             set {  }
         }
         #endregion
@@ -254,7 +254,7 @@ namespace MGJ3.Components
         public void Save(IAetherWriter writer)
         {
             _leptonImpl.Save(writer);
-            _photonImpl.Save(writer);
+            _visualImpl.Save(writer);
             _bodyImpl.Save(writer);
 
             writer.WriteInt32("BonusType", (int)_bonusType);
@@ -268,7 +268,7 @@ namespace MGJ3.Components
         {
             IAether particle; int i;
             _leptonImpl.Load(reader);
-            _photonImpl.Load(reader);
+            _visualImpl.Load(reader);
             _bodyImpl.Load(reader);
 
             reader.ReadInt32("BonusType", out i); _bonusType = (BonusType)i;

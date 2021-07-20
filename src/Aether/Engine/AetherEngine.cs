@@ -118,7 +118,7 @@ namespace tainicom.Aether.Engine
         {
             RenderManagers(gameTime);
         }
-        
+
         public virtual void AddChild<TAether>(IPlasmaList<TAether> parent, TAether child)
             where TAether : IAether
         {

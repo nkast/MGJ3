@@ -10,7 +10,7 @@ using tainicom.Aether.Core.Photons;
 
 namespace tainicom.Aether.Components
 {
-    public class ModelMeshPartComponent : IPhoton, ILocalTransform, IWorldTransform, IWorldTransformUpdateable,
+    public class ModelMeshPartComponent : IVisual, ILocalTransform, IWorldTransform, IWorldTransformUpdateable,
         ISpatialNode
     {
         private ModelComponent _modelComponent;

@@ -52,7 +52,7 @@ namespace tainicom.Aether.Components
             {
                 var bone = new ModelBoneComponent(modelComponent, Bone.Children[b].Index);
                 _leptons.Add(bone);
-                _photons.Add(bone);
+                _visualNodes.Add(bone);
             }
 
             if (Mesh != null)
@@ -61,7 +61,7 @@ namespace tainicom.Aether.Components
                 {                    
                     var meshPart = new ModelMeshPartComponent(modelComponent, _meshIndex, meshPartIndex);
                     _leptons.Add(meshPart);
-                    _photons.Add(meshPart);
+                    _visualNodes.Add(meshPart);
                 }
             }
             

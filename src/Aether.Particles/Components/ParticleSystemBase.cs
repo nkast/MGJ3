@@ -16,7 +16,7 @@ namespace tainicom.Aether.Particles
     public abstract class ParticleSystemBase : 
         ILepton, 
         IWorldTransform, IWorldTransformUpdateable,
-        IPhoton, IAetherSerialization
+        IVisual, IAetherSerialization
     {
         public ParticleSystemBase()
         {
@@ -69,7 +69,7 @@ namespace tainicom.Aether.Particles
         #endregion
 
 
-        #region Implement IPhoton   
+        #region Implement IVisual   
         protected ITexture[] _textures = new ITexture[] { null };
         abstract public void Accept(IGeometryVisitor geometryVisitor);
 

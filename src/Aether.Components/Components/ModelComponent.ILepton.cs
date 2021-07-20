@@ -92,13 +92,13 @@ namespace tainicom.Aether.Components
         void UpdateLeptonChilden()
         {
             _leptons.Clear();
-            _photons.Clear();
+            _visualNodes.Clear();
 
             var rootIndex = _model.Root.Index;
             var bone = new ModelBoneComponent(this, rootIndex);
 
             _leptons.Add(bone);
-            _photons.Add(bone);
+            _visualNodes.Add(bone);
         }
     }
 }

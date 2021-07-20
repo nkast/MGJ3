@@ -11,9 +11,9 @@ using tainicom.Aether.MonoGame;
 
 namespace MGJ3.Components
 {
-    class PhotonModelImpl : IPhoton, IBoundingBox, IAetherSerialization
+    class PhotonModelImpl : IVisual, IBoundingBox, IAetherSerialization
     {
-        IPhoton parent;
+        IVisual parent;
         Model _model;
         ModelMeshPart _meshPart;
         
@@ -22,7 +22,7 @@ namespace MGJ3.Components
             
         }
 
-        internal void Initialize(AetherEngine engine, IPhoton parent, string assetName)
+        internal void Initialize(AetherEngine engine, IVisual parent, string assetName)
         { 
             this.parent = parent;
             _model = AetherContextMG.GetContent(engine).Load<Model>(assetName);
@@ -36,8 +36,8 @@ namespace MGJ3.Components
 
             Material = CreateDefaultMaterial(engine, textureEnabled, vertexColorEnabled);
         }
-        
-        #region Implement IPhoton
+
+        #region Implement IVisual
         public void Accept(IGeometryVisitor geometryVisitor)
         {   
             foreach(var mesh in _model.Meshes)

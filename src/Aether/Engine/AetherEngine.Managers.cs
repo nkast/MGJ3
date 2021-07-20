@@ -31,7 +31,7 @@ namespace tainicom.Aether.Engine
         //Managers
         public SpatialManager SpatialMgr;
         public TemporalManager TemporalMgr;
-        public VisualManager  VisualMgr;
+        public VisualManager VisualMgr;
         public CamerasManager CamerasMgr;
         public MaterialsManager MaterialsMgr;
         
@@ -43,7 +43,7 @@ namespace tainicom.Aether.Engine
             TemporalMgr = new TemporalManager();
             CamerasMgr = new CamerasManager();
             MaterialsMgr = new MaterialsManager();
-            VisualMgr = new VisualManager ();
+            VisualMgr = new VisualManager();
             
             Managers.Add(SpatialMgr);
             Managers.Add(TemporalMgr);

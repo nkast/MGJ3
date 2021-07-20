@@ -8,16 +8,16 @@ namespace tainicom.Aether.Components
         IVisualPlasma, IPlasma<IVisualNode>,
         IVisualNode
     {
-        List<IVisualNode> _photons = new List<IVisualNode>();
+        List<IVisualNode> _visualNodes = new List<IVisualNode>();
 
         IEnumerator<IVisualNode> IVisualPlasma.VisibleParticles
         {
-            get { return _photons.GetEnumerator(); }
+            get { return _visualNodes.GetEnumerator(); }
         }
 
         IEnumerator<IVisualNode> IEnumerable<IVisualNode>.GetEnumerator()
         {
-            return _photons.GetEnumerator();
+            return _visualNodes.GetEnumerator();
         }
     }
 }

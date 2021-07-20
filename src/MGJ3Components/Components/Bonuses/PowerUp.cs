@@ -14,7 +14,7 @@ using System.Globalization;
 namespace MGJ3.Components
 {
     public partial class PowerUp:
-        IPhoton, 
+        IVisual, 
         ILepton, IChronon, IBoundingBox, IInitializable, IAetherSerialization
         , IPhysics2dBody
         , IBonus
@@ -35,7 +35,7 @@ namespace MGJ3.Components
 
         public void Initialize(AetherEngine engine)
         {
-            _photonImpl.Initialize(engine, this, ContentModel);
+            _visualImpl.Initialize(engine, this, ContentModel);
         }
 
 
@@ -84,22 +84,22 @@ namespace MGJ3.Components
         #endregion
 
 
-        #region Implement IPhoton
-        PhotonModelImpl _photonImpl = new PhotonModelImpl();
+        #region Implement IVisual
+        PhotonModelImpl _visualImpl = new PhotonModelImpl();
         public void Accept(IGeometryVisitor geometryVisitor)
         {
-            _photonImpl.Accept(geometryVisitor);
+            _visualImpl.Accept(geometryVisitor);
         }
 
         public IMaterial Material 
         {
-            get { return _photonImpl.Material; }
-            set { _photonImpl.Material = value; }
+            get { return _visualImpl.Material; }
+            set { _visualImpl.Material = value; }
         }
 
         public ITexture[] Textures
         {
-            get { return _photonImpl.Textures; }
+            get { return _visualImpl.Textures; }
             set {  }
         }
         #endregion
@@ -206,14 +206,14 @@ namespace MGJ3.Components
         public void Save(IAetherWriter writer)
         {
             _leptonImpl.Save(writer);
-            _photonImpl.Save(writer);
+            _visualImpl.Save(writer);
             _bodyImpl.Save(writer);
         }
         public void Load(IAetherReader reader)
         {
             IAether particle;
             _leptonImpl.Load(reader);
-            _photonImpl.Load(reader);
+            _visualImpl.Load(reader);
             _bodyImpl.Load(reader);
         }
         #endregion
