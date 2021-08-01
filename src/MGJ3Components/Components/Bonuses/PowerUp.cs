@@ -15,7 +15,7 @@ namespace MGJ3.Components
 {
     public partial class PowerUp:
         IVisual, 
-        ILepton, IChronon, IBoundingBox, IInitializable, IAetherSerialization
+        ISpatial, ITemporal, IBoundingBox, IInitializable, IAetherSerialization
         , IPhysics2dBody
         , IBonus
     {
@@ -39,44 +39,44 @@ namespace MGJ3.Components
         }
 
 
-        #region  Implement ILepton
-        LeptonImpl _leptonImpl = new LeptonImpl();
+        #region  Implement ISpatial
+        SpatialImpl _spatialImpl = new SpatialImpl();
         public Matrix LocalTransform
         {
-            get { return _leptonImpl.LocalTransform; }
+            get { return _spatialImpl.LocalTransform; }
         }
         #if WINDOWS
-        [System.ComponentModel.Category("ILepton")]
+        [System.ComponentModel.Category("ISpatial")]
         [System.ComponentModel.TypeConverter(typeof(QuaternionEditAsYawPitchRollConverter))]
         #endif
         public Quaternion Rotation
         {
-            get { return _leptonImpl.Rotation; }
+            get { return _spatialImpl.Rotation; }
             set 
             { 
-                _leptonImpl.Rotation = value;
+                _spatialImpl.Rotation = value;
                 _bodyImpl.Body.Rotation = Physics2dManager.XNAtoBOX2DRotation(_bodyImpl.Physics2dPlane, value);
             }
         }
         #if WINDOWS
-        [System.ComponentModel.Category("ILepton")]
+        [System.ComponentModel.Category("ISpatial")]
         [System.ComponentModel.TypeConverter(typeof(Vector3EditConverter))]
         #endif
         public Vector3 Scale
         {
-            get { return _leptonImpl.Scale; }
-            set { _leptonImpl.Scale = value; }
+            get { return _spatialImpl.Scale; }
+            set { _spatialImpl.Scale = value; }
         }
         #if WINDOWS
-        [System.ComponentModel.Category("ILepton")]
+        [System.ComponentModel.Category("ISpatial")]
         [System.ComponentModel.TypeConverter(typeof(Vector3EditConverter))]
         #endif
         public Vector3 Position
         {
-            get { return _leptonImpl.Position; }
+            get { return _spatialImpl.Position; }
             set 
             {
-                _leptonImpl.Position = value;
+                _spatialImpl.Position = value;
                 if (_bodyImpl.Physics2dPlane != null)
                     _bodyImpl.Body.Position = Physics2dManager.XNAtoBox2DWorldPosition(_bodyImpl.Physics2dPlane, value);
             }
@@ -85,7 +85,7 @@ namespace MGJ3.Components
 
 
         #region Implement IVisual
-        PhotonModelImpl _visualImpl = new PhotonModelImpl();
+        VisualModelImpl _visualImpl = new VisualModelImpl();
         public void Accept(IGeometryVisitor geometryVisitor)
         {
             _visualImpl.Accept(geometryVisitor);
@@ -164,7 +164,7 @@ namespace MGJ3.Components
         #endregion
 
 
-        #region Chronons implementation
+        #region ITemporal implementation
         public void Tick(GameTime gameTime)
         {
             float accelForce = 128f; // meters/sec
@@ -174,10 +174,10 @@ namespace MGJ3.Components
             if (q < 0.3f)
                 Body.ApplyLinearImpulse(Body.Mass * dt * new Vector2(accelForce, 0));
             
-            _leptonImpl.Position = Physics2dManager.Box2DtoXNAWorldPosition(_bodyImpl.Physics2dPlane, Body.Position, _leptonImpl.Position);
+            _spatialImpl.Position = Physics2dManager.Box2DtoXNAWorldPosition(_bodyImpl.Physics2dPlane, Body.Position, _spatialImpl.Position);
 
             q -= q * dt;
-            _leptonImpl.Rotation = Quaternion.CreateFromYawPitchRoll(0, -q * q * q, 0);
+            _spatialImpl.Rotation = Quaternion.CreateFromYawPitchRoll(0, -q * q * q, 0);
 
             return;
         }
@@ -205,14 +205,14 @@ namespace MGJ3.Components
         #region Implement IAetherSerialization
         public void Save(IAetherWriter writer)
         {
-            _leptonImpl.Save(writer);
+            _spatialImpl.Save(writer);
             _visualImpl.Save(writer);
             _bodyImpl.Save(writer);
         }
         public void Load(IAetherReader reader)
         {
             IAether particle;
-            _leptonImpl.Load(reader);
+            _spatialImpl.Load(reader);
             _visualImpl.Load(reader);
             _bodyImpl.Load(reader);
         }

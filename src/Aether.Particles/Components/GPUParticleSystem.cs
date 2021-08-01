@@ -12,7 +12,7 @@ using tainicom.Aether.Particles.VertexTypes;
 
 namespace tainicom.Aether.Particles
 {
-    public class GPUParticleSystem : ParticleSystemBase, IChronon, IInitializable, IAetherSerialization
+    public class GPUParticleSystem : ParticleSystemBase, ITemporal, IInitializable, IAetherSerialization
     {
         #region Fields
 

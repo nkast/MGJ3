@@ -17,7 +17,7 @@ using tainicom.Aether.Particles.VertexTypes;
 
 namespace tainicom.Aether.Particles
 {
-    public class CPUParticleSystem : ParticleSystemBase, IChronon, IInitializable, IAetherSerialization
+    public class CPUParticleSystem : ParticleSystemBase, ITemporal, IInitializable, IAetherSerialization
     {
         #region Fields
 

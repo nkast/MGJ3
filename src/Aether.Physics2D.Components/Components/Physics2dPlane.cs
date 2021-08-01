@@ -12,13 +12,13 @@ using tainicom.Aether.Elementary.Temporal;
 
 namespace tainicom.Aether.Physics2D.Components
 {
-    public class Physics2dPlane : BasePlasma<IPhysics2dNode>, IPhysics2dNode, IChronon, IInitializable, IAetherSerialization,
-        ILepton, ILocalTransform, IPosition,
+    public class Physics2dPlane : BasePlasma<IPhysics2dNode>, IPhysics2dNode, ITemporal, IInitializable, IAetherSerialization,
+        ISpatial, ILocalTransform, IPosition,
         IWorldTransform, IWorldTransformUpdateable,
         IAether
     {
-        #region Implement ILepton
-        
+        #region Implement ISpatial
+
         Vector3 scale; 
         Quaternion rotation;
         Vector3 position;

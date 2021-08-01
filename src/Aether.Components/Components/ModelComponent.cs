@@ -31,7 +31,7 @@ namespace tainicom.Aether.Components
 #else
             _model = content.Load<Model>(_assetFilename);
 #endif
-            UpdateLeptonChilden();
+            UpdateSpatialChilden();
         }
 
 
@@ -41,7 +41,7 @@ namespace tainicom.Aether.Components
             try { _model = content.Load<Model>(_assetFilename); }
             catch (Microsoft.Xna.Framework.Content.ContentLoadException cle) { /* TODO: log warning */ }
 
-            UpdateLeptonChilden();
+            UpdateSpatialChilden();
         }
 
         public override void Save(IAetherWriter writer)
@@ -50,7 +50,7 @@ namespace tainicom.Aether.Components
             writer.WriteInt32("Version", 1);
 
             base.Save(writer);
-            this._leptonImpl.Save(writer);
+            this._spatialImpl.Save(writer);
 #endif
         }
 
@@ -60,7 +60,7 @@ namespace tainicom.Aether.Components
             reader.ReadInt32("Version", out version);
 
             base.Load(reader);
-            this._leptonImpl.Load(reader);
+            this._spatialImpl.Load(reader);
         }
 
         protected override void Dispose(bool disposing)

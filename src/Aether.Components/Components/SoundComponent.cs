@@ -144,7 +144,7 @@ namespace tainicom.Aether.Components
                 throw new InvalidOperationException("Can't Stop Sound with more than one instances.");
             }
         }
-                
+
         public override void Save(IAetherWriter writer)
         {
 #if(WINDOWS)

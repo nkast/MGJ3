@@ -11,7 +11,7 @@ using tainicom.Aether.Physics2D.Components;
 
 namespace MGJ3.Components
 {
-    public class Trigger: ILepton, IBoundingBox, IInitializable, IAetherSerialization
+    public class Trigger: ISpatial, IBoundingBox, IInitializable, IAetherSerialization
         ,IPhysics2dBody
     {
         const float r = 1f/2;
@@ -20,44 +20,44 @@ namespace MGJ3.Components
         {
         }
 
-        #region  Implement ILepton
-        LeptonImpl _leptonImpl = new LeptonImpl();
+        #region  Implement ISpatial
+        SpatialImpl _spatialImpl = new SpatialImpl();
         public Matrix LocalTransform
         {
-            get { return _leptonImpl.LocalTransform; }
+            get { return _spatialImpl.LocalTransform; }
         }
         #if WINDOWS
-        [System.ComponentModel.Category("ILepton")]
+        [System.ComponentModel.Category("ISpatial")]
         [System.ComponentModel.TypeConverter(typeof(QuaternionEditAsYawPitchRollConverter))]
         #endif
         public Quaternion Rotation
         {
-            get { return _leptonImpl.Rotation; }
+            get { return _spatialImpl.Rotation; }
             set 
             { 
-                _leptonImpl.Rotation = value;
+                _spatialImpl.Rotation = value;
                 _bodyImpl.Body.Rotation = Physics2dManager.XNAtoBOX2DRotation(_bodyImpl.Physics2dPlane, value);
             }
         }
         #if WINDOWS
-        [System.ComponentModel.Category("ILepton")]
+        [System.ComponentModel.Category("ISpatial")]
         [System.ComponentModel.TypeConverter(typeof(Vector3EditConverter))]
         #endif
         public Vector3 Scale
         {
-            get { return _leptonImpl.Scale; }
-            set { _leptonImpl.Scale = value; }
+            get { return _spatialImpl.Scale; }
+            set { _spatialImpl.Scale = value; }
         }
         #if WINDOWS
-        [System.ComponentModel.Category("ILepton")]
+        [System.ComponentModel.Category("ISpatial")]
         [System.ComponentModel.TypeConverter(typeof(Vector3EditConverter))]
         #endif
         public Vector3 Position
         {
-            get { return _leptonImpl.Position; }
+            get { return _spatialImpl.Position; }
             set 
             {
-                _leptonImpl.Position = value;
+                _spatialImpl.Position = value;
                 if (_bodyImpl.Physics2dPlane != null)
                     _bodyImpl.Body.Position = Physics2dManager.XNAtoBox2DWorldPosition(_bodyImpl.Physics2dPlane, value);
             }
@@ -113,12 +113,12 @@ namespace MGJ3.Components
         #region Implement IAetherSerialization
         public void Save(IAetherWriter writer)
         {
-            _leptonImpl.Save(writer);
+            _spatialImpl.Save(writer);
             _bodyImpl.Save(writer);
         }
         public void Load(IAetherReader reader)
         {
-            _leptonImpl.Load(reader);
+            _spatialImpl.Load(reader);
             _bodyImpl.Load(reader);
         }
         #endregion

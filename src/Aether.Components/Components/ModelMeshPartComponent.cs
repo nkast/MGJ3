@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using tainicom.Aether.Elementary.Spatial;
 using Microsoft.Xna.Framework;
 using tainicom.Aether.Core.Materials;
-using tainicom.Aether.Core.Photons;
+using tainicom.Aether.Core.Visual;
 
 namespace tainicom.Aether.Components
 {

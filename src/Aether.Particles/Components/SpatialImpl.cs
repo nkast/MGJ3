@@ -5,7 +5,7 @@ using tainicom.Aether.Elementary.Serialization;
 
 namespace tainicom.Aether.Particles
 {
-    class LeptonImpl : ILepton, IWorldTransform, IWorldTransformUpdateable, ILocalTransform, IPosition, ISpatialNode, IAetherSerialization, IAether
+    class SpatialImpl : ISpatial, IWorldTransform, IWorldTransformUpdateable, ILocalTransform, IPosition, ISpatialNode, IAetherSerialization, IAether
     {
         #region Implement IWorldTransform, IWorldTransformUpdateable
         Matrix _parentWorldTransform = Matrix.Identity;
@@ -21,10 +21,10 @@ namespace tainicom.Aether.Particles
         { 
             get { return _worldTransform; }
         }
-        
+
         #endregion
 
-        #region Implement ILepton Properties
+        #region Implement ISpatial Properties
         protected Matrix _localTransform = Matrix.Identity;
 
         Vector3 _position; 

@@ -51,7 +51,7 @@ namespace tainicom.Aether.Components
             for (int b = 0; b < Bone.Children.Count; b++)
             {
                 var bone = new ModelBoneComponent(modelComponent, Bone.Children[b].Index);
-                _leptons.Add(bone);
+                _spatialNodes.Add(bone);
                 _visualNodes.Add(bone);
             }
 
@@ -60,7 +60,7 @@ namespace tainicom.Aether.Components
                 for(int meshPartIndex = 0; meshPartIndex < Mesh.MeshParts.Count; meshPartIndex++)
                 {                    
                     var meshPart = new ModelMeshPartComponent(modelComponent, _meshIndex, meshPartIndex);
-                    _leptons.Add(meshPart);
+                    _spatialNodes.Add(meshPart);
                     _visualNodes.Add(meshPart);
                 }
             }
@@ -108,7 +108,7 @@ namespace tainicom.Aether.Components
         
         protected virtual void UpdateChildrenTransform()
         {
-            foreach (var child in _leptons)
+            foreach (var child in _spatialNodes)
             {
                 var updatetable = child as IWorldTransformUpdateable;
                 if (updatetable != null)
@@ -124,11 +124,11 @@ namespace tainicom.Aether.Components
 
         #region  Implement IPlasma<ISpatialNode>
 
-        List<ISpatialNode> _leptons = new List<ISpatialNode>();
+        List<ISpatialNode> _spatialNodes = new List<ISpatialNode>();
 
         IEnumerator<ISpatialNode> IEnumerable<ISpatialNode>.GetEnumerator()
         {
-            return ((IEnumerable<ISpatialNode>)_leptons).GetEnumerator();
+            return ((IEnumerable<ISpatialNode>)_spatialNodes).GetEnumerator();
         }
 
         #endregion

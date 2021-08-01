@@ -11,13 +11,13 @@
     <Compile Include="AssetContentTypeAttribute.cs" />
     <Compile Include="Components\ComponentBase.cs" />
     <Compile Include="Components\ComponentBase.IDisposable.cs" />
-    <Compile Include="Components\LeptonImpl.cs" />
+    <Compile Include="Components\SpatialImpl.cs" />
     <Compile Include="Components\ModelMaterial.cs" />
     <Compile Include="Components\ModelBoneComponent.cs" />
-    <Compile Include="Components\ModelBoneComponent.IPhotonNode.cs" />
+    <Compile Include="Components\ModelBoneComponent.IVisualNode.cs" />
     <Compile Include="Components\ModelComponent.cs" />
-    <Compile Include="Components\ModelComponent.ILepton.cs" />
-    <Compile Include="Components\ModelComponent.IPhotonPlasma.cs" />
+    <Compile Include="Components\ModelComponent.ISpatial.cs" />
+    <Compile Include="Components\ModelComponent.IVisualPlasma.cs" />
     <Compile Include="Components\ModelMeshPartComponent.cs" />
     <Compile Include="Components\SoundComponent.cs" />
     <Compile Include="Components\TextureComponent.cs" />

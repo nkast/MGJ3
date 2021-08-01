@@ -14,7 +14,7 @@ using tainicom.Aether.Elementary.Serialization;
 namespace tainicom.Aether.Particles
 {
     public abstract class ParticleSystemBase : 
-        ILepton, 
+        ISpatial, 
         IWorldTransform, IWorldTransformUpdateable,
         IVisual, IAetherSerialization
     {
@@ -23,35 +23,35 @@ namespace tainicom.Aether.Particles
 
         }
 
-        #region  Implement ILepton
-        LeptonImpl _leptonImpl = new LeptonImpl();
-        public Matrix LocalTransform { get { return _leptonImpl.LocalTransform; } }
+        #region  Implement ISpatial
+        SpatialImpl _spatialImpl = new SpatialImpl();
+        public Matrix LocalTransform { get { return _spatialImpl.LocalTransform; } }
         #if WINDOWS
-        [Category("ILepton")]
+        [Category("ISpatial")]
         [TypeConverter(typeof(QuaternionEditAsYawPitchRollConverter))]
         #endif
         public Quaternion Rotation
         {
-            get { return _leptonImpl.Rotation; }
-            set { _leptonImpl.Rotation = value; }
+            get { return _spatialImpl.Rotation; }
+            set { _spatialImpl.Rotation = value; }
         }
         #if WINDOWS
-        [Category("ILepton")]
+        [Category("ISpatial")]
         [TypeConverter(typeof(Vector3EditConverter))]
         #endif
         public Vector3 Scale
         {
-            get { return _leptonImpl.Scale; }
-            set { _leptonImpl.Scale = value; }
+            get { return _spatialImpl.Scale; }
+            set { _spatialImpl.Scale = value; }
         }
         #if WINDOWS
-        [Category("ILepton")]
+        [Category("ISpatial")]
         [TypeConverter(typeof(Vector3EditConverter))]
         #endif
         public Vector3 Position
         {
-            get { return _leptonImpl.Position; }
-            set { _leptonImpl.Position = value; }
+            get { return _spatialImpl.Position; }
+            set { _spatialImpl.Position = value; }
         }
         #endregion
         
@@ -59,12 +59,12 @@ namespace tainicom.Aether.Particles
         #region  Implement IWorldTransform, IWorldTransformUpdateable
         public void UpdateWorldTransform(IWorldTransform parentWorldTransform)
         {
-            _leptonImpl.UpdateWorldTransform(parentWorldTransform);
+            _spatialImpl.UpdateWorldTransform(parentWorldTransform);
         }
 
         public Matrix WorldTransform 
         { 
-            get { return _leptonImpl.WorldTransform; } 
+            get { return _spatialImpl.WorldTransform; } 
         }
         #endregion
 
@@ -88,7 +88,7 @@ namespace tainicom.Aether.Particles
         #if(WINDOWS)
             writer.WriteInt32("Version", 1);
 
-            _leptonImpl.Save(writer);
+            _spatialImpl.Save(writer);
             writer.WriteParticle("Material", Material);
             writer.WriteParticles("Textures", _textures);
         #endif
@@ -102,7 +102,7 @@ namespace tainicom.Aether.Particles
             switch (version)
             {
                 case 1:
-                    _leptonImpl.Load(reader);
+                    _spatialImpl.Load(reader);
                     IAether ae;
                     reader.ReadParticle("Material", out ae); this.Material = (IMaterial)ae;
                     var textures = new List<ITexture>();

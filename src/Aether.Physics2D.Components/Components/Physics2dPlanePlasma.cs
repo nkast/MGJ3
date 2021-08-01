@@ -19,7 +19,7 @@ namespace tainicom.Aether.Physics2D.Components
         public void Tick(GameTime gameTime)
         {
             _enabledParticles.Process();
-            foreach (IChronon item in _enabledParticles)
+            foreach (ITemporal item in _enabledParticles)
             {
                 item.Tick(gameTime);
             }
@@ -40,12 +40,12 @@ namespace tainicom.Aether.Physics2D.Components
             base.RemoveItem(index);
         }
 
-        public void Enable(IChronon item)
+        public void Enable(ITemporal item)
         {
             _enabledParticles.Enable(item);
         }
 
-        public void Disable(IChronon item)
+        public void Disable(ITemporal item)
         {
             _enabledParticles.Disable(item);
         }

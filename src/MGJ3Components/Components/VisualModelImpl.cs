@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using tainicom.Aether.Core.Materials;
-using tainicom.Aether.Core.Photons;
+using tainicom.Aether.Core.Visual;
 using tainicom.Aether.Elementary;
 using tainicom.Aether.Elementary.Spatial;
 using tainicom.Aether.Elementary.Visual;
@@ -11,13 +11,13 @@ using tainicom.Aether.MonoGame;
 
 namespace MGJ3.Components
 {
-    class PhotonModelImpl : IVisual, IBoundingBox, IAetherSerialization
+    class VisualModelImpl : IVisual, IBoundingBox, IAetherSerialization
     {
         IVisual parent;
         Model _model;
         ModelMeshPart _meshPart;
         
-        public PhotonModelImpl()
+        public VisualModelImpl()
         {
             
         }

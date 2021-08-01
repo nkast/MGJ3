@@ -42,11 +42,11 @@
     <Compile Include="Components\Bonuses\ScoreUp.cs" />
     <Compile Include="Components\Bonuses\PowerUp.cs" />
     <Compile Include="Components\Cameras\BasicCamera.cs" />
-    <Compile Include="Components\LeptonImpl.cs" />
+    <Compile Include="Components\SpatialImpl.cs" />
     <Compile Include="Components\Other\StageBounds.cs" />
     <Compile Include="Components\Other\StageFinish.cs" />
     <Compile Include="Components\Particles\PlayerGPUParticleMaterial.cs" />
-    <Compile Include="Components\PhotonModelImpl.cs" />
+    <Compile Include="Components\VisualModelImpl.cs" />
     <Compile Include="Components\Physics2dBodyImpl.cs" />
     <Compile Include="Components\Sensors\Trigger.cs" />
   </ItemGroup>

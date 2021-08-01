@@ -10,7 +10,7 @@
   <ItemGroup>
     <Compile Include="Components\CPUParticleSystem.cs" />
     <Compile Include="Components\GPUParticleSystem.cs" />
-    <Compile Include="Components\LeptonImpl.cs" />
+    <Compile Include="Components\SpatialImpl.cs" />
     <Compile Include="Components\LightParticleEmmiter.cs" />
     <Compile Include="Components\ParticleEmmiter.cs" />
     <Compile Include="Components\ParticleSystemBase.cs" />
