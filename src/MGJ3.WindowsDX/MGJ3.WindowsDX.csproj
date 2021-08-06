@@ -64,6 +64,12 @@
     <None Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Aether.Physics2D.Diagnostics.MG">
+      <Version>1.6.1</Version>
+    </PackageReference>
+    <PackageReference Include="Aether.Physics2D.MG">
+      <Version>1.6.1</Version>
+    </PackageReference>
     <PackageReference Include="MonoGame.Framework.WindowsDX.9000">
       <Version>3.8.9009</Version>
     </PackageReference>
