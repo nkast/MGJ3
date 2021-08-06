@@ -403,6 +403,8 @@ namespace MGJ3
             _stage.UpdateCamera();
             _stage.Engine.Render(gameTime);
 
+            _stage.DebugDraw();
+
             DrawScore(gameTime, content, spriteBatch, fade);
         }
 

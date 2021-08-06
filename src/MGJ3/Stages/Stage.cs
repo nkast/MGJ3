@@ -12,6 +12,8 @@ using tainicom.Aether.Engine;
 using tainicom.Aether.Maths;
 using tainicom.Aether.MonoGame;
 using tainicom.Aether.Physics2D.Components;
+using nkast.Aether.Physics2D.Diagnostics;
+
 
 namespace MGJ3.Stages
 {
@@ -28,6 +30,8 @@ namespace MGJ3.Stages
 
         protected AetherEngine engine;
         protected Stream stream;
+
+        private DebugView _debugView;
 
 
         public Stage(Game game, string stageFilename)
@@ -80,6 +84,10 @@ namespace MGJ3.Stages
 
                 ICamera camera = engine["DefaultCamera"] as ICamera;
 
+                _debugView = new DebugView(PhysicsPlane0.World);
+                _debugView.LoadContent(_context.Device, _content);
+                _debugView.Flags = _debugView.Flags | DebugViewFlags.PerformanceGraph;
+
                 isTableLoaded = true;
             }
             
@@ -97,5 +105,13 @@ namespace MGJ3.Stages
 
 
         }
+
+        internal void DebugDraw()
+        {
+            ICamera camera = engine["DefaultCamera"] as ICamera;
+
+            _debugView.RenderDebugData(camera.Projection, camera.View, Matrix.Identity);
+        }
+
     }
 }
