@@ -295,9 +295,10 @@ namespace tainicom.Aether.Physics2D.Components
             writer.WriteFloat("LinearVelocityLimit", _linearVelocityLimit);
 
             base.Save(writer);
+
             writer.WriteVector3("Position", position);
-            writer.WriteQuaternion("Rotation", rotation);
             writer.WriteVector3("Scale", scale);
+            writer.WriteQuaternion("Rotation", rotation);
 #endif
         }
 
@@ -315,9 +316,10 @@ namespace tainicom.Aether.Physics2D.Components
                     reader.ReadFloat("LinearVelocityLimit", out _linearVelocityLimit);
 
                     base.Load(reader);
+
                     reader.ReadVector3("Position", out position);
-                    reader.ReadQuaternion("Rotation", out rotation);
                     reader.ReadVector3("Scale", out scale);
+                    reader.ReadQuaternion("Rotation", out rotation);
                     UpdateLocalTransform();
                   break;
                 default:

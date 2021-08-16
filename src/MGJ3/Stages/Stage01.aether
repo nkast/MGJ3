@@ -509,8 +509,8 @@
         </AetherParticle>
       </Particles>
       <Position X="0" Y="0" Z="0" />
-      <Rotation X="0" Y="0" Z="0" W="1" />
       <Scale X="1" Y="1" Z="1" />
+      <Rotation X="0" Y="0" Z="0" W="1" />
     </AetherParticle>
     <AetherParticle UID="150D9F60-1533-48F1-8F5B-2F9C1ECA17A8" Name="Physics2dPlane1" Type="tainicom.Aether.Physics2D.Components.Physics2dPlane, Aether.Physics2D.Components">
       <Version>1</Version>
@@ -521,8 +521,8 @@
       <Version>1</Version>
       <Particles />
       <Position X="0" Y="0.05" Z="0" />
-      <Rotation X="0" Y="0" Z="0" W="1" />
       <Scale X="1" Y="1" Z="1" />
+      <Rotation X="0" Y="0" Z="0" W="1" />
     </AetherParticle>
     <AetherParticle UID="D97E88FA-7114-4F74-BF3E-1B3EABD6C897" Name="Physics2dPlane2" Type="tainicom.Aether.Physics2D.Components.Physics2dPlane, Aether.Physics2D.Components">
       <Version>1</Version>
@@ -533,8 +533,8 @@
       <Version>1</Version>
       <Particles />
       <Position X="0" Y="0.1" Z="0" />
-      <Rotation X="0" Y="0" Z="0" W="1" />
       <Scale X="1" Y="1" Z="1" />
+      <Rotation X="0" Y="0" Z="0" W="1" />
     </AetherParticle>
     <AetherParticle UID="1759CDC7-E748-4B14-A111-1C1238F3888A" Name="Physics2dPlane3" Type="tainicom.Aether.Physics2D.Components.Physics2dPlane, Aether.Physics2D.Components">
       <Version>1</Version>
@@ -545,8 +545,8 @@
       <Version>1</Version>
       <Particles />
       <Position X="0" Y="0.15" Z="0" />
-      <Rotation X="0" Y="0" Z="0" W="1" />
       <Scale X="1" Y="1" Z="1" />
+      <Rotation X="0" Y="0" Z="0" W="1" />
     </AetherParticle>
     <AetherParticleRef UID="A829965D-D99B-4623-944A-10F735A16D4C" Name="Player1" />
     <AetherParticle UID="98BA2F13-0592-4D09-A6F7-79B6263817BA" Name="DefaultMaterial1" Type="tainicom.Aether.Core.Materials.BasicMaterial, Aether">
