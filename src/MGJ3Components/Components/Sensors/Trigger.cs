@@ -6,6 +6,7 @@ using tainicom.Aether.Elementary.Spatial;
 using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Engine;
 using tainicom.Aether.Physics2D.Components;
+using tainicom.Aether.Core.Spatial;
 //using tainicom.Aether.Physics2D.Factories;
 //using tainicom.Aether.Physics2D.Dynamics;
 
@@ -21,7 +22,7 @@ namespace MGJ3.Components
         }
 
         #region  Implement ISpatial
-        SpatialImpl _spatialImpl = new SpatialImpl();
+        SpatialBase _spatialImpl = new SpatialBase();
         public Matrix LocalTransform
         {
             get { return _spatialImpl.LocalTransform; }

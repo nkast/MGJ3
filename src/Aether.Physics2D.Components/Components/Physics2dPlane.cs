@@ -9,6 +9,7 @@ using tainicom.Aether.Elementary.Spatial;
 using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Engine;
 using tainicom.Aether.Elementary.Temporal;
+using tainicom.Aether.Core.Spatial;
 
 namespace tainicom.Aether.Physics2D.Components
 {
@@ -18,40 +19,31 @@ namespace tainicom.Aether.Physics2D.Components
         IAether
     {
         #region Implement ISpatial
-
-        Vector3 scale; 
-        Quaternion rotation;
-        Vector3 position;
-
-        protected Matrix _localTransform = Matrix.Identity;
+        SpatialBase _spatialImpl = new SpatialBase();
 
         public Vector3 Scale
         {
-            get { return scale; }
-            set { scale = value; UpdateLocalTransform(); }
+            get { return _spatialImpl.Scale; }
+            set { _spatialImpl.Scale = value; UpdateTransform(); }
         }
 
         public Quaternion Rotation
         {
-            get { return rotation; }
-            set { rotation = value; UpdateLocalTransform(); }
+            get { return _spatialImpl.Rotation; }
+            set { _spatialImpl.Rotation = value; UpdateTransform(); }
         }
 
         public Vector3 Position
         {
-            get { return position; }
-            set { position = value; UpdateLocalTransform(); }
+            get { return _spatialImpl.Position; }
+            set { _spatialImpl.Position = value; UpdateTransform(); }
         }
         
-        public Matrix LocalTransform { get { return _localTransform; } }
+        public Matrix LocalTransform { get { return _spatialImpl.LocalTransform; } }
         
-        protected void UpdateLocalTransform()
+        protected void UpdateTransform()
         {
-            _localTransform = Matrix.CreateScale(scale)
-                            * Matrix.CreateFromQuaternion(rotation)
-                            * Matrix.CreateTranslation(position);
-
-            _worldTransform = _localTransform * _parentWorldTransform;
+            _worldTransform = _spatialImpl.LocalTransform * _parentWorldTransform;
             InvWorldTransform = Matrix.Invert(this.WorldTransform);
         }
 
@@ -69,7 +61,7 @@ namespace tainicom.Aether.Physics2D.Components
         public void UpdateWorldTransform(IWorldTransform parentWorldTransform)
         {
             _parentWorldTransform = parentWorldTransform.WorldTransform;
-            _worldTransform = _localTransform * _parentWorldTransform;
+            _worldTransform = _spatialImpl.LocalTransform * _parentWorldTransform;
             InvWorldTransform = Matrix.Invert(this.WorldTransform);
         }
 
@@ -135,10 +127,7 @@ namespace tainicom.Aether.Physics2D.Components
 
         public Physics2dPlane()
         {
-            position = Vector3.Zero;
-            scale = Vector3.One;
-            rotation = Quaternion.Identity;
-            UpdateLocalTransform();
+            UpdateTransform();
 
             //create Physics2d World
             World = new World(Vector2.Zero);
@@ -296,9 +285,7 @@ namespace tainicom.Aether.Physics2D.Components
 
             base.Save(writer);
 
-            writer.WriteVector3("Position", position);
-            writer.WriteVector3("Scale", scale);
-            writer.WriteQuaternion("Rotation", rotation);
+            _spatialImpl.Save(writer);
 #endif
         }
 
@@ -317,10 +304,8 @@ namespace tainicom.Aether.Physics2D.Components
 
                     base.Load(reader);
 
-                    reader.ReadVector3("Position", out position);
-                    reader.ReadVector3("Scale", out scale);
-                    reader.ReadQuaternion("Rotation", out rotation);
-                    UpdateLocalTransform();
+                    _spatialImpl.Load(reader);
+                    UpdateTransform();
                   break;
                 default:
                   throw new InvalidOperationException("unknown version " + version);

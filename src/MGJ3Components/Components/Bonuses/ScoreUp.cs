@@ -10,6 +10,7 @@ using tainicom.Aether.Engine;
 using tainicom.Aether.Physics2D.Components;
 using tainicom.Aether.Physics2D.Dynamics.Contacts;
 using System.Globalization;
+using tainicom.Aether.Core.Spatial;
 
 namespace MGJ3.Components
 {
@@ -45,7 +46,7 @@ namespace MGJ3.Components
 
 
         #region  Implement ISpatial
-        SpatialImpl _spatialImpl = new SpatialImpl();
+        SpatialBase _spatialImpl = new SpatialBase();
         public Matrix LocalTransform
         {
             get { return _spatialImpl.LocalTransform; }

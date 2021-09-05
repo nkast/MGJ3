@@ -42,7 +42,6 @@
     <Compile Include="Components\Bonuses\ScoreUp.cs" />
     <Compile Include="Components\Bonuses\PowerUp.cs" />
     <Compile Include="Components\Cameras\BasicCamera.cs" />
-    <Compile Include="Components\SpatialImpl.cs" />
     <Compile Include="Components\Other\StageBounds.cs" />
     <Compile Include="Components\Other\StageFinish.cs" />
     <Compile Include="Components\Particles\PlayerGPUParticleMaterial.cs" />
