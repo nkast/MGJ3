@@ -43,7 +43,6 @@ namespace tainicom.Aether.Physics2D.Components
         
         protected void UpdateTransform()
         {
-            _worldTransform = _spatialImpl.LocalTransform * _parentWorldTransform;
             InvWorldTransform = Matrix.Invert(this.WorldTransform);
         }
 
@@ -51,17 +50,12 @@ namespace tainicom.Aether.Physics2D.Components
 
         
         #region Implement IWorldTransform
-
-        Matrix _worldTransform = Matrix.Identity;
-        Matrix _parentWorldTransform = Matrix.Identity;
-        
-        public Matrix WorldTransform { get { return _worldTransform; } }
+        public Matrix WorldTransform { get { return _spatialImpl.WorldTransform; } }
         public Matrix InvWorldTransform { get; private set; } // cache Inverse World Transform 
         
         public void UpdateWorldTransform(IWorldTransform parentWorldTransform)
         {
-            _parentWorldTransform = parentWorldTransform.WorldTransform;
-            _worldTransform = _spatialImpl.LocalTransform * _parentWorldTransform;
+            _spatialImpl.UpdateWorldTransform(parentWorldTransform);
             InvWorldTransform = Matrix.Invert(this.WorldTransform);
         }
 

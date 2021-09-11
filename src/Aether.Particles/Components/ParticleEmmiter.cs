@@ -10,6 +10,7 @@ using tainicom.Aether.Elementary.Temporal;
 using tainicom.Aether.Elementary.Spatial;
 using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Maths;
+using tainicom.Aether.Core.Spatial;
 
 namespace tainicom.Aether.Particles
 {
@@ -174,7 +175,7 @@ namespace tainicom.Aether.Particles
 
 
         #region  Implement ISpatial
-        SpatialImpl _spatialImpl = new SpatialImpl();
+        SpatialBase _spatialImpl = new SpatialBase();
         public Matrix LocalTransform { get { return _spatialImpl.LocalTransform; } }
         #if WINDOWS
         [Category("ISpatial")]
