@@ -37,10 +37,7 @@ namespace MGJ3.Components
 
         #region  Implement ISpatial
         SpatialBase _spatialImpl = new SpatialBase();
-        public Matrix LocalTransform
-        {
-            get { return _spatialImpl.LocalTransform; }
-        }
+        public Matrix LocalTransform { get { return _spatialImpl.LocalTransform; } }
         #if WINDOWS
         [System.ComponentModel.Category("ISpatial")]
         [System.ComponentModel.TypeConverter(typeof(QuaternionEditAsYawPitchRollConverter))]
