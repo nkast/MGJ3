@@ -62,9 +62,10 @@ namespace tainicom.Aether.Core
 
         private void UpdateChildrenTransform()
         {
-            foreach (var child in this)
+            var spatialNodes = (IPlasma<ISpatialNode>)this;
+            foreach (var spatialNode in spatialNodes)
             {
-                var updatetable = child as IWorldTransformUpdateable;
+                var updatetable = spatialNode as IWorldTransformUpdateable;
                 if (updatetable != null)
                     updatetable.UpdateWorldTransform(this);
             }
