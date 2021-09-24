@@ -46,7 +46,7 @@ namespace tainicom.Aether.Core.Cameras
         #endregion fields
 
         public Camera()
-        {         
+        {
         }
         
         #region ICamera Members
