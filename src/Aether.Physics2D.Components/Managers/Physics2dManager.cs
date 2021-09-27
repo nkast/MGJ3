@@ -47,8 +47,10 @@ namespace tainicom.Aether.Physics2D.Components
 
         public void SuppressStep()
         {
-            foreach (var item in this.Root)
+            for(int i= 0; i< this.Root.Count; i++)
             {
+                var item = this.Root[i];
+
                 var plane = (Physics2dPlane)item;
                 plane.SuppressStep();
             }
