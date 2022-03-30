@@ -34,7 +34,7 @@ namespace MGJ3.Stages
         {
             this._stageFilename = stageFilename;
             _content = new ContentManager(game.Services, "Content");
-            _context = new AetherContextMG(game.GraphicsDevice, _content);
+            _context = new AetherContextMG(game.Services, game.GraphicsDevice, _content);
         }
         
         bool isTableLoaded = false;
