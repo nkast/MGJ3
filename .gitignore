@@ -29,6 +29,9 @@ $RECYCLE.BIN/
 **/Stages/Modules/
 **/Stages/Content/
 
+# Content
+**/wwwroot/Content/
+
 # =========================
 # Operating System Files
 # =========================
