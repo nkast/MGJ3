@@ -53,6 +53,9 @@ namespace MGJ3.Stages
                 #if UWP
                 var assembly = System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(IntroPage)).Assembly;
                 stream = assembly.GetManifestResourceStream("Chervil.Stages.HardHatZone.aebin");
+                #elif BLAZORGL
+                var dd = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceNames();            
+                stream = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("WebGLxna.Stages." + _stageFilename);
                 #else
                 stream = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("MGJ3.Stages."+_stageFilename);
 			    #endif
