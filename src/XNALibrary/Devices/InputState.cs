@@ -77,7 +77,7 @@ namespace tainicom.Devices
         public void Update(bool isActive)
         {
             _prevGamePadState = _gamePadState;
-            _gamePadState = GamePad.GetState(PlayerIndex.One);
+            //_gamePadState = GamePad.GetState(PlayerIndex.One);
 
             _prevKeyboardState = _keyboardState;
             _keyboardState = Keyboard.GetState();

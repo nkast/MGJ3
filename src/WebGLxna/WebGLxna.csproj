@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>$(DefineConstants)TRACE;OPENGL;BLAZOR</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>$(DefineConstants)TRACE;OPENGL;BLAZOR</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Content\Icon192.xnb" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.5" PrivateAssets="all" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\MonoGame\MonoGame.Framework\MonoGame.Framework.Blazor.csproj" />
+    <ProjectReference Include="..\Aether.Components\Aether.Components.NETSTANDARD2_0.csproj" />
+    <ProjectReference Include="..\Aether.Physics2D.Components\Aether.Physics2D.Components.NETSTANDARD2_0.csproj" />
+    <ProjectReference Include="..\Aether\Aether.NETSTANDARD2_0.csproj" />
+    <ProjectReference Include="..\MGJ3Components\MGJ3.Components.NETSTANDARD2_0.csproj" />
+    <ProjectReference Include="..\XNALibrary\XNALibrary.NETSTANDARD2_0.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Content\" />
+  </ItemGroup>
+  <Import Project="..\MGJ3\MGJ3.projitems" Label="Shared" />
+
+</Project>
