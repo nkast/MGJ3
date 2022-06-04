@@ -193,7 +193,7 @@ namespace MGJ3.Components
             if (kstate.IsKeyDown(Keys.Up)) input.Y += 1f;
             if (kstate.IsKeyDown(Keys.Down)) input.Y -= 1f;
 
-            var gamePadState = GamePad.GetState(PlayerIndex.One);
+            GamePadState gamePadState = default(GamePadState);
             if (gamePadState.IsConnected)
             {
                 Vector2 inputl = gamePadState.ThumbSticks.Left;
