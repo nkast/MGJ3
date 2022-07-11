@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="MGJ3.MGJ3" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="MGJ3.MGJ3VR" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="17" android:targetSdkVersion="28" />
-	<application android:label="Alien Exterminator"></application>
+	<application android:label="Alien Exterminator VR"></application>
 	<uses-permission android:name="android.permission.NFC" />
 	<uses-permission android:name="android.permission.VIBRATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
