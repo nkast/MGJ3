@@ -128,7 +128,7 @@ namespace MGJ3
             inputState.Update(this.IsActive);
 
             // toggle FullScreen
-#if (WINDOWS || WUP || DESKTOPGL)
+#if (WINDOWS || OVR || WUP || DESKTOPGL)
             if (inputState.IsKeyReleased(Keys.F11))
             {
                 if (!graphics.IsFullScreen)
