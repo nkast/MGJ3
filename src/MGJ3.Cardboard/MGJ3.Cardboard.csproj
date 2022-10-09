@@ -120,7 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.Cardboard.9000">
-      <Version>3.8.9009</Version>
+      <Version>3.8.9101</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="..\MGJ3\MGJ3.projitems" Label="Shared" />

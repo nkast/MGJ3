@@ -141,7 +141,7 @@
       <Version>6.2.10</Version>
     </PackageReference>
     <PackageReference Include="MonoGame.Framework.WindowsUniversal.9000">
-      <Version>3.8.9009</Version>
+      <Version>3.8.9101</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

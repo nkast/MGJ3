@@ -112,7 +112,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MonoGame.Framework.Portable.9000" Version="3.8.9009">
+    <PackageReference Include="MonoGame.Framework.Portable.9000" Version="3.8.9101">
       <PrivateAssets>All</PrivateAssets> 
       <NoWarn>NU1701</NoWarn>
     </PackageReference>
