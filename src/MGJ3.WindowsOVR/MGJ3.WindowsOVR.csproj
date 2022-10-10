@@ -67,6 +67,9 @@
     <PackageReference Include="MonoGame.Framework.WindowsDX.9000">
       <Version>3.8.9101</Version>
     </PackageReference>
+    <PackageReference Include="nkast.Xna.Framework.Oculus.OvrDX11">
+      <Version>3.8.9101.1</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Aether.Components\Aether.Components.NETSTANDARD2_0.csproj">
