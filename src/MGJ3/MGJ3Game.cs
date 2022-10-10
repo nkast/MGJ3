@@ -8,6 +8,9 @@ using tainicom.Devices;
 using tainicom.PageManager;
 using MGJ3.Pages;
 using MGJ3.Components;
+#if OVR
+using Microsoft.Xna.Framework.Input.Oculus;
+#endif
 
 namespace MGJ3
 {
@@ -26,6 +29,11 @@ namespace MGJ3
         public static Microsoft.Xna.Framework.Input.Cardboard.EyeState VrEye { get; private set; }
 #endif
 
+#if OVR
+        internal OvrDevice _ovrDevice;
+        HandsState _ovrHandsState;
+#endif
+
         public MGJ3Game()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -39,7 +47,7 @@ namespace MGJ3
                 e.GraphicsDeviceInformation.PresentationParameters.PresentationInterval = PresentInterval.One;
 
                 // use HiDef profile
-                if (e.GraphicsDeviceInformation.Adapter.IsProfileSupported(GraphicsProfile.HiDef))
+                if (e.GraphicsDeviceInformation.GraphicsProfile < GraphicsProfile.HiDef && e.GraphicsDeviceInformation.Adapter.IsProfileSupported(GraphicsProfile.HiDef))
                     e.GraphicsDeviceInformation.GraphicsProfile = GraphicsProfile.HiDef;
             };
 
@@ -71,6 +79,24 @@ namespace MGJ3
 
 
             pageManager = new PageManager(this);
+
+#if OVR
+            // 90Hz Frame rate for oculus
+            TargetElapsedTime = TimeSpan.FromTicks(111111);
+            IsFixedTimeStep = true;
+            graphics.SynchronizeWithVerticalRetrace = false;
+
+            // we don't care is the main window is Focuses or not
+            // because we render on the Oculus surface.
+            InactiveSleepTime = TimeSpan.FromSeconds(0);
+
+            // OVR requirees at least DX feature level 10.0
+            graphics.GraphicsProfile = GraphicsProfile.FL10_0;
+
+            // create oculus device
+            _ovrDevice = new OvrDevice(graphics);
+#endif
+
         }
 
         /// <summary>
@@ -128,7 +154,7 @@ namespace MGJ3
             inputState.Update(this.IsActive);
 
             // toggle FullScreen
-#if (WINDOWS || WUP || DESKTOPGL)
+#if (WINDOWS || OVR || WUP || DESKTOPGL)
             if (inputState.IsKeyReleased(Keys.F11))
             {
                 if (!graphics.IsFullScreen)
@@ -148,6 +174,29 @@ namespace MGJ3
             }
 #endif
 
+#if OVR             
+            if (!_ovrDevice.IsConnected)
+            {
+                try
+                {
+                    // Initialize Oculus VR
+                    int ovrCreateResult = _ovrDevice.CreateDevice();
+                    if (ovrCreateResult == 0)
+                    {
+                    }
+                }
+                catch (Exception ovre)
+                {
+                    System.Diagnostics.Debug.WriteLine(ovre.Message);
+                }
+            }
+
+            if (_ovrDevice.IsConnected)
+            {
+                 _ovrHandsState = _ovrDevice.GetHandsState();
+            }
+#endif
+
             base.Update(gameTime);
         }
 
@@ -161,6 +210,57 @@ namespace MGJ3
 
             GraphicsDevice.SetRenderTarget(null);
             GraphicsDevice.Clear(Color.Black);
+
+#if OVR
+            if (_ovrDevice.IsConnected)
+            {
+                var ovrResult = _ovrDevice.BeginFrame();
+                if (ovrResult >= 0)
+                {
+                    var ovrHeadsetState = _ovrDevice.GetHeadsetState();
+
+                    // draw each eye on a rendertarget
+                    for (int eye = 0; eye < 2; eye++)
+                    {
+                        var ovrrt = _ovrDevice.GetEyeRenderTarget(eye);
+                        GraphicsDevice.SetRenderTarget(ovrrt);
+                        GraphicsDevice.Clear(Color.Black);
+
+                        var ovrProj = _ovrDevice.CreateProjection(eye, 0.001f, 10f);
+                        var ovrView = ovrHeadsetState.GetEyeView(eye);
+                        // TODO: set cameras and SpriteBatch matrix with eye's view/proj 
+
+                        // draw any drawable components
+                        base.Draw(gameTime);
+
+                        // Resolve eye rendertarget
+                        GraphicsDevice.SetRenderTarget(null);
+                        // submit eye rendertarget
+                        _ovrDevice.CommitRenderTarget(eye, ovrrt);
+                    }
+
+                    // submit frame
+                    int result = _ovrDevice.EndFrame();
+
+                    // draw on backbaffer
+                    GraphicsDevice.SetRenderTarget(null);
+                    GraphicsDevice.Clear(Color.Black);
+
+                    // preview rendertargets
+                    var pp = GraphicsDevice.PresentationParameters;
+                    int height = pp.BackBufferHeight;
+                    float aspectRatio = (float)_ovrDevice.GetEyeRenderTarget(0).Width / _ovrDevice.GetEyeRenderTarget(0).Height;
+
+                    int width = Math.Min(pp.BackBufferWidth, (int)(height * aspectRatio));
+                    pageManager.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive);
+                    pageManager.SpriteBatch.Draw(_ovrDevice.GetEyeRenderTarget(0), new Rectangle(0, 0, width, height), Color.White);
+                    pageManager.SpriteBatch.Draw(_ovrDevice.GetEyeRenderTarget(1), new Rectangle(width, 0, width, height), Color.White);
+                    pageManager.SpriteBatch.End();
+
+                    return;
+                }
+            }
+#endif
 
 #if CARDBOARD
             var vrstate = Microsoft.Xna.Framework.Input.Cardboard.Headset.GetState();
