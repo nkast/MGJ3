@@ -55,6 +55,7 @@ namespace MGJ3.Pages.GamePages
         public override bool SideloadContent()
         {
             content = new ContentManager(pageManager.Game.Services, "Content");
+            content = pageManager.Game.Content;
 
             _font = content.Load<SpriteFont>(@"Pages\Menu\About\AboutFont");
 
@@ -69,7 +70,7 @@ namespace MGJ3.Pages.GamePages
         }
         protected override void UnloadContent()
         {
-            content.Dispose();
+            //content.Dispose();
         }
 
         public override void HandleInput(InputState input)
