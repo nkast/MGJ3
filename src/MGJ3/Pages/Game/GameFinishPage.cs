@@ -46,7 +46,8 @@ namespace MGJ3.Pages.GamePages
 
         public override bool SideloadContent()
         {
-            content = new ContentManager(pageManager.Game.Services, "Content");
+            //content = new ContentManager(pageManager.Game.Services, "Content");
+            content = pageManager.Game.Content;
 
             _txTitle = content.Load<Texture2D>(@"Pages\Game\GameFinishTitle");
             _btnBack = new UIButton(new Vector2(250, 240), 0.7f, content.Load<Texture2D>(@"Pages\UIButtons\UIButtonMenu"));
@@ -71,7 +72,7 @@ namespace MGJ3.Pages.GamePages
 
         protected override void UnloadContent()
         {
-            content.Dispose();
+            //content.Dispose();
         }
 
         public override void HandleInput(InputState input)

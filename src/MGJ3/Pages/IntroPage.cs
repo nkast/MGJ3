@@ -40,7 +40,8 @@ namespace MGJ3.Pages
 
         public override bool SideloadContent()
         {
-            content = new ContentManager(pageManager.Game.Services, "Content");
+            //content = new ContentManager(pageManager.Game.Services, "Content");
+            content = pageManager.Game.Content;
             _txTitle = content.Load<Texture2D>(@"Pages\Intro\IntroTitle");
 
             return base.SideloadContent();
@@ -48,7 +49,7 @@ namespace MGJ3.Pages
 
         protected override void UnloadContent()
         {
-            content.Dispose();
+            //content.Dispose();
         }
 
         public override void HandleInput(InputState input)

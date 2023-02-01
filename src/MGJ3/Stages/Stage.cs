@@ -33,7 +33,8 @@ namespace MGJ3.Stages
         public Stage(Game game, string stageFilename)
         {
             this._stageFilename = stageFilename;
-            _content = new ContentManager(game.Services, "Content");
+            //_content = new ContentManager(game.Services, "Content");
+            _content = game.Content;
             _context = new AetherContextMG(game.Services, _content);
         }
         
