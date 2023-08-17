@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aether.Physics2D.MG" Version="1.6.1" />
+    <PackageReference Include="Aether.Physics2D.MG" Version="1.7.0" />
     <PackageReference Include="MonoGame.Framework.Portable.9000" Version="3.8.9101">
       <PrivateAssets>All</PrivateAssets>
       <NoWarn>NU1701</NoWarn>
