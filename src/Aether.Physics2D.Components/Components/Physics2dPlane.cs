@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using tainicom.Aether.Physics2D.Controllers;
-using tainicom.Aether.Physics2D.Dynamics;
 using tainicom.Aether.Core;
 using tainicom.Aether.Elementary;
 using tainicom.Aether.Elementary.Spatial;
@@ -10,6 +8,8 @@ using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Engine;
 using tainicom.Aether.Elementary.Temporal;
 using tainicom.Aether.Core.Spatial;
+using tainicom.Aether.Physics2D.Controllers;
+using tainicom.Aether.Physics2D.Dynamics;
 
 namespace tainicom.Aether.Physics2D.Components
 {

@@ -1,6 +1,6 @@
-﻿using tainicom.Aether.Physics2D.Dynamics;
-using tainicom.Aether.Elementary.Serialization;
+﻿using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Physics2D.Components;
+using tainicom.Aether.Physics2D.Dynamics;
 
 namespace MGJ3.Components
 {

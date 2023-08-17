@@ -1,12 +1,11 @@
 ﻿using System;
-using tainicom.Aether.Physics2D.Dynamics;
 using Microsoft.Xna.Framework;
 using tainicom.Aether.Elementary;
 using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Maths;
 using tainicom.Aether.Particles;
 //using tainicom.Aether.Factories;
-//using tainicom.Aether.Physics2D.Dynamics;
+using tainicom.Aether.Physics2D.Dynamics;
 
 namespace MGJ3.Components
 {

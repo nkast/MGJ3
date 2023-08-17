@@ -5,12 +5,12 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using tainicom.Devices;
+using tainicom.Aether.Elementary.Spatial;
 using tainicom.Aether.Physics2D.Components;
-using MGJ3.Components;
-using MGJ3.Stages;
 using tainicom.Aether.Physics2D.Dynamics;
 using tainicom.Aether.Physics2D.Dynamics.Contacts;
-using tainicom.Aether.Elementary.Spatial;
+using MGJ3.Components;
+using MGJ3.Stages;
 
 namespace MGJ3
 {

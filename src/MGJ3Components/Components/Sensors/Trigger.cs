@@ -1,5 +1,4 @@
 ﻿using System;
-using tainicom.Aether.Physics2D.Dynamics;
 using Microsoft.Xna.Framework;
 using tainicom.Aether.Elementary;
 using tainicom.Aether.Elementary.Spatial;
@@ -8,7 +7,7 @@ using tainicom.Aether.Engine;
 using tainicom.Aether.Physics2D.Components;
 using tainicom.Aether.Core.Spatial;
 //using tainicom.Aether.Physics2D.Factories;
-//using tainicom.Aether.Physics2D.Dynamics;
+using tainicom.Aether.Physics2D.Dynamics;
 
 namespace MGJ3.Components
 {
