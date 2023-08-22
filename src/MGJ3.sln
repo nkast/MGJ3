@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31313.79
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platforms", "Platforms", "{50FBC592-2308-42B9-A0CB-4A36C1C91BF8}"
 EndProject
@@ -36,15 +36,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aether.Components.NETSTANDARD2_0", "Aether.Components\Aether.Components.NETSTANDARD2_0.csproj", "{02AF6E6B-080E-448B-B3EB-ACA20FA27A49}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		MGJ3\MGJ3.projitems*{8c45820e-179d-48ff-b110-6edc55781e7e}*SharedItemsImports = 4
-		MGJ3\MGJ3.projitems*{cddddb19-6812-4a63-805f-30e770141303}*SharedItemsImports = 4
-		MGJ3\MGJ3.projitems*{ceaec504-fb5a-440d-adc2-bd1e4480513a}*SharedItemsImports = 4
-		MGJ3\MGJ3.projitems*{cf1fc953-2680-4881-9421-3f54031d97b9}*SharedItemsImports = 4
-		MGJ3\MGJ3.projitems*{d0e9bc31-8772-4ad7-94f8-a0596ed5cc67}*SharedItemsImports = 4
-		MGJ3\MGJ3.projitems*{f65b69c5-cc6c-4632-a763-3953f30b4c32}*SharedItemsImports = 4
-		MGJ3\MGJ3.projitems*{fa11a45e-867d-4638-969c-9a6d0b595ac2}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
@@ -80,8 +71,14 @@ Global
 		{F65B69C5-CC6C-4632-A763-3953F30B4C32}.Release|x86.ActiveCfg = Release|Any CPU
 		{D689788E-C240-489E-AC39-C3CB798C69AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D689788E-C240-489E-AC39-C3CB798C69AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D689788E-C240-489E-AC39-C3CB798C69AD}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{D689788E-C240-489E-AC39-C3CB798C69AD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D689788E-C240-489E-AC39-C3CB798C69AD}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{D689788E-C240-489E-AC39-C3CB798C69AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D689788E-C240-489E-AC39-C3CB798C69AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D689788E-C240-489E-AC39-C3CB798C69AD}.Release|ARM.ActiveCfg = Release|Any CPU
+		{D689788E-C240-489E-AC39-C3CB798C69AD}.Release|x64.ActiveCfg = Release|Any CPU
+		{D689788E-C240-489E-AC39-C3CB798C69AD}.Release|x86.ActiveCfg = Release|Any CPU
 		{CEAEC504-FB5A-440D-ADC2-BD1E4480513A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CEAEC504-FB5A-440D-ADC2-BD1E4480513A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEAEC504-FB5A-440D-ADC2-BD1E4480513A}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -275,5 +272,14 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BA31A750-D33F-46EE-800F-11B80978EA6E}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		MGJ3\MGJ3.projitems*{8c45820e-179d-48ff-b110-6edc55781e7e}*SharedItemsImports = 4
+		MGJ3\MGJ3.projitems*{cddddb19-6812-4a63-805f-30e770141303}*SharedItemsImports = 4
+		MGJ3\MGJ3.projitems*{ceaec504-fb5a-440d-adc2-bd1e4480513a}*SharedItemsImports = 4
+		MGJ3\MGJ3.projitems*{cf1fc953-2680-4881-9421-3f54031d97b9}*SharedItemsImports = 4
+		MGJ3\MGJ3.projitems*{d0e9bc31-8772-4ad7-94f8-a0596ed5cc67}*SharedItemsImports = 4
+		MGJ3\MGJ3.projitems*{f65b69c5-cc6c-4632-a763-3953f30b4c32}*SharedItemsImports = 4
+		MGJ3\MGJ3.projitems*{fa11a45e-867d-4638-969c-9a6d0b595ac2}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal
