@@ -1,5 +1,5 @@
 ﻿using tainicom.Aether.Engine;
-using tainicom.Aether.Physics2D.Dynamics;
+using nkast.Aether.Physics2D.Dynamics;
 
 namespace tainicom.Aether.Physics2D.Components
 {

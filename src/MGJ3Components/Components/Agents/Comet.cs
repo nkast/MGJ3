@@ -8,8 +8,8 @@ using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Engine;
 using tainicom.Aether.Core.Spatial;
 using tainicom.Aether.Physics2D.Components;
-using tainicom.Aether.Physics2D.Dynamics;
-using tainicom.Aether.Physics2D.Dynamics.Contacts;
+using nkast.Aether.Physics2D.Dynamics;
+using nkast.Aether.Physics2D.Dynamics.Contacts;
 
 namespace MGJ3.Components
 {

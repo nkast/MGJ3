@@ -7,8 +7,8 @@ using Microsoft.Xna.Framework.Graphics;
 using tainicom.Devices;
 using tainicom.Aether.Elementary.Spatial;
 using tainicom.Aether.Physics2D.Components;
-using tainicom.Aether.Physics2D.Dynamics;
-using tainicom.Aether.Physics2D.Dynamics.Contacts;
+using nkast.Aether.Physics2D.Dynamics;
+using nkast.Aether.Physics2D.Dynamics.Contacts;
 using MGJ3.Components;
 using MGJ3.Stages;
 

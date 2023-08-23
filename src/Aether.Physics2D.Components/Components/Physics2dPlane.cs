@@ -8,8 +8,8 @@ using tainicom.Aether.Elementary.Serialization;
 using tainicom.Aether.Engine;
 using tainicom.Aether.Elementary.Temporal;
 using tainicom.Aether.Core.Spatial;
-using tainicom.Aether.Physics2D.Controllers;
-using tainicom.Aether.Physics2D.Dynamics;
+using nkast.Aether.Physics2D.Controllers;
+using nkast.Aether.Physics2D.Dynamics;
 
 namespace tainicom.Aether.Physics2D.Components
 {

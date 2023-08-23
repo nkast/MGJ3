@@ -287,10 +287,14 @@ namespace tainicom.Aether.Particles
         public override void Accept(IGeometryVisitor geometryVisitor)
         {
             // Restore the vertex buffer contents if the graphics device was lost.
-            if (vertexBuffer.IsContentLost)
+            try
             {
-                vertexBuffer.SetData(particles);
+                if (vertexBuffer.IsContentLost)
+                {
+                    vertexBuffer.SetData(particles);
+                }
             }
+            catch (NotImplementedException) { /*ignore*/ }
 
             // If there are any particles waiting in the newly added queue,
             // we'd better upload them to the GPU ready for drawing.
