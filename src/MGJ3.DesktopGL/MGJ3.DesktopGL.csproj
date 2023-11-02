@@ -65,9 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="nkast.Xna.Framework" Version="3.9.9001" />
-    <PackageReference Include="MonoGame.Framework.DesktopGL.9000">
-      <Version>3.9.9001</Version>
-    </PackageReference>
+    <PackageReference Include="MonoGame.Framework.DesktopGL.9000" Version="3.9.9001" />
     <PackageReference Include="nkast.Aether.Physics2D.KNI">
       <Version>2.0.0</Version>
     </PackageReference>
