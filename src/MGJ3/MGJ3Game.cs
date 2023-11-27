@@ -217,17 +217,17 @@ namespace MGJ3
                 var ovrResult = _ovrDevice.BeginFrame();
                 if (ovrResult >= 0)
                 {
-                    var ovrHeadsetState = _ovrDevice.GetHeadsetState();
+                    HeadsetState ovrHeadsetState = _ovrDevice.GetHeadsetState();
 
                     // draw each eye on a rendertarget
                     for (int eye = 0; eye < 2; eye++)
                     {
-                        var ovrrt = _ovrDevice.GetEyeRenderTarget(eye);
+                        RenderTarget2D ovrrt = _ovrDevice.GetEyeRenderTarget(eye);
                         GraphicsDevice.SetRenderTarget(ovrrt);
                         GraphicsDevice.Clear(Color.Black);
 
-                        var ovrProj = _ovrDevice.CreateProjection(eye, 0.001f, 10f);
-                        var ovrView = ovrHeadsetState.GetEyeView(eye);
+                        Matrix ovrProj = _ovrDevice.CreateProjection(eye, 0.001f, 10f);
+                        Matrix ovrView = ovrHeadsetState.GetEyeView(eye);
                         // TODO: set cameras and SpriteBatch matrix with eye's view/proj 
 
                         // draw any drawable components
@@ -263,15 +263,19 @@ namespace MGJ3
 #endif
 
 #if CARDBOARD
+
             var vrstate = Microsoft.Xna.Framework.Input.Cardboard.Headset.GetState();
+
             // draw left eye
             VrEye = vrstate.LeftEye;
             GraphicsDevice.Viewport = VrEye.Viewport;
             base.Draw(gameTime);
+
             // draw right eye
             VrEye = vrstate.RightEye;
             GraphicsDevice.Viewport = VrEye.Viewport;
             base.Draw(gameTime);
+
 #else
             base.Draw(gameTime);
 #endif
