@@ -7,13 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platforms", "Platforms", "{
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MGJ3", "MGJ3\MGJ3.shproj", "{FA11A45E-867D-4638-969C-9A6D0B595AC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MGJ3.Android", "MGJ3.Android\MGJ3.Android.csproj", "{CF1FC953-2680-4881-9421-3F54031D97B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MGJ3.Android", "MGJ3.Android\MGJ3.Android.csproj", "{CF1FC953-2680-4881-9421-3F54031D97B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MGJ3.WindowsDX", "MGJ3.WindowsDX\MGJ3.WindowsDX.csproj", "{F65B69C5-CC6C-4632-A763-3953F30B4C32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MGJ3.WindowsDX", "MGJ3.WindowsDX\MGJ3.WindowsDX.csproj", "{F65B69C5-CC6C-4632-A763-3953F30B4C32}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MGJ3.WindowsOVR", "MGJ3.WindowsOVR\MGJ3.WindowsOVR.csproj", "{D689788E-C240-489E-AC39-C3CB798C69AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MGJ3.DesktopGL", "MGJ3.DesktopGL\MGJ3.DesktopGL.csproj", "{CEAEC504-FB5A-440D-ADC2-BD1E4480513A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MGJ3.DesktopGL", "MGJ3.DesktopGL\MGJ3.DesktopGL.csproj", "{CEAEC504-FB5A-440D-ADC2-BD1E4480513A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MGJ3.UWP.Xaml", "MGJ3.UWP.Xaml\MGJ3.UWP.Xaml.csproj", "{D0E9BC31-8772-4AD7-94F8-A0596ED5CC67}"
 EndProject
@@ -276,11 +276,11 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		MGJ3\MGJ3.projitems*{8c45820e-179d-48ff-b110-6edc55781e7e}*SharedItemsImports = 4
 		MGJ3\MGJ3.projitems*{cddddb19-6812-4a63-805f-30e770141303}*SharedItemsImports = 4
-		MGJ3\MGJ3.projitems*{ceaec504-fb5a-440d-adc2-bd1e4480513a}*SharedItemsImports = 4
-		MGJ3\MGJ3.projitems*{cf1fc953-2680-4881-9421-3f54031d97b9}*SharedItemsImports = 4
+		MGJ3\MGJ3.projitems*{ceaec504-fb5a-440d-adc2-bd1e4480513a}*SharedItemsImports = 5
+		MGJ3\MGJ3.projitems*{cf1fc953-2680-4881-9421-3f54031d97b9}*SharedItemsImports = 5
 		MGJ3\MGJ3.projitems*{d0e9bc31-8772-4ad7-94f8-a0596ed5cc67}*SharedItemsImports = 4
 		MGJ3\MGJ3.projitems*{d689788e-c240-489e-ac39-c3cb798c69ad}*SharedItemsImports = 4
-		MGJ3\MGJ3.projitems*{f65b69c5-cc6c-4632-a763-3953f30b4c32}*SharedItemsImports = 4
+		MGJ3\MGJ3.projitems*{f65b69c5-cc6c-4632-a763-3953f30b4c32}*SharedItemsImports = 5
 		MGJ3\MGJ3.projitems*{fa11a45e-867d-4638-969c-9a6d0b595ac2}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal
