@@ -141,7 +141,7 @@ namespace MGJ3.Pages.MenuPages
                     catch
                     {
 #if ANDROID
-                        Game.Activity.MoveTaskToBack(true);
+                        Game.Services.GetService<MGJ3Activity>().MoveTaskToBack(true);
 #endif
                     }
                 }

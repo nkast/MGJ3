@@ -19,6 +19,7 @@ namespace MGJ3
         {
             base.OnCreate(bundle);
             var game = new MGJ3Game();
+            game.Services.AddService<MGJ3Activity>(this);
             SetContentView((View)game.Services.GetService(typeof(View)));
             game.Run();
         }
