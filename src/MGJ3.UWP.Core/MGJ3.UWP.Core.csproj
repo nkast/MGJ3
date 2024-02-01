@@ -95,6 +95,7 @@
   <ItemGroup>
     <PackageReference Include="nkast.Xna.Framework" Version="3.10.9001" />
     <PackageReference Include="MonoGame.Framework.WindowsUniversal.9000" Version="3.10.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Content.Pipeline.Builder" Version="3.10.9001-rc" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -163,5 +164,5 @@
   </PropertyGroup>
   <Import Project="..\MGJ3\MGJ3.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
-  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\Kni.Content.Builder.targets" />
+
 </Project>
