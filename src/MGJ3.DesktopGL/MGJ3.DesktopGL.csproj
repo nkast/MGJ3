@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <EnableDefaultItems>false</EnableDefaultItems>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RollForward>Major</RollForward>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
     <ProjectGuid>{CEAEC504-FB5A-440D-ADC2-BD1E4480513A}</ProjectGuid>
@@ -48,12 +48,14 @@
     <None Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="nkast.Xna.Framework" Version="3.10.9001" />
-    <PackageReference Include="MonoGame.Framework.DesktopGL.9000" Version="3.10.9001" />
-    <PackageReference Include="nkast.Xna.Framework.Content.Pipeline.Builder" Version="3.10.9001-rc" />
-    <PackageReference Include="nkast.Aether.Physics2D.KNI">
-      <Version>2.0.0</Version>
-    </PackageReference>
+    <PackageReference Include="Aether.Physics2D.KNI" Version="2.1" />
+    <PackageReference Include="nkast.Xna.Framework" Version="3.11.9002" />
+    <PackageReference Include="nkast.Xna.Framework.Content" Version="3.11.9002" />
+    <PackageReference Include="nkast.Xna.Framework.Graphics" Version="3.11.9002" />
+    <PackageReference Include="nkast.Xna.Framework.Audio" Version="3.11.9002" />
+    <PackageReference Include="nkast.Xna.Framework.Media" Version="3.11.9002" />
+    <PackageReference Include="MonoGame.Framework.DesktopGL.9000" Version="3.11.9002" />
+    <PackageReference Include="nkast.Xna.Framework.Content.Pipeline.Builder" Version="3.11.9002" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Aether.Components\Aether.Components.NETSTANDARD2_0.csproj">

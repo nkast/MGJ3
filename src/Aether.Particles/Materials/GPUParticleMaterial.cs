@@ -3,7 +3,6 @@ using System.IO;
 using System.Reflection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MonoGame.Framework.Utilities;
 using tainicom.Aether.Core.Materials;
 using tainicom.Aether.Elementary.Serialization;
 #if WINDOWS
@@ -197,9 +196,9 @@ namespace tainicom.Aether.Particles
 #if XNA
             return "tainicom.Aether.Particles.Effects.ParticleEffect.WinReach.bin";
 #else
-            switch(PlatformInfo.GraphicsBackend)
+            switch(this.GraphicsDevice.Adapter.Backend)
             {
-                case GraphicsBackend.DirectX:
+                case GraphicsBackend.DirectX11:
                     return "tainicom.Aether.Particles.Effects.ParticleEffect.dx11.mgfxo";
                 case GraphicsBackend.OpenGL:
                     return "tainicom.Aether.Particles.Effects.ParticleEffect.ogl.mgfxo";

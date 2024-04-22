@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{CDDDDB19-6812-4A63-805F-30E770141303}</ProjectGuid>
+    <ProjectGuid>{D0E9BC31-8772-4AD7-94F8-A0596ED5CC67}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MGJ3</RootNamespace>
@@ -93,8 +93,14 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GamePage.xaml.cs">
+      <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -103,7 +109,6 @@
     <None Include="MGJ3_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />
@@ -121,17 +126,25 @@
     </KniContentReference>
   </ItemGroup>
   <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="GamePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.2.14</Version>
+      <Version>6.2.10</Version>
     </PackageReference>
-    <PackageReference Include="nkast.Aether.Physics2D.KNI" Version="2.1" />
-    <PackageReference Include="nkast.Xna.Framework" Version="3.11.9002" />
-    <PackageReference Include="nkast.Xna.Framework.Content" Version="3.11.9002" />
-    <PackageReference Include="nkast.Xna.Framework.Graphics" Version="3.11.9002" />
-    <PackageReference Include="nkast.Xna.Framework.Audio" Version="3.11.9002" />
-    <PackageReference Include="nkast.Xna.Framework.Media" Version="3.11.9002" />
-    <PackageReference Include="MonoGame.Framework.WindowsUniversal.9000" Version="3.11.9002" />
-    <PackageReference Include="nkast.Xna.Framework.Content.Pipeline.Builder" Version="3.11.9002" />
+    <PackageReference Include="nkast.Xna.Framework" Version="3.10.9001" />
+    <PackageReference Include="MonoGame.Framework.WindowsUniversal.9000" Version="3.10.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Content.Pipeline.Builder" Version="3.10.9001-rc" />
+    <PackageReference Include="nkast.Aether.Physics2D.KNI">
+      <Version>2.0.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Aether.Components\Aether.Components.NETSTANDARD2_0.csproj">
