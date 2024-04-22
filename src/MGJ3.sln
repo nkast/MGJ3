@@ -274,7 +274,7 @@ Global
 		SolutionGuid = {BA31A750-D33F-46EE-800F-11B80978EA6E}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		MGJ3\MGJ3.projitems*{8c45820e-179d-48ff-b110-6edc55781e7e}*SharedItemsImports = 4
+		MGJ3\MGJ3.projitems*{8c45820e-179d-48ff-b110-6edc55781e7e}*SharedItemsImports = 5
 		MGJ3\MGJ3.projitems*{cddddb19-6812-4a63-805f-30e770141303}*SharedItemsImports = 4
 		MGJ3\MGJ3.projitems*{ceaec504-fb5a-440d-adc2-bd1e4480513a}*SharedItemsImports = 5
 		MGJ3\MGJ3.projitems*{cf1fc953-2680-4881-9421-3f54031d97b9}*SharedItemsImports = 5
