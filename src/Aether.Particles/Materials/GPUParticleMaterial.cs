@@ -226,7 +226,7 @@ namespace tainicom.Aether.Particles
         
         private static Assembly GetAssembly(Type type)
         {
-            #if NETFX_CORE || ANDROID || __IOS__ // || W8_1 || W10
+            #if NETFX_CORE
             return  type.GetTypeInfo().Assembly;
             #else
             return type.Assembly;
