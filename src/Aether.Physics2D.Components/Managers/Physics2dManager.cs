@@ -114,7 +114,7 @@ namespace tainicom.Aether.Physics2D.Components
             return;
         }
         
-        #region farseer to XNA and vice-versa conversions
+        #region BOX2D to XNA and vice-versa conversions
         public static float XNAtoBOX2DRotation(Physics2dPlane physics2dPlane, float rotation) { return rotation; }
         public static float BOX2DtoXNARotation(Physics2dPlane physics2dPlane, float rotation) { return rotation; }
         
