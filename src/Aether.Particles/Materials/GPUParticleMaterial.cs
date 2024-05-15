@@ -201,6 +201,8 @@ namespace tainicom.Aether.Particles
                 case GraphicsBackend.DirectX11:
                     return "tainicom.Aether.Particles.Effects.ParticleEffect.dx11.mgfxo";
                 case GraphicsBackend.OpenGL:
+                case GraphicsBackend.GLES:
+                case GraphicsBackend.WebGL:
                     return "tainicom.Aether.Particles.Effects.ParticleEffect.ogl.mgfxo";
                 default:
                     throw new InvalidOperationException();

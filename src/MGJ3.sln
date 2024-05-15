@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MGJ3.UWP.Xaml", "MGJ3.UWP.X
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MGJ3.UWP.Core", "MGJ3.UWP.Core\MGJ3.UWP.Core.csproj", "{CDDDDB19-6812-4A63-805F-30E770141303}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MGJ3.Cardboard", "MGJ3.Cardboard\MGJ3.Cardboard.csproj", "{8C45820E-179D-48FF-B110-6EDC55781E7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MGJ3.Cardboard", "MGJ3.Cardboard\MGJ3.Cardboard.csproj", "{8C45820E-179D-48FF-B110-6EDC55781E7E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XNALibrary.NETSTANDARD2_0", "XNALibrary\XNALibrary.NETSTANDARD2_0.csproj", "{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}"
 EndProject
@@ -279,7 +279,7 @@ Global
 		MGJ3\MGJ3.projitems*{ceaec504-fb5a-440d-adc2-bd1e4480513a}*SharedItemsImports = 5
 		MGJ3\MGJ3.projitems*{cf1fc953-2680-4881-9421-3f54031d97b9}*SharedItemsImports = 5
 		MGJ3\MGJ3.projitems*{d0e9bc31-8772-4ad7-94f8-a0596ed5cc67}*SharedItemsImports = 4
-		MGJ3\MGJ3.projitems*{d689788e-c240-489e-ac39-c3cb798c69ad}*SharedItemsImports = 4
+		MGJ3\MGJ3.projitems*{d689788e-c240-489e-ac39-c3cb798c69ad}*SharedItemsImports = 5
 		MGJ3\MGJ3.projitems*{f65b69c5-cc6c-4632-a763-3953f30b4c32}*SharedItemsImports = 5
 		MGJ3\MGJ3.projitems*{fa11a45e-867d-4638-969c-9a6d0b595ac2}*SharedItemsImports = 13
 	EndGlobalSection
