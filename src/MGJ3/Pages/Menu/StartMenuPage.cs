@@ -190,22 +190,27 @@ namespace MGJ3.Pages.MenuPages
             float nextspark = (float)(rnd.NextDouble() / 2.0 + 1.0 / 2.0);
             spark = spark + (nextspark - spark) * 0.5f;
             Color scolor = Color.LightYellow * fade * spark;
-            
+
             pageManager.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.DepthRead, RasterizerState.CullNone, this.UiEffect);
-            
+
             pageManager.SpriteBatch.Draw(_txBackground, Vector2.Zero, null, color, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.2f);
 
-            pageManager.SpriteBatch.Draw(_txTitle, new Vector2(400,100), null, scolor, 0f, new Vector2(_txTitle.Width, _txTitle.Height) / 2f, 1f, SpriteEffects.None, 0.7f);
+            pageManager.SpriteBatch.Draw(_txTitle, new Vector2(400, 100), null, scolor, 0f, new Vector2(_txTitle.Width, _txTitle.Height) / 2f, 1f, SpriteEffects.None, 0.7f);
 
-            for (int i=0; i<_buttons.Count;i++)
+            pageManager.SpriteBatch.End();
+
+            pageManager.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.DepthRead, RasterizerState.CullNone, this.UiEffect);
+
+            for (int i = 0; i < _buttons.Count; i++)
             {
                 var btn = _buttons[i];
-                var animOffset = (Vector2.UnitY * (1f - this.TransitionDelta) * (480f + i*128f));
+                var animOffset = (Vector2.UnitY * (1f - this.TransitionDelta) * (480f + i * 128f));
                 pageManager.SpriteBatch.Draw(btn.texture, btn.Position + animOffset, null, color, 0f, btn.Origin, btn.Scale, SpriteEffects.None, btn.Depth);
 
             }
 
             pageManager.SpriteBatch.End();
+
         }
     }
 }

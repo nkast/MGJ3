@@ -41,6 +41,7 @@ namespace MGJ3
 
             graphics.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
             graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
+            graphics.SupportedOrientations |= DisplayOrientation.Portrait | DisplayOrientation.PortraitDown;
             graphics.PreparingDeviceSettings += (sender, e) =>
             {
                 // unlock the 30 fps limit
@@ -208,8 +209,23 @@ namespace MGJ3
         {
             pageManager.PreDraw(gameTime);
 
+            var vp = GraphicsDevice.Viewport;
+            var sr = GraphicsDevice.ScissorRectangle;
+
             GraphicsDevice.SetRenderTarget(null);
-            GraphicsDevice.Clear(Color.Black);
+
+            var vp2 = GraphicsDevice.Viewport;
+            var sr2 = GraphicsDevice.ScissorRectangle;
+
+            vp.Width = 1491 * 2;
+            vp.Height = 1440;
+            GraphicsDevice.Viewport = vp;
+            GraphicsDevice.ScissorRectangle = vp.Bounds;
+
+            if (IsActive)
+                GraphicsDevice.Clear(Color.CornflowerBlue);
+            else
+                GraphicsDevice.Clear(Color.MonoGameOrange);
 
 #if OVR
             if (_ovrDevice.IsConnected)
@@ -269,9 +285,10 @@ namespace MGJ3
             // draw left eye
             VrEye = vrstate.LeftEye;
             GraphicsDevice.Viewport = VrEye.Viewport;
-            base.Draw(gameTime);
+            //base.Draw(gameTime);
 
             // draw right eye
+            //GraphicsDevice.Clear(ClearOptions.DepthBuffer, Color.Black, 1, 42);
             VrEye = vrstate.RightEye;
             GraphicsDevice.Viewport = VrEye.Viewport;
             base.Draw(gameTime);
