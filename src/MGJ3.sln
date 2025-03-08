@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MGJ3.Components.NETSTANDARD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aether.KNI", "Aether\Aether.KNI.csproj", "{CF68015E-30F2-4625-AF73-F01FE0242285}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aether.Physics2D.Components.NETSTANDARD2_0", "Aether.Physics2D.Components\Aether.Physics2D.Components.NETSTANDARD2_0.csproj", "{B230A69B-656D-48D5-B84D-29000DE97428}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aether.Physics2D.Components.KNI", "Aether.Physics2D.Components\Aether.Physics2D.Components.KNI.csproj", "{B230A69B-656D-48D5-B84D-29000DE97428}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aether.Particles.NETSTANDARD2_0", "Aether.Particles\Aether.Particles.NETSTANDARD2_0.csproj", "{E69F8C18-DF4B-456F-ADB8-375F709B9179}"
 EndProject
