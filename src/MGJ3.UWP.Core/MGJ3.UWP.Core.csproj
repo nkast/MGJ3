@@ -140,9 +140,9 @@
       <Project>{02af6e6b-080e-448b-b3eb-aca20fa27a49}</Project>
       <Name>Aether.Components.KNI</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Aether.Particles\Aether.Particles.NETSTANDARD2_0.csproj">
+    <ProjectReference Include="..\Aether.Particles\Aether.Particles.KNI.csproj">
       <Project>{e69f8c18-df4b-456f-adb8-375f709b9179}</Project>
-      <Name>Aether.Particles.NETSTANDARD2_0</Name>
+      <Name>Aether.Particles.KNI</Name>
     </ProjectReference>
     <ProjectReference Include="..\Aether.Physics2D.Components\Aether.Physics2D.Components.KNI.csproj">
       <Project>{b230a69b-656d-48d5-b84d-29000de97428}</Project>

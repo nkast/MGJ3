@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aether.KNI", "Aether\Aether
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aether.Physics2D.Components.KNI", "Aether.Physics2D.Components\Aether.Physics2D.Components.KNI.csproj", "{B230A69B-656D-48D5-B84D-29000DE97428}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aether.Particles.NETSTANDARD2_0", "Aether.Particles\Aether.Particles.NETSTANDARD2_0.csproj", "{E69F8C18-DF4B-456F-ADB8-375F709B9179}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aether.Particles.KNI", "Aether.Particles\Aether.Particles.KNI.csproj", "{E69F8C18-DF4B-456F-ADB8-375F709B9179}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aether.Components.KNI", "Aether.Components\Aether.Components.KNI.csproj", "{02AF6E6B-080E-448B-B3EB-ACA20FA27A49}"
 EndProject

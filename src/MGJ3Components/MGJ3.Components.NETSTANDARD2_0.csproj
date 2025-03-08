@@ -62,7 +62,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Aether.Particles\Aether.Particles.NETSTANDARD2_0.csproj">
+    <ProjectReference Include="..\Aether.Particles\Aether.Particles.KNI.csproj">
       <Private>false</Private>
     </ProjectReference>
     <ProjectReference Include="..\Aether.Physics2D.Components\Aether.Physics2D.Components.KNI.csproj">
