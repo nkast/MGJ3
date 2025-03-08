@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using tainicom.ProtonType.LibraryContracts;
-using tainicom.ProtonType.Framework.Modules;
+using nkast.ProtonType.LibraryContracts;
+using nkast.ProtonType.Framework.Modules;
 using tainicom.Aether.Physics2D.Components;
 using MGJ3.Components;
 using MGJ3.Components.Particles;
