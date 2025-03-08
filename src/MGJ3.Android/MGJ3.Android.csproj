@@ -79,9 +79,9 @@
       <Project>{9a9193fe-35d6-4d16-afcc-b53a6db33b8e}</Project>
       <Name>MGJ3.Components.NETSTANDARD2_0</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XNALibrary\XNALibrary.NETSTANDARD2_0.csproj">
+    <ProjectReference Include="..\XNALibrary\XNALibrary.KNI.csproj">
       <Project>{6CD3D3B8-EDBF-45F3-941F-47E7E6BD5F8E}</Project>
-      <Name>XNALibrary.NETSTANDARD2_0</Name>
+      <Name>XNALibrary.KNI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\MGJ3\MGJ3.projitems" Label="Shared" />

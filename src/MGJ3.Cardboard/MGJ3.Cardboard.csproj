@@ -65,9 +65,9 @@
       <Project>{9a9193fe-35d6-4d16-afcc-b53a6db33b8e}</Project>
       <Name>MGJ3.Components.NETSTANDARD2_0</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XNALibrary\XNALibrary.NETSTANDARD2_0.csproj">
+    <ProjectReference Include="..\XNALibrary\XNALibrary.KNI.csproj">
       <Project>{6cd3d3b8-edbf-45f3-941f-47e7e6bd5f8e}</Project>
-      <Name>XNALibrary.NETSTANDARD2_0</Name>
+      <Name>XNALibrary.KNI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
