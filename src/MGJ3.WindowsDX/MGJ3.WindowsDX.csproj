@@ -70,9 +70,9 @@
       <Project>{b230a69b-656d-48d5-b84d-29000de97428}</Project>
       <Name>Aether.Physics2D.Components.NETSTANDARD2_0</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Aether\Aether.NETSTANDARD2_0.csproj">
+    <ProjectReference Include="..\Aether\Aether.KNI.csproj">
       <Project>{cf68015e-30f2-4625-af73-f01fe0242285}</Project>
-      <Name>Aether.NETSTANDARD2_0</Name>
+      <Name>Aether.KNI</Name>
     </ProjectReference>
     <ProjectReference Include="..\MGJ3Components\MGJ3.Components.NETSTANDARD2_0.csproj">
       <Project>{9a9193fe-35d6-4d16-afcc-b53a6db33b8e}</Project>

@@ -36,7 +36,7 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\Aether\Aether.NETSTANDARD2_0.csproj" />
+    <ProjectReference Include="..\Aether\Aether.KNI.csproj" />
   </ItemGroup>
 
 
