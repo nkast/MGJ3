@@ -12,7 +12,7 @@ namespace MGJ3
         /// </summary>
         static void Main()
         {
-            Windows.ApplicationModel.Core.IFrameworkViewSource viewProviderFactory = new MonoGame.Framework.GameFrameworkViewSource<MGJ3Game>();
+            Windows.ApplicationModel.Core.IFrameworkViewSource viewProviderFactory = new Microsoft.Xna.Platform.GameFrameworkViewSource<MGJ3Game>();
             Windows.ApplicationModel.Core.CoreApplication.Run(viewProviderFactory);
         }
     }

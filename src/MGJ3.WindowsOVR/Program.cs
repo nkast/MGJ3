@@ -13,6 +13,7 @@ namespace MGJ3
         [STAThread]
         static void Main()
         {
+            Microsoft.Xna.Platform.XR.XRFactory.RegisterXRFactory(new Microsoft.Xna.Platform.XR.LibOVR.ConcreteXRFactory());
             using (var game = new MGJ3Game())
                 game.Run();
         }

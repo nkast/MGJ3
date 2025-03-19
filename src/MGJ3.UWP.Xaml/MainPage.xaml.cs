@@ -19,7 +19,7 @@ namespace MGJ3
 
             // Create the game.
             string launchArguments = String.Empty;
-            _game = MonoGame.Framework.XamlGame<MGJ3Game>.Create(launchArguments, Window.Current.CoreWindow, swapChainPanel);
+            _game = Microsoft.Xna.Platform.XamlGame<MGJ3Game>.Create(launchArguments, Window.Current.CoreWindow, swapChainPanel);
         }
     }
 }
