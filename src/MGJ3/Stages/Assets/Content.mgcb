@@ -11,7 +11,7 @@
 
 #-------------------------------- References --------------------------------#
 
-/reference:.\Importers\Aether.Content.Pipeline.VoxelImporters.dll
+/packageReference:nkast.Aether.Content.Pipeline.VoxelImporters 1.5.0
 
 #---------------------------------- Content ---------------------------------#
 
