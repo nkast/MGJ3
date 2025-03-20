@@ -4,13 +4,12 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
+using Microsoft.Xna.Framework.Input.XR;
+using Microsoft.Xna.Framework.XR;
 using tainicom.Devices;
 using tainicom.PageManager;
 using MGJ3.Pages;
 using MGJ3.Components;
-#if OVR
-using Microsoft.Xna.Framework.Input.Oculus;
-#endif
 
 namespace MGJ3
 {
@@ -25,14 +24,8 @@ namespace MGJ3
         InputState inputState = new InputState();
         FpsComponent _fpsComponent;
 
-#if CARDBOARD
-        public static Microsoft.Xna.Framework.Input.Cardboard.EyeState VrEye { get; private set; }
-#endif
-
-#if OVR
-        internal OvrDevice _ovrDevice;
+        internal XRDevice _xrDevice;
         HandsState _ovrHandsState;
-#endif
 
         public MGJ3Game()
         {
@@ -90,13 +83,13 @@ namespace MGJ3
             // because we render on the Oculus surface.
             InactiveSleepTime = TimeSpan.FromSeconds(0);
 
-            // OVR requirees at least DX feature level 10.0
-            graphics.GraphicsProfile = GraphicsProfile.FL10_0;
+            // OVR requirees at least DX feature level 11.0
+            graphics.GraphicsProfile = GraphicsProfile.FL11_0;
 
-            // create oculus device
-            _ovrDevice = new OvrDevice(graphics);
 #endif
 
+            // create XR device
+            _xrDevice = new XRDevice("MGJ3-VR", this);
         }
 
         /// <summary>
@@ -174,28 +167,25 @@ namespace MGJ3
             }
 #endif
 
-#if OVR             
-            if (!_ovrDevice.IsConnected)
+#if OVR || CARDBOARD
+            if (_xrDevice.DeviceState == XRDeviceState.Disabled)
             {
                 try
                 {
-                    // Initialize Oculus VR
-                    int ovrCreateResult = _ovrDevice.CreateDevice();
-                    if (ovrCreateResult == 0)
-                    {
-                    }
+                    // Initialize XR
+                    int ovrCreateResult = _xrDevice.BeginSessionAsync();
                 }
                 catch (Exception ovre)
                 {
                     System.Diagnostics.Debug.WriteLine(ovre.Message);
                 }
             }
-
-            if (_ovrDevice.IsConnected)
-            {
-                 _ovrHandsState = _ovrDevice.GetHandsState();
-            }
 #endif
+
+            if (_xrDevice.DeviceState == XRDeviceState.Enabled)
+            {
+                 _ovrHandsState = _xrDevice.GetHandsState();
+            }
 
             base.Update(gameTime);
         }
@@ -211,22 +201,21 @@ namespace MGJ3
             GraphicsDevice.SetRenderTarget(null);
             GraphicsDevice.Clear(Color.Black);
 
-#if OVR
-            if (_ovrDevice.IsConnected)
+            if (_xrDevice.DeviceState == XRDeviceState.Enabled)
             {
-                var ovrResult = _ovrDevice.BeginFrame();
+                var ovrResult = _xrDevice.BeginFrame();
                 if (ovrResult >= 0)
                 {
-                    HeadsetState ovrHeadsetState = _ovrDevice.GetHeadsetState();
+                    HeadsetState ovrHeadsetState = _xrDevice.GetHeadsetState();
 
                     // draw each eye on a rendertarget
-                    for (int eye = 0; eye < 2; eye++)
+                    foreach (XREye eye in _xrDevice.GetEyes())
                     {
-                        RenderTarget2D ovrrt = _ovrDevice.GetEyeRenderTarget(eye);
+                        RenderTarget2D ovrrt = _xrDevice.GetEyeRenderTarget(eye);
                         GraphicsDevice.SetRenderTarget(ovrrt);
                         GraphicsDevice.Clear(Color.Black);
 
-                        Matrix ovrProj = _ovrDevice.CreateProjection(eye, 0.001f, 10f);
+                        Matrix ovrProj = _xrDevice.CreateProjection(eye, 0.001f, 10f);
                         Matrix ovrView = ovrHeadsetState.GetEyeView(eye);
                         // TODO: set cameras and SpriteBatch matrix with eye's view/proj 
 
@@ -236,11 +225,11 @@ namespace MGJ3
                         // Resolve eye rendertarget
                         GraphicsDevice.SetRenderTarget(null);
                         // submit eye rendertarget
-                        _ovrDevice.CommitRenderTarget(eye, ovrrt);
+                        _xrDevice.CommitRenderTarget(eye, ovrrt);
                     }
 
                     // submit frame
-                    int result = _ovrDevice.EndFrame();
+                    int result = _xrDevice.EndFrame();
 
                     // draw on backbaffer
                     GraphicsDevice.SetRenderTarget(null);
@@ -249,36 +238,19 @@ namespace MGJ3
                     // preview rendertargets
                     var pp = GraphicsDevice.PresentationParameters;
                     int height = pp.BackBufferHeight;
-                    float aspectRatio = (float)_ovrDevice.GetEyeRenderTarget(0).Width / _ovrDevice.GetEyeRenderTarget(0).Height;
+                    float aspectRatio = (float)_xrDevice.GetEyeRenderTarget(XREye.Left).Width / _xrDevice.GetEyeRenderTarget(XREye.Left).Height;
 
                     int width = Math.Min(pp.BackBufferWidth, (int)(height * aspectRatio));
                     pageManager.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive);
-                    pageManager.SpriteBatch.Draw(_ovrDevice.GetEyeRenderTarget(0), new Rectangle(0, 0, width, height), Color.White);
-                    pageManager.SpriteBatch.Draw(_ovrDevice.GetEyeRenderTarget(1), new Rectangle(width, 0, width, height), Color.White);
+                    pageManager.SpriteBatch.Draw(_xrDevice.GetEyeRenderTarget(XREye.Left), new Rectangle(0, 0, width, height), Color.White);
+                    pageManager.SpriteBatch.Draw(_xrDevice.GetEyeRenderTarget(XREye.Right), new Rectangle(width, 0, width, height), Color.White);
                     pageManager.SpriteBatch.End();
 
                     return;
                 }
             }
-#endif
 
-#if CARDBOARD
-
-            var vrstate = Microsoft.Xna.Framework.Input.Cardboard.Headset.GetState();
-
-            // draw left eye
-            VrEye = vrstate.LeftEye;
-            GraphicsDevice.Viewport = VrEye.Viewport;
             base.Draw(gameTime);
-
-            // draw right eye
-            VrEye = vrstate.RightEye;
-            GraphicsDevice.Viewport = VrEye.Viewport;
-            base.Draw(gameTime);
-
-#else
-            base.Draw(gameTime);
-#endif
         }
     }
 }
